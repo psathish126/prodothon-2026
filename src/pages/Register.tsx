@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { Upload, CheckCircle2 } from "lucide-react";
 import {
   Select,
   SelectContent,
@@ -16,26 +17,64 @@ import {
 const Register = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [paymentScreenshot, setPaymentScreenshot] = useState<File | null>(null);
+  const [previewUrl, setPreviewUrl] = useState<string>("");
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      if (file.size > 5 * 1024 * 1024) { // 5MB limit
+        toast({
+          title: "File too large",
+          description: "Please upload an image smaller than 5MB",
+          variant: "destructive",
+        });
+        return;
+      }
+      
+      setPaymentScreenshot(file);
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPreviewUrl(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    
+    if (!paymentScreenshot) {
+      toast({
+        title: "Payment Screenshot Required",
+        description: "Please upload your payment screenshot to complete registration.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setIsSubmitting(true);
 
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData);
+    
+    // Add the payment screenshot to form data
+    formData.append('paymentScreenshot', paymentScreenshot);
 
     try {
       // Here you would integrate with Google Sheets or your backend
-      // For now, we'll simulate a successful submission
+      // The FormData now includes the payment screenshot
       await new Promise(resolve => setTimeout(resolve, 1500));
       
       toast({
         title: "Registration Successful!",
-        description: "Thank you for registering for Prodothon 2026. We'll send you a confirmation email shortly.",
+        description: "Thank you for registering for Prodothon 2026. We'll verify your payment and send confirmation shortly.",
       });
 
       // Reset form
       e.currentTarget.reset();
+      setPaymentScreenshot(null);
+      setPreviewUrl("");
     } catch (error) {
       toast({
         title: "Registration Failed",
@@ -211,6 +250,96 @@ const Register = () => {
                   </div>
                 </div>
 
+                {/* Payment Section */}
+                <div className="space-y-4 pt-4 border-t-2 border-accent/20">
+                  <h3 className="font-heading text-xl font-semibold text-primary">
+                    Payment Details
+                  </h3>
+                  
+                  <Card className="bg-secondary/50 border-accent/20">
+                    <CardContent className="p-6">
+                      <div className="text-center space-y-4">
+                        <p className="text-lg font-semibold text-primary">
+                          Registration Fee: ₹500 per participant
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                          Scan the QR code below to make payment via UPI
+                        </p>
+                        
+                        {/* QR Code Placeholder */}
+                        <div className="flex justify-center">
+                          <div className="bg-white p-6 rounded-lg shadow-card inline-block">
+                            <div className="w-48 h-48 bg-gradient-to-br from-primary to-accent/30 rounded-lg flex items-center justify-center">
+                              <div className="text-center text-white">
+                                <p className="text-xs font-semibold mb-2">UPI QR CODE</p>
+                                <p className="text-2xl font-bold">PSG Tech</p>
+                                <p className="text-xs mt-2">Prodothon 2026</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="bg-accent/10 p-4 rounded-lg">
+                          <p className="text-sm font-semibold text-primary mb-2">UPI Payment Details:</p>
+                          <p className="text-sm text-muted-foreground">UPI ID: prodothon@psgtech</p>
+                          <p className="text-sm text-muted-foreground">Name: PSG Tech Prodothon</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* Screenshot Upload */}
+                  <div className="space-y-2">
+                    <Label htmlFor="paymentScreenshot" className="text-base font-semibold">
+                      Upload Payment Screenshot *
+                    </Label>
+                    <p className="text-sm text-muted-foreground mb-2">
+                      After completing payment, upload a screenshot as proof
+                    </p>
+                    
+                    <div className="relative">
+                      <Input
+                        id="paymentScreenshot"
+                        type="file"
+                        accept="image/*"
+                        onChange={handleFileChange}
+                        className="hidden"
+                      />
+                      <Label
+                        htmlFor="paymentScreenshot"
+                        className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-accent/30 rounded-lg cursor-pointer hover:bg-accent/5 transition-smooth"
+                      >
+                        {previewUrl ? (
+                          <div className="flex items-center gap-3">
+                            <CheckCircle2 className="h-8 w-8 text-accent" />
+                            <div className="text-left">
+                              <p className="text-sm font-semibold text-primary">Screenshot uploaded!</p>
+                              <p className="text-xs text-muted-foreground">Click to change</p>
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="flex flex-col items-center gap-2">
+                            <Upload className="h-10 w-10 text-accent" />
+                            <p className="text-sm font-semibold text-primary">Click to upload screenshot</p>
+                            <p className="text-xs text-muted-foreground">PNG, JPG up to 5MB</p>
+                          </div>
+                        )}
+                      </Label>
+                    </div>
+
+                    {previewUrl && (
+                      <div className="mt-4">
+                        <p className="text-sm font-semibold text-primary mb-2">Preview:</p>
+                        <img 
+                          src={previewUrl} 
+                          alt="Payment screenshot preview" 
+                          className="max-w-full h-auto max-h-64 rounded-lg shadow-card mx-auto"
+                        />
+                      </div>
+                    )}
+                  </div>
+                </div>
+
                 {/* Submit Button */}
                 <Button
                   type="submit"
@@ -220,9 +349,14 @@ const Register = () => {
                   {isSubmitting ? "Submitting..." : "Complete Registration"}
                 </Button>
 
-                <p className="text-sm text-muted-foreground text-center">
-                  By registering, you agree to receive event updates via email and SMS
-                </p>
+                <div className="space-y-2">
+                  <p className="text-sm text-muted-foreground text-center">
+                    By registering, you agree to receive event updates via email and SMS
+                  </p>
+                  <p className="text-xs text-center text-accent font-semibold">
+                    * Payment screenshot is mandatory for registration confirmation
+                  </p>
+                </div>
               </form>
             </CardContent>
           </Card>
@@ -234,11 +368,13 @@ const Register = () => {
                 Important Notes:
               </h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>• Registration confirmation will be sent to your email within 24 hours</li>
-                <li>• Ensure all details are correct before submitting</li>
-                <li>• For team events, all team members must register individually</li>
-                <li>• Registration fees (if applicable) must be paid before the event</li>
-                <li>• Contact us at prodothon@psgtech.edu for any queries</li>
+                <li>• Payment verification will be completed within 24-48 hours</li>
+                <li>• Registration confirmation will be sent to your email after payment verification</li>
+                <li>• Ensure payment screenshot is clear and shows transaction details</li>
+                <li>• Registration fee of ₹500 is non-refundable</li>
+                <li>• For team events, each member must register and pay individually</li>
+                <li>• Keep your transaction ID for future reference</li>
+                <li>• Contact us at prodothon@psgtech.edu for payment-related queries</li>
               </ul>
             </CardContent>
           </Card>
