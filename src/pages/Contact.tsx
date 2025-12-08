@@ -1,219 +1,85 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, MapPin, Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
-import { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Mail, Phone, MapPin } from "lucide-react";
 
 const Contact = () => {
-  const { toast } = useToast();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for contacting us. We'll get back to you soon.",
-    });
-
-    e.currentTarget.reset();
-    setIsSubmitting(false);
-  };
-
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen pt-32">
       {/* Header */}
-      <section className="py-20 gradient-hero text-primary-foreground">
+      <section className="py-16 gradient-hero text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="font-heading text-5xl md:text-6xl font-bold mb-6">
+          <h1 className="font-heading text-5xl md:text-6xl font-bold mb-4">
             Contact Us
           </h1>
-          <p className="text-xl text-primary-foreground/90 max-w-3xl mx-auto">
-            Have questions? We'd love to hear from you. Send us a message!
+          <p className="text-xl text-primary-foreground/90">
+            Get in touch with us for any queries
           </p>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 bg-background">
+      <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-            {/* Contact Form */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {/* Contact Us */}
             <Card className="shadow-card border-0">
-              <CardHeader>
-                <CardTitle className="font-heading text-2xl text-primary">
-                  Send us a Message
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Name</Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      required
-                      placeholder="Your full name"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      required
-                      placeholder="your.email@example.com"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="phone">Phone Number</Label>
-                    <Input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      placeholder="+91 XXXXX XXXXX"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="subject">Subject</Label>
-                    <Input
-                      id="subject"
-                      name="subject"
-                      required
-                      placeholder="What is this regarding?"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="message">Message</Label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      required
-                      placeholder="Your message..."
-                      rows={5}
-                    />
-                  </div>
-
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-accent text-accent-foreground hover:bg-accent/90"
-                  >
-                    {isSubmitting ? "Sending..." : "Send Message"}
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
-
-            {/* Contact Information */}
-            <div className="space-y-6">
-              <Card className="shadow-card border-0">
-                <CardContent className="p-6 space-y-6">
+              <CardContent className="p-8">
+                <h3 className="font-heading text-2xl font-bold text-primary mb-6">
+                  Contact Us
+                </h3>
+                <div className="space-y-6">
                   <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-full bg-accent/10 text-accent">
+                    <div className="p-3 rounded-full bg-accent/10 text-accent flex-shrink-0">
                       <MapPin className="h-6 w-6" />
                     </div>
                     <div>
-                      <h3 className="font-heading text-lg font-semibold text-primary mb-2">
-                        Address
-                      </h3>
-                      <p className="text-muted-foreground">
-                        PSG College of Technology<br />
-                        Avinashi Road, Peelamedu<br />
-                        Coimbatore, Tamil Nadu 641004<br />
-                        India
-                      </p>
+                      <p className="text-foreground font-semibold">Department of Production Engineering,</p>
+                      <p className="text-muted-foreground">PSG College of Technology, Coimbatore,</p>
+                      <p className="text-muted-foreground">Tamil Nadu, India</p>
                     </div>
                   </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-full bg-accent/10 text-accent">
-                      <Phone className="h-6 w-6" />
-                    </div>
-                    <div>
-                      <h3 className="font-heading text-lg font-semibold text-primary mb-2">
-                        Phone
-                      </h3>
-                      <p className="text-muted-foreground">
-                        General Enquiries: +91 XXXXX XXXXX<br />
-                        Registration: +91 XXXXX XXXXX<br />
-                        Accommodation: +91 XXXXX XXXXX
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-full bg-accent/10 text-accent">
+                  
+                  <div className="flex items-center gap-4">
+                    <div className="p-3 rounded-full bg-accent/10 text-accent flex-shrink-0">
                       <Mail className="h-6 w-6" />
                     </div>
-                    <div>
-                      <h3 className="font-heading text-lg font-semibold text-primary mb-2">
-                        Email
-                      </h3>
-                      <p className="text-muted-foreground">
-                        General: prodothon@psgtech.edu<br />
-                        Events: events@prodothon.psgtech.edu<br />
-                        Sponsorship: sponsors@prodothon.psgtech.edu
-                      </p>
+                    <a href="mailto:pea.prod@psgtech.ac.in" className="text-accent hover:underline font-medium">
+                      pea.prod@psgtech.ac.in
+                    </a>
+                  </div>
+                  
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 rounded-full bg-accent/10 text-accent flex-shrink-0">
+                      <Phone className="h-6 w-6" />
+                    </div>
+                    <div className="space-y-1">
+                      <p className="text-foreground font-medium">BALAJI : +91 987654321</p>
+                      <p className="text-foreground font-medium">LAKSH : +91 987654321</p>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
-
-              {/* Social Media */}
-              <Card className="shadow-card border-0">
-                <CardContent className="p-6">
-                  <h3 className="font-heading text-lg font-semibold text-primary mb-4">
-                    Follow Us
-                  </h3>
-                  <div className="flex gap-4">
-                    <a
-                      href="#"
-                      className="p-3 rounded-full bg-accent/10 text-accent hover:bg-accent hover:text-accent-foreground transition-smooth"
-                    >
-                      <Facebook className="h-6 w-6" />
-                    </a>
-                    <a
-                      href="#"
-                      className="p-3 rounded-full bg-accent/10 text-accent hover:bg-accent hover:text-accent-foreground transition-smooth"
-                    >
-                      <Instagram className="h-6 w-6" />
-                    </a>
-                    <a
-                      href="#"
-                      className="p-3 rounded-full bg-accent/10 text-accent hover:bg-accent hover:text-accent-foreground transition-smooth"
-                    >
-                      <Twitter className="h-6 w-6" />
-                    </a>
-                    <a
-                      href="#"
-                      className="p-3 rounded-full bg-accent/10 text-accent hover:bg-accent hover:text-accent-foreground transition-smooth"
-                    >
-                      <Linkedin className="h-6 w-6" />
-                    </a>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Map placeholder */}
-              <Card className="shadow-card border-0 overflow-hidden">
-                <div className="aspect-video bg-muted flex items-center justify-center">
-                  <p className="text-muted-foreground">Campus Map</p>
                 </div>
-              </Card>
-            </div>
+              </CardContent>
+            </Card>
+
+            {/* Our Location */}
+            <Card className="shadow-card border-0 overflow-hidden">
+              <CardContent className="p-0">
+                <h3 className="font-heading text-2xl font-bold text-primary p-8 pb-4">
+                  Our Location
+                </h3>
+                <div className="aspect-video w-full">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1521.8367616013686!2d77.00286481472448!3d11.02453589516701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8582f1435fa59%3A0x137d95bfd8909293!2sPSG%20College%20Of%20Technology!5e0!3m2!1sen!2sin!4v1765214451220!5m2!1sen!2sin"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="PSG College of Technology Location"
+                  />
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>

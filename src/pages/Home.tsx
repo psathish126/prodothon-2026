@@ -1,84 +1,111 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Calendar, Users, Trophy, Zap, Award, Target } from "lucide-react";
+import { Download, Mail, Phone, MapPin } from "lucide-react";
 
 const Home = () => {
-  const highlights = [
-    {
-      icon: <Zap className="h-8 w-8" />,
-      title: "30+ Events",
-      description: "Technical and non-technical competitions"
-    },
-    {
-      icon: <Users className="h-8 w-8" />,
-      title: "2000+ Participants",
-      description: "Students from across the nation"
-    },
-    {
-      icon: <Trophy className="h-8 w-8" />,
-      title: "₹5 Lakh Prize Pool",
-      description: "Win exciting prizes and recognition"
-    },
-    {
-      icon: <Award className="h-8 w-8" />,
-      title: "Expert Workshops",
-      description: "Learn from industry professionals"
-    }
+  const events = [
+    { id: 1, name: "Paper Presentation", image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400" },
+    { id: 2, name: "CAD Modelling", image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400" },
+    { id: 3, name: "Technical Quiz", image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=400" },
+    { id: 4, name: "Project Expo", image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400" },
+    { id: 5, name: "Debugging", image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400" },
+  ];
+
+  const sponsors = [
+    "Sponsor 1", "Sponsor 2", "Sponsor 3", "Sponsor 4", "Sponsor 5", "Sponsor 6"
   ];
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center gradient-hero text-primary-foreground overflow-hidden">
+      <section className="relative min-h-screen flex items-center gradient-hero text-primary-foreground overflow-hidden pt-32">
         <div className="absolute inset-0 tech-pattern opacity-30"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in">
-            {/* Logos Section */}
-            <div className="flex justify-center items-center gap-6 flex-wrap mb-8 opacity-90">
-              <div className="text-sm font-medium bg-primary-foreground/10 backdrop-blur-sm px-6 py-3 rounded-full border border-primary-foreground/20">
-                PSG College of Technology
-              </div>
-              <div className="text-sm font-medium bg-accent/20 backdrop-blur-sm px-6 py-3 rounded-full border border-accent/30">
-                75 Years of Excellence
-              </div>
-              <div className="text-sm font-medium bg-primary-foreground/10 backdrop-blur-sm px-6 py-3 rounded-full border border-primary-foreground/20">
-                PEA × SME
-              </div>
-            </div>
-
-            <h1 className="font-heading text-5xl md:text-7xl font-extrabold leading-tight">
-              Prodothon <span className="text-accent">2026</span>
+            <h1 className="font-heading text-6xl md:text-8xl font-extrabold leading-tight">
+              PRODOTHON'26
             </h1>
             
-            <p className="text-xl md:text-2xl font-medium text-primary-foreground/90">
-              Where Innovation Meets Excellence
+            <p className="text-2xl md:text-3xl font-medium text-accent uppercase tracking-widest">
+              Learn • Impact • Innovate
             </p>
 
-            <div className="flex items-center justify-center gap-4 text-lg">
-              <div className="flex items-center gap-2">
-                <Calendar className="h-5 w-5 text-accent" />
-                <span>March 2026</span>
-              </div>
-              <span className="text-primary-foreground/50">|</span>
-              <div className="flex items-center gap-2">
-                <Target className="h-5 w-5 text-accent" />
-                <span>PSG Tech, Coimbatore</span>
-              </div>
+            <div className="text-3xl md:text-4xl font-bold">
+              FEB 27 & 28
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
+              <Button size="lg" variant="outline" className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 text-lg px-8 h-14">
+                <Download className="mr-2 h-5 w-5" />
+                Download Brochure
+              </Button>
               <Link to="/register">
                 <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 shadow-glow text-lg px-8 h-14">
-                  Register Now
-                </Button>
-              </Link>
-              <Link to="/events">
-                <Button size="lg" variant="outline" className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 text-lg px-8 h-14">
-                  Explore Events
+                  Register Here
                 </Button>
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Sponsors Section */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <h2 className="font-heading text-3xl font-bold text-center text-primary mb-10">
+            Our Sponsors
+          </h2>
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+            {sponsors.map((sponsor, index) => (
+              <div
+                key={index}
+                className="w-32 h-16 bg-secondary/50 rounded-lg flex items-center justify-center text-muted-foreground font-medium hover:bg-secondary transition-smooth"
+              >
+                {sponsor}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Events Section */}
+      <section className="py-20 bg-secondary/30">
+        <div className="container mx-auto px-4">
+          <h2 className="font-heading text-4xl font-bold text-center text-primary mb-12">
+            Events
+          </h2>
+          <div className="flex overflow-x-auto gap-6 pb-4 snap-x snap-mandatory md:grid md:grid-cols-5 md:overflow-visible">
+            {events.map((event) => (
+              <Card
+                key={event.id}
+                className="flex-shrink-0 w-64 md:w-auto snap-center shadow-card hover:shadow-card-hover transition-smooth border-0 overflow-hidden group"
+              >
+                <div className="aspect-[3/4] relative overflow-hidden">
+                  <img
+                    src={event.image}
+                    alt={event.name}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4 text-primary-foreground">
+                    <h3 className="font-heading text-lg font-bold mb-2">{event.name}</h3>
+                    <Link to="/register">
+                      <Button size="sm" className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
+                        Register Here
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <Link to="/events">
+              <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+                View All Events
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -86,61 +113,101 @@ const Home = () => {
       {/* About Section */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center space-y-6 animate-fade-in-up">
-            <h2 className="font-heading text-4xl md:text-5xl font-bold text-primary">
-              About Prodothon 2026
+          <div className="max-w-4xl mx-auto">
+            <h2 className="font-heading text-4xl font-bold text-center text-primary mb-8">
+              About Prodothon
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Prodothon 2026 is PSG College of Technology's flagship technical fest, organized by the Production Engineering Association (PEA) in partnership with the Society of Manufacturing Engineers (SME). Join us for three days of innovation, competition, and learning as we celebrate 75 years of PSG excellence and 50 years of the Production Engineering Department.
-            </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Experience cutting-edge workshops, participate in thrilling technical and non-technical events, and network with industry experts and fellow innovators from across the country.
-            </p>
+            
+            <div className="space-y-8">
+              <div>
+                <h3 className="font-heading text-2xl font-semibold text-primary mb-4">
+                  What is Prodothon?
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Prodothon is an Inter-College Festival at the Department of Production Engineering, PSG College of Technology. Spanning two days, this event is tailored for undergraduate students from the Mechanical Stream. The festival aims to embrace the students' spirit in the Mechanical Stream with events, competitions, workshops, entrepreneur initiatives, presentations, and exhibitions. It serves as a dynamic platform for students to showcase their technical expertise, problem-solving skills, and innovative thinking.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-heading text-2xl font-semibold text-primary mb-4">
+                  Our Vision
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  To become a flagship event that inspires the next generation of engineers to embrace excellence in manufacturing and mechanical engineering, bridging the gap between academic learning and industry practices while promoting sustainable and innovative solutions. We aim to engage in activities guided by values and ethics with a sense of responsibility to society and the environment.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-heading text-2xl font-semibold text-primary mb-4">
+                  Our Mission
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  To foster innovation, technical proficiency, and collaborative learning among engineering students by providing a competitive platform that emphasizes cutting-edge technologies, practical knowledge, industry-relevant skills, and teamwork.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Highlights Section */}
-      <section className="py-20 bg-secondary/50">
+      {/* Contact & Location Section */}
+      <section className="py-20 bg-secondary/30">
         <div className="container mx-auto px-4">
-          <h2 className="font-heading text-4xl md:text-5xl font-bold text-center text-primary mb-16">
-            Event Highlights
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {highlights.map((item, index) => (
-              <Card key={index} className="shadow-card hover:shadow-card-hover transition-smooth border-0 animate-scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                <CardContent className="p-8 text-center space-y-4">
-                  <div className="inline-flex p-4 rounded-full bg-accent/10 text-accent">
-                    {item.icon}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {/* Contact Us */}
+            <Card className="shadow-card border-0">
+              <CardContent className="p-8">
+                <h3 className="font-heading text-2xl font-bold text-primary mb-6">
+                  Contact Us
+                </h3>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <MapPin className="h-5 w-5 text-accent flex-shrink-0 mt-1" />
+                    <div>
+                      <p className="text-foreground font-medium">Department of Production Engineering,</p>
+                      <p className="text-muted-foreground">PSG College of Technology, Coimbatore,</p>
+                      <p className="text-muted-foreground">Tamil Nadu, India</p>
+                    </div>
                   </div>
-                  <h3 className="font-heading text-2xl font-bold text-primary">
-                    {item.title}
-                  </h3>
-                  <p className="text-muted-foreground">
-                    {item.description}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+                  
+                  <div className="flex items-center gap-3">
+                    <Mail className="h-5 w-5 text-accent flex-shrink-0" />
+                    <a href="mailto:pea.prod@psgtech.ac.in" className="text-accent hover:underline">
+                      pea.prod@psgtech.ac.in
+                    </a>
+                  </div>
+                  
+                  <div className="flex items-center gap-3">
+                    <Phone className="h-5 w-5 text-accent flex-shrink-0" />
+                    <div>
+                      <p className="text-foreground">BALAJI : +91 987654321</p>
+                      <p className="text-foreground">LAKSH : +91 987654321</p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
 
-      {/* CTA Section */}
-      <section className="py-20 gradient-hero text-primary-foreground">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center space-y-8">
-            <h2 className="font-heading text-4xl md:text-5xl font-bold">
-              Ready to Be Part of Something Amazing?
-            </h2>
-            <p className="text-xl text-primary-foreground/90">
-              Register now and secure your spot at Prodothon 2026. Limited seats available!
-            </p>
-            <Link to="/register">
-              <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 shadow-glow text-lg px-12 h-16">
-                Register Now
-              </Button>
-            </Link>
+            {/* Our Location */}
+            <Card className="shadow-card border-0 overflow-hidden">
+              <CardContent className="p-0">
+                <h3 className="font-heading text-2xl font-bold text-primary p-8 pb-4">
+                  Our Location
+                </h3>
+                <div className="aspect-video w-full">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1521.8367616013686!2d77.00286481472448!3d11.02453589516701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8582f1435fa59%3A0x137d95bfd8909293!2sPSG%20College%20Of%20Technology!5e0!3m2!1sen!2sin!4v1765214451220!5m2!1sen!2sin"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="PSG College of Technology Location"
+                  />
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
