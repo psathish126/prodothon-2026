@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Download, Mail, Phone, MapPin } from "lucide-react";
+import AnimatedSection from "@/components/AnimatedSection";
 
 const Home = () => {
   const events = [
@@ -19,195 +20,233 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center gradient-hero text-primary-foreground overflow-hidden pt-32">
+      <section className="relative min-h-screen flex items-center gradient-hero text-white overflow-hidden pt-32">
         <div className="absolute inset-0 tech-pattern opacity-30"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-primary/50"></div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in">
-            <h1 className="font-heading text-6xl md:text-8xl font-extrabold leading-tight">
-              PRODOTHON'26
-            </h1>
+          <div className="max-w-4xl mx-auto text-center space-y-8">
+            <AnimatedSection animation="scale-in">
+              <h1 className="font-heading text-6xl md:text-8xl font-extrabold leading-tight tracking-tight">
+                PRODOTHON'26
+              </h1>
+            </AnimatedSection>
             
-            <p className="text-2xl md:text-3xl font-medium text-accent uppercase tracking-widest">
-              Learn • Impact • Innovate
-            </p>
+            <AnimatedSection animation="fade-in-up" delay={0.2}>
+              <p className="text-2xl md:text-3xl font-bold text-accent uppercase tracking-[0.3em]">
+                Learn • Impact • Innovate
+              </p>
+            </AnimatedSection>
 
-            <div className="text-3xl md:text-4xl font-bold">
-              FEB 27 & 28
-            </div>
+            <AnimatedSection animation="fade-in-up" delay={0.4}>
+              <div className="text-3xl md:text-5xl font-bold bg-peach text-primary inline-block px-8 py-4 rounded-xl">
+                FEB 27 & 28
+              </div>
+            </AnimatedSection>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-              <Button size="lg" variant="outline" className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 text-lg px-8 h-14">
-                <Download className="mr-2 h-5 w-5" />
-                Download Brochure
-              </Button>
-              <Link to="/register">
-                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 shadow-glow text-lg px-8 h-14">
-                  Register Here
+            <AnimatedSection animation="fade-in-up" delay={0.6}>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
+                <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white/10 text-lg px-8 h-14 font-semibold">
+                  <Download className="mr-2 h-5 w-5" />
+                  Download Brochure
                 </Button>
-              </Link>
-            </div>
+                <Link to="/register">
+                  <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 shadow-glow animate-pulse-glow text-lg px-8 h-14 font-semibold">
+                    Register Here
+                  </Button>
+                </Link>
+              </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>
 
       {/* Sponsors Section */}
-      <section className="py-16 bg-background">
+      <section className="py-16 bg-peach">
         <div className="container mx-auto px-4">
-          <h2 className="font-heading text-3xl font-bold text-center text-primary mb-10">
-            Our Sponsors
-          </h2>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-            {sponsors.map((sponsor, index) => (
-              <div
-                key={index}
-                className="w-32 h-16 bg-secondary/50 rounded-lg flex items-center justify-center text-muted-foreground font-medium hover:bg-secondary transition-smooth"
-              >
-                {sponsor}
-              </div>
-            ))}
-          </div>
+          <AnimatedSection>
+            <h2 className="font-heading text-3xl font-bold text-center text-primary mb-10">
+              Our Sponsors
+            </h2>
+          </AnimatedSection>
+          <AnimatedSection animation="fade-in-up" delay={0.2}>
+            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+              {sponsors.map((sponsor, index) => (
+                <div
+                  key={index}
+                  className="w-32 h-16 bg-white rounded-lg flex items-center justify-center text-primary font-semibold shadow-card hover:shadow-card-hover hover:scale-105 transition-smooth"
+                >
+                  {sponsor}
+                </div>
+              ))}
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
       {/* Events Section */}
-      <section className="py-20 bg-secondary/30">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="font-heading text-4xl font-bold text-center text-primary mb-12">
-            Events
-          </h2>
+          <AnimatedSection>
+            <h2 className="font-heading text-4xl font-bold text-center text-primary mb-12">
+              Events
+            </h2>
+          </AnimatedSection>
           <div className="flex overflow-x-auto gap-6 pb-4 snap-x snap-mandatory md:grid md:grid-cols-5 md:overflow-visible">
-            {events.map((event) => (
-              <Card
-                key={event.id}
-                className="flex-shrink-0 w-64 md:w-auto snap-center shadow-card hover:shadow-card-hover transition-smooth border-0 overflow-hidden group"
-              >
-                <div className="aspect-[3/4] relative overflow-hidden">
-                  <img
-                    src={event.image}
-                    alt={event.name}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 text-primary-foreground">
-                    <h3 className="font-heading text-lg font-bold mb-2">{event.name}</h3>
-                    <Link to="/register">
-                      <Button size="sm" className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
-                        Register Here
-                      </Button>
-                    </Link>
+            {events.map((event, index) => (
+              <AnimatedSection key={event.id} animation="scale-in" delay={index * 0.1}>
+                <Card className="flex-shrink-0 w-64 md:w-auto snap-center shadow-card hover:shadow-card-hover transition-smooth border-0 overflow-hidden group">
+                  <div className="aspect-[3/4] relative overflow-hidden">
+                    <img
+                      src={event.image}
+                      alt={event.name}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                      <h3 className="font-heading text-lg font-bold mb-2">{event.name}</h3>
+                      <Link to="/register">
+                        <Button size="sm" className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-semibold">
+                          Register Here
+                        </Button>
+                      </Link>
+                    </div>
                   </div>
-                </div>
-              </Card>
+                </Card>
+              </AnimatedSection>
             ))}
           </div>
-          <div className="text-center mt-8">
+          <AnimatedSection className="text-center mt-8">
             <Link to="/events">
-              <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+              <Button variant="outline" className="border-secondary text-secondary hover:bg-secondary hover:text-white font-semibold">
                 View All Events
               </Button>
             </Link>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
 
       {/* About Section */}
-      <section className="py-20 bg-background">
+      <section className="py-20 bg-gradient-to-b from-secondary/5 to-peach/30">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="font-heading text-4xl font-bold text-center text-primary mb-8">
-              About Prodothon
-            </h2>
+            <AnimatedSection>
+              <h2 className="font-heading text-4xl font-bold text-center text-primary mb-12">
+                About Prodothon
+              </h2>
+            </AnimatedSection>
             
             <div className="space-y-8">
-              <div>
-                <h3 className="font-heading text-2xl font-semibold text-primary mb-4">
-                  What is Prodothon?
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Prodothon is an Inter-College Festival at the Department of Production Engineering, PSG College of Technology. Spanning two days, this event is tailored for undergraduate students from the Mechanical Stream. The festival aims to embrace the students' spirit in the Mechanical Stream with events, competitions, workshops, entrepreneur initiatives, presentations, and exhibitions. It serves as a dynamic platform for students to showcase their technical expertise, problem-solving skills, and innovative thinking.
-                </p>
-              </div>
+              <AnimatedSection animation="slide-left">
+                <Card className="shadow-card border-0 border-l-4 border-l-accent">
+                  <CardContent className="p-6">
+                    <h3 className="font-heading text-2xl font-semibold text-secondary mb-4">
+                      What is Prodothon?
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Prodothon is an Inter-College Festival at the Department of Production Engineering, PSG College of Technology. Spanning two days, this event is tailored for undergraduate students from the Mechanical Stream. The festival aims to embrace the students' spirit in the Mechanical Stream with events, competitions, workshops, entrepreneur initiatives, presentations, and exhibitions. It serves as a dynamic platform for students to showcase their technical expertise, problem-solving skills, and innovative thinking.
+                    </p>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
 
-              <div>
-                <h3 className="font-heading text-2xl font-semibold text-primary mb-4">
-                  Our Vision
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  To become a flagship event that inspires the next generation of engineers to embrace excellence in manufacturing and mechanical engineering, bridging the gap between academic learning and industry practices while promoting sustainable and innovative solutions. We aim to engage in activities guided by values and ethics with a sense of responsibility to society and the environment.
-                </p>
-              </div>
+              <AnimatedSection animation="slide-right">
+                <Card className="shadow-card border-0 border-l-4 border-l-secondary">
+                  <CardContent className="p-6">
+                    <h3 className="font-heading text-2xl font-semibold text-secondary mb-4">
+                      Our Vision
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      To become a flagship event that inspires the next generation of engineers to embrace excellence in manufacturing and mechanical engineering, bridging the gap between academic learning and industry practices while promoting sustainable and innovative solutions. We aim to engage in activities guided by values and ethics with a sense of responsibility to society and the environment.
+                    </p>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
 
-              <div>
-                <h3 className="font-heading text-2xl font-semibold text-primary mb-4">
-                  Our Mission
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  To foster innovation, technical proficiency, and collaborative learning among engineering students by providing a competitive platform that emphasizes cutting-edge technologies, practical knowledge, industry-relevant skills, and teamwork.
-                </p>
-              </div>
+              <AnimatedSection animation="slide-left">
+                <Card className="shadow-card border-0 border-l-4 border-l-accent">
+                  <CardContent className="p-6">
+                    <h3 className="font-heading text-2xl font-semibold text-secondary mb-4">
+                      Our Mission
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      To foster innovation, technical proficiency, and collaborative learning among engineering students by providing a competitive platform that emphasizes cutting-edge technologies, practical knowledge, industry-relevant skills, and teamwork.
+                    </p>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
             </div>
           </div>
         </div>
       </section>
 
       {/* Contact & Location Section */}
-      <section className="py-20 bg-secondary/30">
+      <section className="py-20 bg-peach/50">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {/* Contact Us */}
-            <Card className="shadow-card border-0">
-              <CardContent className="p-8">
-                <h3 className="font-heading text-2xl font-bold text-primary mb-6">
-                  Contact Us
-                </h3>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <MapPin className="h-5 w-5 text-accent flex-shrink-0 mt-1" />
-                    <div>
-                      <p className="text-foreground font-medium">Department of Production Engineering,</p>
-                      <p className="text-muted-foreground">PSG College of Technology, Coimbatore,</p>
-                      <p className="text-muted-foreground">Tamil Nadu, India</p>
+            <AnimatedSection animation="slide-left">
+              <Card className="shadow-card border-0 h-full">
+                <CardContent className="p-8">
+                  <h3 className="font-heading text-2xl font-bold text-primary mb-6">
+                    Contact Us
+                  </h3>
+                  <div className="space-y-5">
+                    <div className="flex items-start gap-4">
+                      <div className="p-3 rounded-full bg-accent/10 text-accent flex-shrink-0">
+                        <MapPin className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <p className="text-foreground font-semibold">Department of Production Engineering,</p>
+                        <p className="text-muted-foreground">PSG College of Technology, Coimbatore,</p>
+                        <p className="text-muted-foreground">Tamil Nadu, India</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center gap-4">
+                      <div className="p-3 rounded-full bg-accent/10 text-accent flex-shrink-0">
+                        <Mail className="h-5 w-5" />
+                      </div>
+                      <a href="mailto:pea.prod@psgtech.ac.in" className="text-secondary hover:text-accent font-medium transition-smooth">
+                        pea.prod@psgtech.ac.in
+                      </a>
+                    </div>
+                    
+                    <div className="flex items-start gap-4">
+                      <div className="p-3 rounded-full bg-accent/10 text-accent flex-shrink-0">
+                        <Phone className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <p className="text-foreground font-medium">BALAJI : +91 987654321</p>
+                        <p className="text-foreground font-medium">LAKSH : +91 987654321</p>
+                      </div>
                     </div>
                   </div>
-                  
-                  <div className="flex items-center gap-3">
-                    <Mail className="h-5 w-5 text-accent flex-shrink-0" />
-                    <a href="mailto:pea.prod@psgtech.ac.in" className="text-accent hover:underline">
-                      pea.prod@psgtech.ac.in
-                    </a>
-                  </div>
-                  
-                  <div className="flex items-center gap-3">
-                    <Phone className="h-5 w-5 text-accent flex-shrink-0" />
-                    <div>
-                      <p className="text-foreground">BALAJI : +91 987654321</p>
-                      <p className="text-foreground">LAKSH : +91 987654321</p>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </AnimatedSection>
 
             {/* Our Location */}
-            <Card className="shadow-card border-0 overflow-hidden">
-              <CardContent className="p-0">
-                <h3 className="font-heading text-2xl font-bold text-primary p-8 pb-4">
-                  Our Location
-                </h3>
-                <div className="aspect-video w-full">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1521.8367616013686!2d77.00286481472448!3d11.02453589516701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8582f1435fa59%3A0x137d95bfd8909293!2sPSG%20College%20Of%20Technology!5e0!3m2!1sen!2sin!4v1765214451220!5m2!1sen!2sin"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="PSG College of Technology Location"
-                  />
-                </div>
-              </CardContent>
-            </Card>
+            <AnimatedSection animation="slide-right">
+              <Card className="shadow-card border-0 overflow-hidden h-full">
+                <CardContent className="p-0 h-full">
+                  <h3 className="font-heading text-2xl font-bold text-primary p-8 pb-4">
+                    Our Location
+                  </h3>
+                  <div className="h-[300px] lg:h-[calc(100%-80px)]">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1521.8367616013686!2d77.00286481472448!3d11.02453589516701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8582f1435fa59%3A0x137d95bfd8909293!2sPSG%20College%20Of%20Technology!5e0!3m2!1sen!2sin!4v1765214451220!5m2!1sen!2sin"
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title="PSG College of Technology Location"
+                    />
+                  </div>
+                </CardContent>
+              </Card>
+            </AnimatedSection>
           </div>
         </div>
       </section>

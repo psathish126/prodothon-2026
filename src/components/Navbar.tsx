@@ -28,12 +28,12 @@ const Navbar = () => {
 
   // Placeholder logos - replace with actual logo paths
   const logos = [
-    { name: "PSG College", src: "/placeholder.svg", alt: "PSG College of Technology" },
-    { name: "100 Years", src: "/placeholder.svg", alt: "100 Years Celebration" },
-    { name: "75 Years", src: "/placeholder.svg", alt: "75 Years" },
-    { name: "Prodothon", src: "/placeholder.svg", alt: "Prodothon 2026" },
-    { name: "PEA", src: "/placeholder.svg", alt: "PEA Logo" },
-    { name: "SME", src: "/placeholder.svg", alt: "SME Logo" },
+    { name: "PSG Tech", alt: "PSG College of Technology" },
+    { name: "100 Years", alt: "100 Years Celebration" },
+    { name: "75 Years", alt: "75 Years" },
+    { name: "PRODOTHON", alt: "Prodothon 2026" },
+    { name: "PEA", alt: "PEA Logo" },
+    { name: "SME", alt: "SME Logo" },
   ];
 
   return (
@@ -43,30 +43,27 @@ const Navbar = () => {
         className={`transition-smooth ${
           isScrolled
             ? "bg-background/95 backdrop-blur-md shadow-sm py-2"
-            : "bg-primary/90 backdrop-blur-sm py-4"
+            : "bg-primary py-4"
         }`}
       >
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-center gap-4 md:gap-8 flex-wrap">
+          <div className="flex items-center justify-center gap-3 md:gap-6 flex-wrap">
             {logos.map((logo, index) => (
               <div
                 key={index}
                 className={`flex items-center justify-center transition-smooth ${
-                  isScrolled ? "h-8 md:h-10" : "h-10 md:h-14"
+                  isScrolled ? "h-8 md:h-10" : "h-10 md:h-12"
                 }`}
               >
-                <img
-                  src={logo.src}
-                  alt={logo.alt}
-                  className="h-full w-auto object-contain"
-                />
-                <span
-                  className={`ml-1 text-xs font-medium hidden sm:block ${
-                    isScrolled ? "text-primary" : "text-primary-foreground"
+                <div
+                  className={`px-3 py-1.5 rounded-lg text-xs md:text-sm font-semibold transition-smooth ${
+                    isScrolled
+                      ? "bg-secondary/10 text-secondary border border-secondary/20"
+                      : "bg-white/10 text-white border border-white/20"
                   }`}
                 >
                   {logo.name}
-                </span>
+                </div>
               </div>
             ))}
           </div>
@@ -77,12 +74,12 @@ const Navbar = () => {
       <nav
         className={`transition-smooth ${
           isScrolled
-            ? "bg-background/95 backdrop-blur-md shadow-card"
-            : "bg-primary"
+            ? "bg-secondary text-white shadow-card"
+            : "bg-secondary/90 text-white"
         }`}
       >
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-14">
+          <div className="flex items-center justify-between h-12 md:h-14">
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center justify-center w-full space-x-1">
               {navLinks.map((link) => (
@@ -91,19 +88,15 @@ const Navbar = () => {
                   to={link.path}
                   className={`px-4 py-2 rounded-lg transition-smooth font-medium text-sm uppercase tracking-wide ${
                     location.pathname === link.path
-                      ? isScrolled
-                        ? "text-accent bg-accent/10"
-                        : "text-accent bg-accent/20"
-                      : isScrolled
-                      ? "text-foreground hover:text-accent hover:bg-accent/5"
-                      : "text-primary-foreground hover:text-accent hover:bg-primary-foreground/10"
+                      ? "text-accent bg-accent/20"
+                      : "text-white hover:text-accent hover:bg-white/10"
                   }`}
                 >
                   {link.name}
                 </Link>
               ))}
               <Link to="/register">
-                <Button className="ml-4 bg-accent text-accent-foreground hover:bg-accent/90 shadow-glow uppercase text-sm tracking-wide">
+                <Button className="ml-4 bg-accent text-accent-foreground hover:bg-accent/90 shadow-glow uppercase text-sm tracking-wide font-semibold">
                   Register
                 </Button>
               </Link>
@@ -111,17 +104,11 @@ const Navbar = () => {
 
             {/* Mobile: Title + Menu Button */}
             <div className="md:hidden flex items-center justify-between w-full">
-              <span
-                className={`font-heading font-bold ${
-                  isScrolled ? "text-primary" : "text-primary-foreground"
-                }`}
-              >
+              <span className="font-heading font-bold text-white text-lg">
                 PRODOTHON'26
               </span>
               <button
-                className={`p-2 ${
-                  isScrolled ? "text-foreground" : "text-primary-foreground"
-                }`}
+                className="p-2 text-white"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               >
                 {isMobileMenuOpen ? (
@@ -135,7 +122,7 @@ const Navbar = () => {
 
           {/* Mobile Menu */}
           {isMobileMenuOpen && (
-            <div className="md:hidden pb-4 animate-fade-in bg-background rounded-b-lg">
+            <div className="md:hidden pb-4 animate-fade-in bg-secondary rounded-b-lg">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
@@ -143,8 +130,8 @@ const Navbar = () => {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`block px-4 py-3 rounded-lg transition-smooth ${
                     location.pathname === link.path
-                      ? "text-accent bg-accent/10"
-                      : "text-foreground hover:text-accent hover:bg-accent/5"
+                      ? "text-accent bg-accent/20"
+                      : "text-white hover:text-accent hover:bg-white/10"
                   }`}
                 >
                   {link.name}
@@ -155,7 +142,7 @@ const Navbar = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="block mt-2 px-4"
               >
-                <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
+                <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-semibold">
                   Register Now
                 </Button>
               </Link>

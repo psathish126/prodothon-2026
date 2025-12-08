@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Calendar, MapPin, User } from "lucide-react";
 import { Link } from "react-router-dom";
+import AnimatedSection from "@/components/AnimatedSection";
 
 const Events = () => {
   const events = [
@@ -98,66 +99,67 @@ const Events = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-32">
+    <div className="min-h-screen pt-28 md:pt-32">
       {/* Header */}
-      <section className="py-16 gradient-hero text-primary-foreground">
+      <section className="py-16 gradient-hero text-white">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="font-heading text-5xl md:text-6xl font-bold mb-4">
-            Events
-          </h1>
-          <p className="text-xl text-primary-foreground/90 max-w-2xl mx-auto">
-            Explore our exciting lineup of technical and non-technical events
-          </p>
+          <AnimatedSection animation="scale-in">
+            <h1 className="font-heading text-5xl md:text-6xl font-bold mb-4">
+              Events
+            </h1>
+            <p className="text-xl text-white/90 max-w-2xl mx-auto">
+              Explore our exciting lineup of technical and non-technical events
+            </p>
+          </AnimatedSection>
         </div>
       </section>
 
       {/* Events Grid */}
-      <section className="py-16 bg-background">
+      <section className="py-16 bg-gradient-to-b from-peach/30 to-background">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {events.map((event) => (
-              <Card
-                key={event.id}
-                className="shadow-card hover:shadow-card-hover transition-smooth border-0 overflow-hidden group"
-              >
-                <div className="aspect-video relative overflow-hidden">
-                  <img
-                    src={event.image}
-                    alt={event.name}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-smooth" />
-                </div>
-                <CardContent className="p-6 space-y-4">
-                  <h3 className="font-heading text-xl font-bold text-primary">
-                    {event.name}
-                  </h3>
-                  <p className="text-sm text-muted-foreground line-clamp-2">
-                    {event.description}
-                  </p>
-                  
-                  <div className="space-y-2 text-sm">
-                    <div className="flex items-center gap-2 text-foreground">
-                      <Calendar className="h-4 w-4 text-accent" />
-                      <span>{event.date}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-foreground">
-                      <MapPin className="h-4 w-4 text-accent" />
-                      <span>{event.venue}</span>
-                    </div>
-                    <div className="flex items-start gap-2 text-muted-foreground">
-                      <User className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
-                      <span className="text-xs">{event.coordinator}</span>
-                    </div>
+            {events.map((event, index) => (
+              <AnimatedSection key={event.id} animation="scale-in" delay={index * 0.05}>
+                <Card className="shadow-card hover:shadow-card-hover transition-smooth border-0 overflow-hidden group h-full">
+                  <div className="aspect-video relative overflow-hidden">
+                    <img
+                      src={event.image}
+                      alt={event.name}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-smooth" />
                   </div>
+                  <CardContent className="p-6 space-y-4">
+                    <h3 className="font-heading text-xl font-bold text-secondary">
+                      {event.name}
+                    </h3>
+                    <p className="text-sm text-muted-foreground line-clamp-2">
+                      {event.description}
+                    </p>
+                    
+                    <div className="space-y-2 text-sm">
+                      <div className="flex items-center gap-2 text-foreground">
+                        <Calendar className="h-4 w-4 text-accent" />
+                        <span>{event.date}</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-foreground">
+                        <MapPin className="h-4 w-4 text-accent" />
+                        <span>{event.venue}</span>
+                      </div>
+                      <div className="flex items-start gap-2 text-muted-foreground">
+                        <User className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
+                        <span className="text-xs">{event.coordinator}</span>
+                      </div>
+                    </div>
 
-                  <Link to="/register" className="block">
-                    <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
-                      Register Here
-                    </Button>
-                  </Link>
-                </CardContent>
-              </Card>
+                    <Link to="/register" className="block pt-2">
+                      <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-semibold">
+                        Register Here
+                      </Button>
+                    </Link>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
             ))}
           </div>
         </div>
