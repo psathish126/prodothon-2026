@@ -23,7 +23,7 @@ const Register = () => {
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      if (file.size > 5 * 1024 * 1024) { // 5MB limit
+      if (file.size > 5 * 1024 * 1024) {
         toast({
           title: "File too large",
           description: "Please upload an image smaller than 5MB",
@@ -55,30 +55,22 @@ const Register = () => {
 
     setIsSubmitting(true);
 
-    const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData);
-    
-    // Add the payment screenshot to form data
-    formData.append('paymentScreenshot', paymentScreenshot);
-
     try {
-      // Here you would integrate with Google Sheets or your backend
-      // The FormData now includes the payment screenshot
+      // Here you would integrate with Google Sheets
       await new Promise(resolve => setTimeout(resolve, 1500));
       
       toast({
         title: "Registration Successful!",
-        description: "Thank you for registering for Prodothon 2026. We'll verify your payment and send confirmation shortly.",
+        description: "We'll verify your payment and send confirmation shortly.",
       });
 
-      // Reset form
       e.currentTarget.reset();
       setPaymentScreenshot(null);
       setPreviewUrl("");
     } catch (error) {
       toast({
         title: "Registration Failed",
-        description: "There was an error submitting your registration. Please try again.",
+        description: "Please try again.",
         variant: "destructive",
       });
     } finally {
@@ -87,15 +79,15 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen pt-20 bg-secondary/30">
+    <div className="min-h-screen pt-32 bg-secondary/30">
       {/* Header */}
-      <section className="py-16 gradient-hero text-primary-foreground">
+      <section className="py-12 gradient-hero text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
           <h1 className="font-heading text-5xl md:text-6xl font-bold mb-4">
             Register Now
           </h1>
           <p className="text-xl text-primary-foreground/90">
-            Join us at Prodothon 2026 - Limited Seats Available!
+            PRODOTHON 2026 - FEB 27 & 28
           </p>
         </div>
       </section>
@@ -108,9 +100,6 @@ const Register = () => {
               <CardTitle className="font-heading text-3xl text-primary">
                 Registration Form
               </CardTitle>
-              <p className="text-muted-foreground">
-                Fill in your details to register for Prodothon 2026
-              </p>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -123,38 +112,19 @@ const Register = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="fullName">Full Name *</Label>
-                      <Input
-                        id="fullName"
-                        name="fullName"
-                        required
-                        placeholder="Enter your full name"
-                      />
+                      <Input id="fullName" name="fullName" required placeholder="Enter your full name" />
                     </div>
-                    
                     <div className="space-y-2">
                       <Label htmlFor="email">Email Address *</Label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        required
-                        placeholder="your.email@example.com"
-                      />
+                      <Input id="email" name="email" type="email" required placeholder="your.email@example.com" />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="phone">Phone Number *</Label>
-                      <Input
-                        id="phone"
-                        name="phone"
-                        type="tel"
-                        required
-                        placeholder="+91 XXXXX XXXXX"
-                      />
+                      <Input id="phone" name="phone" type="tel" required placeholder="+91 XXXXX XXXXX" />
                     </div>
-                    
                     <div className="space-y-2">
                       <Label htmlFor="year">Year of Study *</Label>
                       <Select name="year" required>
@@ -181,22 +151,11 @@ const Register = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="collegeName">College Name *</Label>
-                      <Input
-                        id="collegeName"
-                        name="collegeName"
-                        required
-                        placeholder="Your college name"
-                      />
+                      <Input id="collegeName" name="collegeName" required placeholder="Your college name" />
                     </div>
-                    
                     <div className="space-y-2">
                       <Label htmlFor="department">Department *</Label>
-                      <Input
-                        id="department"
-                        name="department"
-                        required
-                        placeholder="Your department"
-                      />
+                      <Input id="department" name="department" required placeholder="Your department" />
                     </div>
                   </div>
                 </div>
@@ -204,48 +163,37 @@ const Register = () => {
                 {/* Event Selection */}
                 <div className="space-y-4">
                   <h3 className="font-heading text-xl font-semibold text-primary">
-                    Event/Workshop Selection
+                    Event Selection
                   </h3>
                   
                   <div className="space-y-2">
-                    <Label htmlFor="eventType">Select Category *</Label>
-                    <Select name="eventType" required>
+                    <Label htmlFor="eventName">Select Event *</Label>
+                    <Select name="eventName" required>
                       <SelectTrigger>
-                        <SelectValue placeholder="Choose event or workshop" />
+                        <SelectValue placeholder="Choose an event" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="technical">Technical Event</SelectItem>
-                        <SelectItem value="non-technical">Non-Technical Event</SelectItem>
-                        <SelectItem value="workshop">Workshop</SelectItem>
-                        <SelectItem value="both">Event + Workshop</SelectItem>
+                        <SelectItem value="paper-presentation">Paper Presentation</SelectItem>
+                        <SelectItem value="cad-modelling">CAD Modelling</SelectItem>
+                        <SelectItem value="technical-quiz">Technical Quiz</SelectItem>
+                        <SelectItem value="project-expo">Project Expo</SelectItem>
+                        <SelectItem value="debugging">Debugging Challenge</SelectItem>
+                        <SelectItem value="product-design">Product Design</SelectItem>
+                        <SelectItem value="manufacturing-simulation">Manufacturing Simulation</SelectItem>
+                        <SelectItem value="reverse-engineering">Reverse Engineering</SelectItem>
+                        <SelectItem value="business-plan">Business Plan</SelectItem>
+                        <SelectItem value="technical-photography">Technical Photography</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="eventName">Specific Event/Workshop Name *</Label>
-                    <Input
-                      id="eventName"
-                      name="eventName"
-                      required
-                      placeholder="e.g., RoboWars, AI Workshop"
-                    />
-                  </div>
-                </div>
-
-                {/* Team Details (Optional) */}
-                <div className="space-y-4">
-                  <h3 className="font-heading text-xl font-semibold text-primary">
-                    Team Details (if applicable)
-                  </h3>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="teamMembers">Team Member Names & Contact</Label>
+                    <Label htmlFor="teamMembers">Team Member Details (if applicable)</Label>
                     <Textarea
                       id="teamMembers"
                       name="teamMembers"
-                      placeholder="List team member names and contact numbers (one per line)"
-                      rows={4}
+                      placeholder="List team member names and contact numbers"
+                      rows={3}
                     />
                   </div>
                 </div>
@@ -260,29 +208,27 @@ const Register = () => {
                     <CardContent className="p-6">
                       <div className="text-center space-y-4">
                         <p className="text-lg font-semibold text-primary">
-                          Registration Fee: ₹500 per participant
-                        </p>
-                        <p className="text-sm text-muted-foreground">
-                          Scan the QR code below to make payment via UPI
+                          Scan QR Code to Pay
                         </p>
                         
                         {/* QR Code Placeholder */}
                         <div className="flex justify-center">
-                          <div className="bg-white p-6 rounded-lg shadow-card inline-block">
+                          <div className="bg-white p-4 rounded-lg shadow-card inline-block">
                             <div className="w-48 h-48 bg-gradient-to-br from-primary to-accent/30 rounded-lg flex items-center justify-center">
                               <div className="text-center text-white">
                                 <p className="text-xs font-semibold mb-2">UPI QR CODE</p>
-                                <p className="text-2xl font-bold">PSG Tech</p>
+                                <p className="text-xl font-bold">PSG Tech</p>
                                 <p className="text-xs mt-2">Prodothon 2026</p>
                               </div>
                             </div>
                           </div>
                         </div>
 
-                        <div className="bg-accent/10 p-4 rounded-lg">
-                          <p className="text-sm font-semibold text-primary mb-2">UPI Payment Details:</p>
-                          <p className="text-sm text-muted-foreground">UPI ID: prodothon@psgtech</p>
-                          <p className="text-sm text-muted-foreground">Name: PSG Tech Prodothon</p>
+                        <div className="bg-primary text-primary-foreground p-4 rounded-lg text-left space-y-2">
+                          <p className="text-sm"><span className="font-semibold">Account Holder:</span> PSG Center for Nonformal and Continuing Education</p>
+                          <p className="text-sm"><span className="font-semibold">Account Number:</span> 1481267367</p>
+                          <p className="text-sm"><span className="font-semibold">IFSC Code:</span> CBIN0280913</p>
+                          <p className="text-sm"><span className="font-semibold">Bank:</span> Central Bank of India</p>
                         </div>
                       </div>
                     </CardContent>
@@ -333,7 +279,7 @@ const Register = () => {
                         <img 
                           src={previewUrl} 
                           alt="Payment screenshot preview" 
-                          className="max-w-full h-auto max-h-64 rounded-lg shadow-card mx-auto"
+                          className="max-w-full h-auto max-h-48 rounded-lg shadow-card mx-auto"
                         />
                       </div>
                     )}
@@ -349,33 +295,10 @@ const Register = () => {
                   {isSubmitting ? "Submitting..." : "Complete Registration"}
                 </Button>
 
-                <div className="space-y-2">
-                  <p className="text-sm text-muted-foreground text-center">
-                    By registering, you agree to receive event updates via email and SMS
-                  </p>
-                  <p className="text-xs text-center text-accent font-semibold">
-                    * Payment screenshot is mandatory for registration confirmation
-                  </p>
-                </div>
+                <p className="text-xs text-center text-muted-foreground">
+                  * Payment screenshot is mandatory. Registration fee is non-refundable.
+                </p>
               </form>
-            </CardContent>
-          </Card>
-
-          {/* Info Card */}
-          <Card className="max-w-3xl mx-auto mt-6 shadow-card border-0">
-            <CardContent className="p-6">
-              <h4 className="font-heading text-lg font-semibold text-primary mb-3">
-                Important Notes:
-              </h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>• Payment verification will be completed within 24-48 hours</li>
-                <li>• Registration confirmation will be sent to your email after payment verification</li>
-                <li>• Ensure payment screenshot is clear and shows transaction details</li>
-                <li>• Registration fee of ₹500 is non-refundable</li>
-                <li>• For team events, each member must register and pay individually</li>
-                <li>• Keep your transaction ID for future reference</li>
-                <li>• Contact us at prodothon@psgtech.edu for payment-related queries</li>
-              </ul>
             </CardContent>
           </Card>
         </div>

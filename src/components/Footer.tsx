@@ -5,8 +5,9 @@ const Footer = () => {
   const quickLinks = [
     { name: "Home", path: "/" },
     { name: "Events", path: "/events" },
-    { name: "Workshops", path: "/workshops" },
+    { name: "Accommodation", path: "/accommodation" },
     { name: "Gallery", path: "/gallery" },
+    { name: "About", path: "/about" },
     { name: "Team", path: "/team" },
     { name: "Contact", path: "/contact" },
   ];
@@ -18,11 +19,12 @@ const Footer = () => {
           {/* About Section */}
           <div className="space-y-4">
             <h3 className="font-heading text-2xl font-bold">
-              Prodothon <span className="text-accent">2026</span>
+              PRODOTHON <span className="text-accent">'26</span>
             </h3>
             <p className="text-primary-foreground/80 text-sm">
-              PSG College of Technology's premier technical fest celebrating innovation, creativity, and excellence in engineering.
+              An Inter-College Festival at the Department of Production Engineering, PSG College of Technology.
             </p>
+            <p className="text-accent font-semibold">LEARN • IMPACT • INNOVATE</p>
             <div className="flex space-x-4">
               <a href="#" className="hover:text-accent transition-smooth">
                 <Facebook className="h-5 w-5" />
@@ -63,34 +65,43 @@ const Footer = () => {
               <div className="flex items-start space-x-3 text-sm">
                 <MapPin className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
                 <span className="text-primary-foreground/80">
+                  Department of Production Engineering<br />
                   PSG College of Technology<br />
-                  Coimbatore, Tamil Nadu 641004
+                  Coimbatore, Tamil Nadu
                 </span>
               </div>
               <div className="flex items-center space-x-3 text-sm">
                 <Phone className="h-5 w-5 text-accent flex-shrink-0" />
-                <span className="text-primary-foreground/80">+91 XXX XXX XXXX</span>
+                <div className="text-primary-foreground/80">
+                  <p>BALAJI: +91 987654321</p>
+                  <p>LAKSH: +91 987654321</p>
+                </div>
               </div>
               <div className="flex items-center space-x-3 text-sm">
                 <Mail className="h-5 w-5 text-accent flex-shrink-0" />
-                <span className="text-primary-foreground/80">prodothon@psgtech.edu</span>
+                <span className="text-primary-foreground/80">pea.prod@psgtech.ac.in</span>
               </div>
             </div>
           </div>
 
           {/* Partners Section */}
           <div className="space-y-4">
-            <h4 className="font-heading text-lg font-semibold">Our Partners</h4>
+            <h4 className="font-heading text-lg font-semibold">Organized By</h4>
             <div className="space-y-2 text-sm text-primary-foreground/80">
-              <p><span className="font-semibold">Presented by:</span> PEA</p>
-              <p><span className="font-semibold">In partnership with:</span> SME</p>
-              <p><span className="font-semibold">Supported by:</span> PSG Tech</p>
+              <p><span className="font-semibold text-accent">PEA</span> - Production Engineering Association</p>
+              <p><span className="font-semibold text-accent">SME</span> - Society of Manufacturing Engineers</p>
             </div>
+            <Link to="/register" className="inline-block mt-4">
+              <button className="bg-accent text-accent-foreground px-6 py-2 rounded-lg font-semibold hover:bg-accent/90 transition-smooth">
+                Register Now
+              </button>
+            </Link>
           </div>
         </div>
 
         <div className="mt-12 pt-8 border-t border-primary-foreground/20 text-center text-sm text-primary-foreground/60">
           <p>&copy; 2026 Prodothon - PSG College of Technology. All rights reserved.</p>
+          <p className="mt-1">Department of Production Engineering</p>
         </div>
       </div>
     </footer>
