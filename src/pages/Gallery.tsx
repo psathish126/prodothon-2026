@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
+import AnimatedSection from "@/components/AnimatedSection";
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -36,43 +37,46 @@ const Gallery = () => {
   }));
 
   return (
-    <div className="min-h-screen pt-32">
+    <div className="min-h-screen pt-28 md:pt-32">
       {/* Header */}
-      <section className="py-16 gradient-hero text-primary-foreground">
+      <section className="py-16 gradient-hero text-white">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="font-heading text-5xl md:text-6xl font-bold mb-4">
-            Gallery
-          </h1>
-          <p className="text-xl text-primary-foreground/90 max-w-2xl mx-auto">
-            Glimpses from our past events and memorable moments
-          </p>
+          <AnimatedSection animation="scale-in">
+            <h1 className="font-heading text-5xl md:text-6xl font-bold mb-4">
+              Gallery
+            </h1>
+            <p className="text-xl text-white/90 max-w-2xl mx-auto">
+              Glimpses from our past events and memorable moments
+            </p>
+          </AnimatedSection>
         </div>
       </section>
 
       {/* Gallery Grid */}
-      <section className="py-16 bg-background">
+      <section className="py-16 bg-gradient-to-b from-peach/30 to-background">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-            {galleryImages.map((image) => (
-              <Card
-                key={image.id}
-                className="overflow-hidden cursor-pointer shadow-card hover:shadow-card-hover transition-smooth border-0 group aspect-square"
-                onClick={() => setSelectedImage(image.url)}
-              >
-                <div className="relative w-full h-full overflow-hidden">
-                  <img
-                    src={image.url}
-                    alt={image.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/60 transition-smooth flex items-end justify-center pb-4">
-                    <p className="text-primary-foreground text-xs font-medium opacity-0 group-hover:opacity-100 transition-smooth text-center px-2">
-                      {image.title}
-                    </p>
+            {galleryImages.map((image, index) => (
+              <AnimatedSection key={image.id} animation="scale-in" delay={(index % 10) * 0.05}>
+                <Card
+                  className="overflow-hidden cursor-pointer shadow-card hover:shadow-card-hover transition-smooth border-0 group aspect-square"
+                  onClick={() => setSelectedImage(image.url)}
+                >
+                  <div className="relative w-full h-full overflow-hidden">
+                    <img
+                      src={image.url}
+                      alt={image.title}
+                      loading="lazy"
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-secondary/0 group-hover:bg-secondary/60 transition-smooth flex items-end justify-center pb-4">
+                      <p className="text-white text-xs font-medium opacity-0 group-hover:opacity-100 transition-smooth text-center px-2">
+                        {image.title}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </Card>
+                </Card>
+              </AnimatedSection>
             ))}
           </div>
         </div>
