@@ -1,79 +1,90 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { User } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 
 const Team = () => {
   const peaMembers = [
     { sno: 1, position: "Secretary", name: "BALAJI C" },
     { sno: 2, position: "Treasurer", name: "DEVISRI J" },
-    { sno: 3, position: "Joint Secretaries", name: "SUKANTH N R" },
-    { sno: 4, position: "Joint Secretaries", name: "NHARGUNA NANGAI M B" },
+    { sno: 3, position: "Joint Secretary", name: "SUKANTH N R" },
+    { sno: 4, position: "Joint Secretary", name: "NHARGUNA NANGAI M B" },
     { sno: 5, position: "Graduate Executive", name: "NALVETHA B" },
     { sno: 6, position: "Senior Lead Executive", name: "ARUNRAJA C" },
-    { sno: 7, position: "Senior Lead Executives", name: "S SHANMUGAM" },
-    { sno: 8, position: "Senior Lead Executives", name: "RAMAKRISHNAN K" },
-    { sno: 9, position: "Senior Lead Executives", name: "HARISH N" },
+    { sno: 7, position: "Senior Lead Executive", name: "S SHANMUGAM" },
+    { sno: 8, position: "Senior Lead Executive", name: "RAMAKRISHNAN K" },
+    { sno: 9, position: "Senior Lead Executive", name: "HARISH N" },
     { sno: 10, position: "Junior Executive", name: "KANCIA ROSLIN MARY S" },
     { sno: 11, position: "Junior Executive", name: "AISHAA NIHAR Z" },
-    { sno: 12, position: "Junior Executives", name: "NEKA S" },
-    { sno: 13, position: "Junior Executives", name: "DHANALAKSHMI K" },
-    { sno: 14, position: "Junior Executives", name: "MAKESHWARAN T" },
-    { sno: 15, position: "Junior Executives", name: "KARUNYA V" },
+    { sno: 12, position: "Junior Executive", name: "NEKA S" },
+    { sno: 13, position: "Junior Executive", name: "DHANALAKSHMI K" },
+    { sno: 14, position: "Junior Executive", name: "MAKESHWARAN T" },
+    { sno: 15, position: "Junior Executive", name: "KARUNYA V" },
   ];
 
   const smeMembers = [
     { sno: 1, position: "Secretary", name: "LAKSHMAN RAGHAV V G" },
     { sno: 2, position: "Treasurer", name: "DIYA VISALI R S" },
-    { sno: 3, position: "Joint Secretaries", name: "RITHIKA G" },
-    { sno: 4, position: "Joint Secretaries", name: "NIMESHA S" },
+    { sno: 3, position: "Joint Secretary", name: "RITHIKA G" },
+    { sno: 4, position: "Joint Secretary", name: "NIMESHA S" },
     { sno: 5, position: "Graduate Executive", name: "NARMADA B S" },
     { sno: 6, position: "Senior Lead Executive", name: "K KARTHIKRAJA" },
-    { sno: 7, position: "Senior Lead Executives", name: "MANJUSWETHA S V" },
-    { sno: 8, position: "Senior Lead Executives", name: "KRISITHA J S" },
-    { sno: 9, position: "Senior Lead Executives", name: "MUGILAN N" },
-    { sno: 10, position: "Junior Executives", name: "ARI PRASANNA V" },
-    { sno: 11, position: "Junior Executives", name: "S ABIRAMI" },
-    { sno: 12, position: "Junior Executives", name: "DINESH KARTHICK N C" },
-    { sno: 13, position: "Junior Executives", name: "SUNANTHIKA S" },
-    { sno: 14, position: "Junior Executives", name: "NUTHANASRI V R" },
-    { sno: 15, position: "Junior Executives", name: "M LOGESHWARAN" },
+    { sno: 7, position: "Senior Lead Executive", name: "MANJUSWETHA S V" },
+    { sno: 8, position: "Senior Lead Executive", name: "KRISITHA J S" },
+    { sno: 9, position: "Senior Lead Executive", name: "MUGILAN N" },
+    { sno: 10, position: "Junior Executive", name: "ARI PRASANNA V" },
+    { sno: 11, position: "Junior Executive", name: "S ABIRAMI" },
+    { sno: 12, position: "Junior Executive", name: "DINESH KARTHICK N C" },
+    { sno: 13, position: "Junior Executive", name: "SUNANTHIKA S" },
+    { sno: 14, position: "Junior Executive", name: "NUTHANASRI V R" },
+    { sno: 15, position: "Junior Executive", name: "M LOGESHWARAN" },
   ];
 
-  const TeamTable = ({ title, subtitle, members, bgColor }: { title: string; subtitle: string; members: typeof peaMembers; bgColor: string }) => (
-    <Card className="shadow-card border-0 overflow-hidden">
-      <CardHeader className={`${bgColor} text-white`}>
-        <CardTitle className="font-heading text-2xl text-center">
-          {title}
-        </CardTitle>
-        <p className="text-white/80 text-center text-sm">{subtitle}</p>
-      </CardHeader>
+  const MemberCard = ({ member, accentColor }: { member: typeof peaMembers[0]; accentColor: string }) => (
+    <Card className="shadow-card hover:shadow-card-hover transition-all duration-300 border-0 overflow-hidden group hover:-translate-y-2 bg-card">
       <CardContent className="p-0">
-        <div className="overflow-x-auto">
-          <table className="w-full">
-            <thead>
-              <tr className="bg-peach">
-                <th className="px-4 py-3 text-left text-sm font-semibold text-primary w-16">S. No</th>
-                <th className="px-4 py-3 text-left text-sm font-semibold text-primary">Position</th>
-                <th className="px-4 py-3 text-left text-sm font-semibold text-primary">Name</th>
-              </tr>
-            </thead>
-            <tbody>
-              {members.map((member, index) => (
-                <tr
-                  key={member.sno}
-                  className={`border-b border-secondary/10 last:border-0 ${
-                    index % 2 === 0 ? "bg-background" : "bg-peach/20"
-                  } hover:bg-accent/10 transition-smooth`}
-                >
-                  <td className="px-4 py-3 text-sm text-muted-foreground">{member.sno}</td>
-                  <td className="px-4 py-3 text-sm text-secondary font-medium">{member.position}</td>
-                  <td className="px-4 py-3 text-sm text-foreground">{member.name}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        {/* Photo Section */}
+        <div className={`relative h-40 ${accentColor} flex items-center justify-center overflow-hidden`}>
+          <div className="w-24 h-24 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border-4 border-white/30 group-hover:scale-110 transition-transform duration-300">
+            <User className="w-12 h-12 text-white/80" />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+        </div>
+        {/* Info Section */}
+        <div className="p-4 text-center">
+          <h3 className="font-heading text-base font-bold text-foreground mb-1 line-clamp-1">
+            {member.name}
+          </h3>
+          <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${
+            member.position === "Secretary" ? "bg-accent text-accent-foreground" :
+            member.position === "Treasurer" ? "bg-secondary text-white" :
+            "bg-peach text-primary"
+          }`}>
+            {member.position}
+          </span>
         </div>
       </CardContent>
     </Card>
+  );
+
+  const TeamSection = ({ title, subtitle, members, bgColor }: { 
+    title: string; 
+    subtitle: string; 
+    members: typeof peaMembers; 
+    bgColor: string 
+  }) => (
+    <div className="space-y-8">
+      <div className={`${bgColor} text-white rounded-2xl p-6 text-center shadow-card`}>
+        <h2 className="font-heading text-2xl md:text-3xl font-bold mb-2">{title}</h2>
+        <p className="text-white/80 text-sm">{subtitle}</p>
+      </div>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        {members.map((member, index) => (
+          <AnimatedSection key={member.sno} animation="scale-in" delay={index * 0.05}>
+            <MemberCard member={member} accentColor={bgColor} />
+          </AnimatedSection>
+        ))}
+      </div>
+    </div>
   );
 
   return (
@@ -92,11 +103,11 @@ const Team = () => {
         </div>
       </section>
 
-      {/* Team Tables */}
+      {/* Team Cards */}
       <section className="py-16 bg-gradient-to-b from-peach/30 to-background">
-        <div className="container mx-auto px-4 max-w-5xl space-y-12">
-          <AnimatedSection animation="slide-left">
-            <TeamTable
+        <div className="container mx-auto px-4 space-y-16">
+          <AnimatedSection animation="fade-in-up">
+            <TeamSection
               title="Production Engineering Association (PEA)"
               subtitle="Office Bearers for Academic Year 2025–26"
               members={peaMembers}
@@ -104,8 +115,8 @@ const Team = () => {
             />
           </AnimatedSection>
 
-          <AnimatedSection animation="slide-right">
-            <TeamTable
+          <AnimatedSection animation="fade-in-up">
+            <TeamSection
               title="Society of Manufacturing Engineers (SME)"
               subtitle="Students' Chapter"
               members={smeMembers}
