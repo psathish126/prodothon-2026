@@ -47,7 +47,7 @@ const Navbar = () => {
         }`}
       >
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-center gap-3 md:gap-6 flex-wrap">
+          <div className="hidden md:flex items-center justify-center gap-3 md:gap-6 flex-wrap">
             {logos.map((logo, index) => (
               <div
                 key={index}

@@ -26,16 +26,14 @@ const Register = () => {
   const [isTeamEvent, setIsTeamEvent] = useState(false);
 
   const events = [
-    { id: "paper-presentation", name: "Paper Presentation" },
-    { id: "cad-modelling", name: "CAD Modelling" },
-    { id: "technical-quiz", name: "Technical Quiz" },
-    { id: "project-expo", name: "Project Expo" },
-    { id: "debugging", name: "Debugging Challenge" },
-    { id: "product-design", name: "Product Design" },
-    { id: "manufacturing-simulation", name: "Manufacturing Simulation" },
-    { id: "reverse-engineering", name: "Reverse Engineering" },
-    { id: "business-plan", name: "Business Plan" },
-    { id: "technical-photography", name: "Technical Photography" },
+    { id: "production-meishu", name: "Production Meishu" },
+    { id: "paper-project-presentation", name: "Paper / Project Presentation" },
+    { id: "ai-workshop", name: "AI-Driven Generative Design & FEA Workshop" },
+    { id: "cad-master-challenge", name: "The CAD Master Challenge" },
+    { id: "autoquest", name: "AutoQuest" },
+    { id: "ladder-rush", name: "Ladder Rush" },
+    { id: "stick-structure", name: "Stick It! Structure It!" },
+    { id: "panel-discussion", name: "Panel Discussion: Sustainability in Manufacturing" },
   ];
 
   const handleEventToggle = (eventId: string) => {
