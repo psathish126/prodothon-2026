@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Calendar, MapPin, Users, Phone } from "lucide-react";
@@ -5,10 +6,13 @@ import { Link } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
 
 const Events = () => {
+  const [activeFilter, setActiveFilter] = useState("all");
+
   const events = [
     {
       id: 1,
       name: "Production Meishu",
+      category: "competition",
       image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600",
       description: "A platform where participants present their skills in product design, manufacturing, cost estimation, and marketing. Emphasizes innovative product development, smart selection of manufacturing processes, lean manufacturing, quality control, and environment-friendly practices.",
       date: "Feb 27-28, 2026",
@@ -22,6 +26,7 @@ const Events = () => {
     {
       id: 2,
       name: "Paper / Project Presentation",
+      category: "competition",
       image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600",
       description: "An academic platform to showcase innovative thinking, technical research, and engineering problem-solving skills. Present Technical Papers OR Project Models / Case Studies from Mechanical stream domains including Production, Mechanical, Mechatronics, Automobile, or Industrial Engineering.",
       date: "Feb 27, 2026",
@@ -34,6 +39,7 @@ const Events = () => {
     {
       id: 3,
       name: "AI-Driven Generative Design & FEA Workshop",
+      category: "workshop",
       image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600",
       description: "Learn modern engineering workflow combining generative design with FEA-based validation. Explore AI-driven design tools, topology optimization for lightweight geometries, and rapid FEA verification. Complete a sample optimization case with portfolio-ready outcomes in just 3 hours.",
       date: "Feb 27, 2026 | 9:00 AM",
@@ -46,6 +52,7 @@ const Events = () => {
     {
       id: 4,
       name: "The CAD Master Challenge",
+      category: "competition",
       image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=600",
       description: "A two-round technical competition designed to test 3D modelling, assembly, and animation skills using CAD software. Evaluate both speed and design precision while showcasing creativity and technical excellence in computer-aided design.",
       date: "Feb 27, 2026 | 10:00 AM",
@@ -58,6 +65,7 @@ const Events = () => {
     {
       id: 5,
       name: "AutoQuest",
+      category: "competition",
       image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600",
       description: "A two-round robotics challenge testing skills in autonomous navigation, intelligent sensing, and real-time decision-making. Design and program self-driven electric bots capable of completing dynamic arena challenges including precision parking and strategic target-hunting duels.",
       date: "Feb 27-28, 2026",
@@ -70,6 +78,7 @@ const Events = () => {
     {
       id: 6,
       name: "Ladder Rush",
+      category: "competition",
       image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=600",
       description: "A creative twist on classic Snakes and Ladders, blending engineering knowledge, teamwork, and fast decision-making. Experience strategy, laughter, and friendly competition while refreshing fundamental engineering concepts in a fun, relaxed environment.",
       date: "Feb 28, 2026 | 2:00 PM",
@@ -83,6 +92,7 @@ const Events = () => {
     {
       id: 7,
       name: "Stick It! Structure It!",
+      category: "competition",
       image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600",
       description: "Design and construct a miniature Truss Crane Arm using renewable materials - wooden sticks, glue, elastic thread, and basic tools. Create a cantilever-type crane arm capable of supporting maximum load with superior strength, minimal deflection, and efficient material utilization.",
       date: "Feb 28, 2026 | 10:00 AM",
@@ -96,6 +106,7 @@ const Events = () => {
     {
       id: 8,
       name: "Panel Discussion: Sustainability in Manufacturing",
+      category: "discussion",
       image: "https://images.unsplash.com/photo-1556155092-490a1ba16284?w=600",
       description: "Industry professionals and thought leaders explore emerging approaches shaping sustainable manufacturing. Gain deep industry insights, real-world challenges, and practical perspectives on embedding sustainability into modern manufacturing environments.",
       date: "Feb 28, 2026 | 3:00 PM",
@@ -106,6 +117,17 @@ const Events = () => {
       ]
     }
   ];
+
+  const filters = [
+    { id: "all", label: "All Events" },
+    { id: "competition", label: "Competitions" },
+    { id: "workshop", label: "Workshops" },
+    { id: "discussion", label: "Discussion" },
+  ];
+
+  const filteredEvents = activeFilter === "all" 
+    ? events 
+    : events.filter(event => event.category === activeFilter);
 
   return (
     <div className="min-h-screen pt-28 md:pt-32">
@@ -130,8 +152,27 @@ const Events = () => {
       {/* Events Grid */}
       <section className="py-20 bg-gradient-to-b from-peach/20 to-background">
         <div className="container mx-auto px-4">
+          {/* Filter Buttons */}
+          <AnimatedSection animation="fade-in-up" className="mb-10">
+            <div className="flex flex-wrap justify-center gap-3">
+              {filters.map((filter) => (
+                <button
+                  key={filter.id}
+                  onClick={() => setActiveFilter(filter.id)}
+                  className={`px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 ${
+                    activeFilter === filter.id
+                      ? "bg-accent text-accent-foreground shadow-lg"
+                      : "bg-secondary/10 text-secondary hover:bg-secondary/20"
+                  }`}
+                >
+                  {filter.label}
+                </button>
+              ))}
+            </div>
+          </AnimatedSection>
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {events.map((event, index) => (
+            {filteredEvents.map((event, index) => (
               <AnimatedSection key={event.id} animation="fade-in-up" delay={index * 0.1}>
                 <Card className="shadow-card hover:shadow-card-hover transition-all duration-500 border-0 overflow-hidden group h-full bg-card hover:-translate-y-2">
                   <div className="flex flex-col md:flex-row h-full">

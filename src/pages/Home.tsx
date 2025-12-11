@@ -6,11 +6,14 @@ import AnimatedSection from "@/components/AnimatedSection";
 
 const Home = () => {
   const events = [
-    { id: 1, name: "Paper Presentation", image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400" },
-    { id: 2, name: "CAD Modelling", image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400" },
-    { id: 3, name: "Technical Quiz", image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=400" },
-    { id: 4, name: "Project Expo", image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400" },
-    { id: 5, name: "Debugging", image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400" },
+    { id: 1, name: "Production Meishu", image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400" },
+    { id: 2, name: "Paper / Project Presentation", image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400" },
+    { id: 3, name: "AI-Driven Design Workshop", image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400" },
+    { id: 4, name: "CAD Master Challenge", image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=400" },
+    { id: 5, name: "AutoQuest", image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400" },
+    { id: 6, name: "Ladder Rush", image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=400" },
+    { id: 7, name: "Stick It! Structure It!", image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400" },
+    { id: 8, name: "Panel Discussion", image: "https://images.unsplash.com/photo-1556155092-490a1ba16284?w=400" },
   ];
 
   const sponsors = [
@@ -91,7 +94,7 @@ const Home = () => {
               Events
             </h2>
           </AnimatedSection>
-          <div className="flex overflow-x-auto gap-6 pb-4 snap-x snap-mandatory md:grid md:grid-cols-5 md:overflow-visible">
+          <div className="flex overflow-x-auto gap-6 pb-4 snap-x snap-mandatory md:grid md:grid-cols-4 md:overflow-visible">
             {events.map((event, index) => (
               <AnimatedSection key={event.id} animation="scale-in" delay={index * 0.1}>
                 <Card className="flex-shrink-0 w-64 md:w-auto snap-center shadow-card hover:shadow-card-hover transition-smooth border-0 overflow-hidden group">
