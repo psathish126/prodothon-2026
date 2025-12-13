@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Twitter } from "lucide-react";
+import { Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 
 const Footer = () => {
   const quickLinks = [
@@ -26,17 +26,11 @@ const Footer = () => {
             </p>
             <p className="text-accent font-semibold text-sm tracking-wider">LEARN • IMPACT • INNOVATE</p>
             <div className="flex space-x-4 pt-2">
-              <a href="#" className="p-2 rounded-full bg-white/10 hover:bg-accent hover:text-accent-foreground transition-smooth">
-                <Facebook className="h-4 w-4" />
+              <a href="https://www.instagram.com/pea_sme?igsh=Y3dvNHRzMzd2d2l5" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-white/10 hover:bg-accent hover:text-accent-foreground transition-smooth">
+                <Instagram className="h-5 w-5" />
               </a>
-              <a href="#" className="p-2 rounded-full bg-white/10 hover:bg-accent hover:text-accent-foreground transition-smooth">
-                <Instagram className="h-4 w-4" />
-              </a>
-              <a href="#" className="p-2 rounded-full bg-white/10 hover:bg-accent hover:text-accent-foreground transition-smooth">
-                <Twitter className="h-4 w-4" />
-              </a>
-              <a href="#" className="p-2 rounded-full bg-white/10 hover:bg-accent hover:text-accent-foreground transition-smooth">
-                <Linkedin className="h-4 w-4" />
+              <a href="https://www.linkedin.com/company/pea-sme-psg-tech/" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-white/10 hover:bg-accent hover:text-accent-foreground transition-smooth">
+                <Linkedin className="h-5 w-5" />
               </a>
             </div>
           </div>
@@ -73,8 +67,8 @@ const Footer = () => {
               <div className="flex items-start space-x-3 text-sm">
                 <Phone className="h-5 w-5 text-accent flex-shrink-0" />
                 <div className="text-white/80">
-                  <p>BALAJI: +91 987654321</p>
-                  <p>LAKSH: +91 987654321</p>
+                  <a href="tel:+918838892817" className="block hover:text-accent transition-smooth">BALAJI C: +91 8838892817</a>
+                  <a href="tel:+919843306391" className="block hover:text-accent transition-smooth">LAKSHMAN: +91 98433 06391</a>
                 </div>
               </div>
               <div className="flex items-center space-x-3 text-sm">
