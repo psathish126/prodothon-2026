@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollProgress from "./components/ScrollProgress";
+import ScrollToTop from "./components/ScrollToTop";
 import BackToTop from "./components/BackToTop";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -27,6 +28,7 @@ const App = () => (
       <BrowserRouter>
         <div className="flex flex-col min-h-screen">
           <ScrollProgress />
+          <ScrollToTop />
           <Navbar />
           <main className="flex-grow">
             <Routes>
