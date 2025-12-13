@@ -48,7 +48,7 @@ const Home = () => {
 
             <AnimatedSection animation="fade-in-up" delay={0.6}>
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-                <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white/10 text-lg px-8 h-14 font-semibold">
+                <Button size="lg" className="bg-white text-primary hover:bg-white/90 text-lg px-8 h-14 font-semibold shadow-lg">
                   <Download className="mr-2 h-5 w-5" />
                   Download Brochure
                 </Button>
@@ -64,25 +64,25 @@ const Home = () => {
       </section>
 
       {/* Sponsors Section */}
-      <section className="py-16 bg-peach">
+      <section className="py-16 bg-peach overflow-hidden">
         <div className="container mx-auto px-4">
           <AnimatedSection>
             <h2 className="font-heading text-3xl font-bold text-center text-primary mb-10">
               Our Sponsors
             </h2>
           </AnimatedSection>
-          <AnimatedSection animation="fade-in-up" delay={0.2}>
-            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-              {sponsors.map((sponsor, index) => (
+          <div className="relative">
+            <div className="flex animate-scroll-left gap-8 md:gap-12">
+              {[...sponsors, ...sponsors, ...sponsors].map((sponsor, index) => (
                 <div
                   key={index}
-                  className="w-32 h-16 bg-white rounded-lg flex items-center justify-center text-primary font-semibold shadow-card hover:shadow-card-hover hover:scale-105 transition-smooth"
+                  className="flex-shrink-0 w-36 h-20 bg-white rounded-xl flex items-center justify-center text-primary font-semibold shadow-card hover:shadow-card-hover hover:scale-105 transition-smooth"
                 >
                   {sponsor}
                 </div>
               ))}
             </div>
-          </AnimatedSection>
+          </div>
         </div>
       </section>
 
@@ -219,8 +219,8 @@ const Home = () => {
                         <Phone className="h-5 w-5" />
                       </div>
                       <div>
-                        <p className="text-foreground font-medium">BALAJI : +91 987654321</p>
-                        <p className="text-foreground font-medium">LAKSH : +91 987654321</p>
+                        <a href="tel:+918838892817" className="text-foreground font-medium hover:text-accent transition-smooth block">BALAJI C : +91 8838892817</a>
+                        <a href="tel:+919843306391" className="text-foreground font-medium hover:text-accent transition-smooth block">LAKSHMAN : +91 98433 06391</a>
                       </div>
                     </div>
                   </div>
