@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -5,6 +6,48 @@ import { Download, Mail, Phone, MapPin } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 
 const Home = () => {
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+
+  // Countdown to Feb 27, 2026
+  useEffect(() => {
+    const targetDate = new Date("2026-02-27T09:00:00").getTime();
+
+    const updateCountdown = () => {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((difference % (1000 * 60)) / 1000),
+        });
+      }
+    };
+
+    updateCountdown();
+    const interval = setInterval(updateCountdown, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const CountdownUnit = ({ value, label }: { value: number; label: string }) => (
+    <div className="flex flex-col items-center">
+      <div className="bg-white/10 backdrop-blur-md rounded-xl p-3 md:p-4 min-w-[60px] md:min-w-[80px] border border-white/20 shadow-lg">
+        <span className="text-3xl md:text-5xl font-bold text-white font-mono">
+          {value.toString().padStart(2, '0')}
+        </span>
+      </div>
+      <span className="text-xs md:text-sm text-white/80 mt-2 uppercase tracking-wider font-medium">{label}</span>
+    </div>
+  );
+
   const events = [
     { id: 1, name: "Production Meishu", image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400" },
     { id: 2, name: "Paper / Project Presentation", image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400" },
@@ -27,7 +70,7 @@ const Home = () => {
         <div className="absolute inset-0 tech-pattern opacity-30"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-primary/50"></div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
+          <div className="max-w-4xl mx-auto text-center space-y-6 md:space-y-8">
             <AnimatedSection animation="scale-in">
               <h1 className="font-heading text-6xl md:text-8xl font-extrabold leading-tight tracking-tight">
                 PRODOTHON'26
@@ -46,8 +89,24 @@ const Home = () => {
               </div>
             </AnimatedSection>
 
+            {/* Countdown Timer */}
+            <AnimatedSection animation="fade-in-up" delay={0.5}>
+              <div className="pt-4">
+                <p className="text-white/80 text-sm md:text-base mb-4 uppercase tracking-widest">Event starts in</p>
+                <div className="flex justify-center gap-3 md:gap-5">
+                  <CountdownUnit value={timeLeft.days} label="Days" />
+                  <span className="text-3xl md:text-4xl text-white/40 self-start mt-4 md:mt-5">:</span>
+                  <CountdownUnit value={timeLeft.hours} label="Hours" />
+                  <span className="text-3xl md:text-4xl text-white/40 self-start mt-4 md:mt-5">:</span>
+                  <CountdownUnit value={timeLeft.minutes} label="Mins" />
+                  <span className="text-3xl md:text-4xl text-white/40 self-start mt-4 md:mt-5">:</span>
+                  <CountdownUnit value={timeLeft.seconds} label="Secs" />
+                </div>
+              </div>
+            </AnimatedSection>
+
             <AnimatedSection animation="fade-in-up" delay={0.6}>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
                 <Button size="lg" className="bg-white text-primary hover:bg-white/90 text-lg px-8 h-14 font-semibold shadow-lg">
                   <Download className="mr-2 h-5 w-5" />
                   Download Brochure
