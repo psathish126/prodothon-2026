@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Download, Mail, Phone, MapPin } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
+import ParticleBackground from "@/components/ParticleBackground";
 
 const Home = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -67,7 +68,8 @@ const Home = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center gradient-hero text-white overflow-hidden pt-32">
-        <div className="absolute inset-0 tech-pattern opacity-30"></div>
+        <ParticleBackground />
+        <div className="absolute inset-0 tech-pattern opacity-20"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-primary/50"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-6 md:space-y-8">
