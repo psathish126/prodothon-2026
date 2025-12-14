@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollProgress from "./components/ScrollProgress";
 import ScrollToTop from "./components/ScrollToTop";
 import BackToTop from "./components/BackToTop";
+import RegisterReminder from "./components/RegisterReminder";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
@@ -45,6 +46,7 @@ const App = () => (
           </main>
           <Footer />
           <BackToTop />
+          <RegisterReminder />
         </div>
       </BrowserRouter>
     </TooltipProvider>
