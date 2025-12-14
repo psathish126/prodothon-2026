@@ -56,8 +56,12 @@ const Contact = () => {
                         <Phone className="h-6 w-6" />
                       </div>
                       <div className="space-y-1">
-                        <p className="text-foreground font-semibold text-lg">BALAJI : +91 987654321</p>
-                        <p className="text-foreground font-semibold text-lg">LAKSH : +91 987654321</p>
+                        <a href="tel:+918838892817" className="block text-foreground font-semibold text-lg hover:text-accent transition-smooth">
+                          BALAJI C: +91 8838892817
+                        </a>
+                        <a href="tel:+919843306391" className="block text-foreground font-semibold text-lg hover:text-accent transition-smooth">
+                          LAKSHMAN: +91 98433 06391
+                        </a>
                       </div>
                     </div>
                   </div>
