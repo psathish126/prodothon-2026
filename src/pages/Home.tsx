@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -7,28 +6,6 @@ import AnimatedSection from "@/components/AnimatedSection";
 import ParticleBackground from "@/components/ParticleBackground";
 
 const Home = () => {
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
-
-
-
-  const CountdownUnit = ({ value, label }: { value: number; label: string }) => (
-    <div className="flex flex-col items-center">
-      <div className="bg-white/15 backdrop-blur-md rounded-xl px-4 md:px-5 py-3 md:py-4 min-w-[60px] md:min-w-[80px] border border-white/20 shadow-lg transition-shadow duration-300">
-        <span className="text-3xl md:text-5xl font-bold text-white font-mono">
-          {value.toString().padStart(2, "0")}
-        </span>
-      </div>
-      <span className="text-xs md:text-sm text-white/80 mt-2 uppercase tracking-wider font-medium">
-        {label}
-      </span>
-    </div>
-  );
-
   const events = [
     { id: 1, name: "Production Meishu", image: "/eventlogo/The production meishu_.png" },
     { id: 2, name: "Paper / Project Presentation", image: "/eventlogo/Paper presentation_.png" },
@@ -47,20 +24,20 @@ const Home = () => {
 
   return (
     <div className="min-h-screen">
-      {/* thin accent bar just under navbar (place this in layout if your nav is outside Home) */}
+      {/* thin accent bar just under navbar */}
       <div className="h-[3px] w-full bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-400" />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center gradient-hero text-white overflow-hidden pt-28 md:pt-36">
+      <section className="relative min-h-[80vh] md:min-h-screen flex items-center gradient-hero text-white overflow-hidden pt-24 sm:pt-28 md:pt-36">
         <ParticleBackground />
-        <div className="absolute inset-0 tech-pattern opacity-20"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-primary/60"></div>
+        <div className="absolute inset-0 tech-pattern opacity-20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-primary/60" />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="bg-white/5 border border-white/15 rounded-3xl shadow-2xl backdrop-blur-xl px-4 md:px-10 py-8 md:py-12 space-y-6 md:space-y-8">
+            <div className="bg-white/5 border border-white/15 rounded-3xl shadow-2xl backdrop-blur-xl px-3 sm:px-4 md:px-10 py-6 sm:py-8 md:py-12 space-y-4 sm:space-y-6 md:space-y-8">
               <AnimatedSection animation="fade-in-up">
-                <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-black/30 border border-white/20 text-[10px] md:text-xs tracking-[0.35em] uppercase mb-1">
+                <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1 rounded-full bg-black/30 border border-white/20 text-[9px] sm:text-[10px] md:text-xs tracking-[0.28em] sm:tracking-[0.35em] uppercase mb-1">
                   <span>PSG COLLEGE OF TECHNOLOGY</span>
                   <span className="h-1 w-1 rounded-full bg-accent" />
                   <span>PRODOTHON’26</span>
@@ -68,37 +45,36 @@ const Home = () => {
               </AnimatedSection>
 
               <AnimatedSection animation="scale-in">
-                <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight tracking-tight md:tracking-tight drop-shadow-[0_0_35px_rgba(0,0,0,0.55)]">
+                <h1 className="font-heading text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight tracking-tight drop-shadow-[0_0_35px_rgba(0,0,0,0.55)]">
                   PRODOTHON&apos;26
                 </h1>
               </AnimatedSection>
 
               <AnimatedSection animation="fade-in-up" delay={0.2}>
-                <p className="text-xl md:text-2xl font-bold text-accent uppercase tracking-[0.35em]">
+                <p className="text-sm sm:text-lg md:text-2xl font-bold text-accent uppercase tracking-[0.25em] sm:tracking-[0.35em]">
                   Learn • Impact • Innovate
                 </p>
               </AnimatedSection>
 
               <AnimatedSection animation="fade-in-up" delay={0.35}>
-                <div className="text-2xl md:text-4xl lg:text-5xl font-bold bg-peach text-primary inline-block px-8 md:px-10 py-3 md:py-4 rounded-xl shadow-[0_18px_45px_rgba(0,0,0,0.45)] border border-white/20">
+                <div className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold bg-peach text-primary inline-block px-6 sm:px-8 md:px-10 py-2.5 sm:py-3 md:py-4 rounded-xl shadow-[0_18px_45px_rgba(0,0,0,0.45)] border border-white/20">
                   FEB 27 &amp; 28
                 </div>
               </AnimatedSection>
 
-              
               <AnimatedSection animation="fade-in-up" delay={0.55}>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4 md:pt-6">
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center pt-3 sm:pt-4 md:pt-6">
                   <Button
                     size="lg"
-                    className="bg-white text-primary hover:bg-white/90 text-base md:text-lg px-8 h-12 md:h-14 font-semibold shadow-lg"
+                    className="bg-white text-primary hover:bg-white/90 text-sm sm:text-base md:text-lg px-6 sm:px-8 h-11 sm:h-12 md:h-14 font-semibold shadow-lg"
                   >
-                    <Download className="mr-2 h-5 w-5" />
+                    <Download className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                     Download Brochure
                   </Button>
                   <Link to="/register">
                     <Button
                       size="lg"
-                      className="bg-accent text-accent-foreground hover:bg-accent/90 shadow-glow animate-pulse-glow text-base md:text-lg px-8 h-12 md:h-14 font-semibold"
+                      className="bg-accent text-accent-foreground hover:bg-accent/90 shadow-glow animate-pulse-glow text-sm sm:text-base md:text-lg px-6 sm:px-8 h-11 sm:h-12 md:h-14 font-semibold"
                     >
                       Register Here
                     </Button>
@@ -111,20 +87,20 @@ const Home = () => {
       </section>
 
       {/* Sponsors Section */}
-      <section className="py-16 bg-peach/80">
+      <section className="py-12 sm:py-16 bg-peach/80">
         <div className="container mx-auto px-4">
           <AnimatedSection>
-            <h2 className="font-heading text-3xl font-bold text-center text-primary mb-8">
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-center text-primary mb-6 sm:mb-8">
               Our Sponsors
             </h2>
           </AnimatedSection>
 
-          <div className="bg-white/60 backdrop-blur-md rounded-3xl px-6 py-8 shadow-xl">
-            <div className="flex justify-center flex-wrap gap-x-12 gap-y-8">
+          <div className="bg-white/60 backdrop-blur-md rounded-3xl px-4 sm:px-6 py-6 sm:py-8 shadow-xl">
+            <div className="flex justify-center flex-wrap gap-x-8 sm:gap-x-12 gap-y-6 sm:gap-y-8">
               {sponsors.map((sponsor, index) => (
                 <div
                   key={index}
-                  className="w-36 h-20 bg-white rounded-xl flex items-center justify-center text-primary font-semibold shadow-card hover:shadow-card-hover hover:scale-105 transition-transform"
+                  className="w-28 h-16 sm:w-36 sm:h-20 bg-white rounded-xl flex items-center justify-center text-primary font-semibold shadow-card hover:shadow-card-hover hover:scale-105 transition-transform"
                 >
                   <img
                     src={sponsor.image}
@@ -139,21 +115,21 @@ const Home = () => {
       </section>
 
       {/* Events Section */}
-      <section className="py-20 bg-background">
+      <section className="py-16 sm:py-20 bg-background">
         <div className="container mx-auto px-4">
           <AnimatedSection>
-            <h2 className="font-heading text-4xl font-bold text-center text-primary mb-12">
+            <h2 className="font-heading text-3xl sm:text-4xl font-bold text-center text-primary mb-8 sm:mb-12">
               Events
             </h2>
           </AnimatedSection>
-          <div className="flex overflow-x-auto gap-6 pb-4 snap-x snap-mandatory md:grid md:grid-cols-4 md:overflow-visible">
+          <div className="flex md:grid md:grid-cols-4 overflow-x-auto md:overflow-visible gap-4 sm:gap-6 pb-3 sm:pb-4 snap-x snap-mandatory">
             {events.map((event, index) => (
               <AnimatedSection
                 key={event.id}
                 animation="scale-in"
                 delay={index * 0.1}
               >
-                <Card className="flex-shrink-0 w-64 md:w-auto snap-center shadow-card hover:shadow-card-hover transition-smooth border border-primary/10 overflow-hidden group rounded-2xl">
+                <Card className="flex-shrink-0 w-56 sm:w-64 md:w-auto snap-center shadow-card hover:shadow-card-hover transition-smooth border border-primary/10 overflow-hidden group rounded-2xl">
                   <div className="aspect-[3/4] relative overflow-hidden">
                     <img
                       src={event.image}
@@ -161,8 +137,8 @@ const Home = () => {
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent" />
-                    <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                      <h3 className="font-heading text-lg font-bold mb-2">
+                    <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 text-white">
+                      <h3 className="font-heading text-base sm:text-lg font-bold mb-2 line-clamp-2">
                         {event.name}
                       </h3>
                       <Link to="/register">
@@ -179,7 +155,7 @@ const Home = () => {
               </AnimatedSection>
             ))}
           </div>
-          <AnimatedSection className="text-center mt-8">
+          <AnimatedSection className="text-center mt-6 sm:mt-8">
             <Link to="/events">
               <Button
                 variant="outline"
@@ -193,32 +169,30 @@ const Home = () => {
       </section>
 
       {/* About Section */}
-      <section className="py-20 bg-gradient-to-b from-secondary/5 to-peach/30">
+      <section className="py-16 sm:py-20 bg-gradient-to-b from-secondary/5 to-peach/30">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <AnimatedSection>
-              <h2 className="font-heading text-4xl font-bold text-center text-primary mb-12">
+              <h2 className="font-heading text-3xl sm:text-4xl font-bold text-center text-primary mb-8 sm:mb-12">
                 About Prodothon
               </h2>
             </AnimatedSection>
 
-            <div className="space-y-8">
+            <div className="space-y-6 sm:space-y-8">
               <AnimatedSection animation="slide-left">
                 <Card className="shadow-card border-0 border-l-4 border-l-accent">
-                  <CardContent className="p-6">
-                    <h3 className="font-heading text-2xl font-semibold text-secondary mb-4">
+                  <CardContent className="p-5 sm:p-6">
+                    <h3 className="font-heading text-xl sm:text-2xl font-semibold text-secondary mb-3 sm:mb-4">
                       What is Prodothon?
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      Prodothon is an Inter-College Festival at the Department
+                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                      Prodothon is an inter-college festival at the Department
                       of Production Engineering, PSG College of Technology.
                       Spanning two days, this event is tailored for
-                      undergraduate students from the Mechanical Stream. The
-                      festival aims to embrace the students&apos; spirit in the
-                      Mechanical Stream with events, competitions, workshops,
-                      entrepreneur initiatives, presentations, and exhibitions.
-                      It serves as a dynamic platform for students to showcase
-                      their technical expertise, problem-solving skills, and
+                      undergraduate students from the mechanical stream and
+                      features events, competitions, workshops, entrepreneurial
+                      initiatives, presentations, and exhibitions, providing a
+                      dynamic platform to showcase technical expertise and
                       innovative thinking.
                     </p>
                   </CardContent>
@@ -227,18 +201,17 @@ const Home = () => {
 
               <AnimatedSection animation="slide-right">
                 <Card className="shadow-card border-0 border-l-4 border-l-secondary">
-                  <CardContent className="p-6">
-                    <h3 className="font-heading text-2xl font-semibold text-secondary mb-4">
+                  <CardContent className="p-5 sm:p-6">
+                    <h3 className="font-heading text-xl sm:text-2xl font-semibold text-secondary mb-3 sm:mb-4">
                       Our Vision
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                       To become a flagship event that inspires the next
-                      generation of engineers to embrace excellence in
+                      generation of engineers to pursue excellence in
                       manufacturing and mechanical engineering, bridging the
                       gap between academic learning and industry practices while
-                      promoting sustainable and innovative solutions. We aim to
-                      engage in activities guided by values and ethics with a
-                      sense of responsibility to society and the environment.
+                      promoting sustainable and innovative solutions rooted in
+                      values and social responsibility.
                     </p>
                   </CardContent>
                 </Card>
@@ -246,11 +219,11 @@ const Home = () => {
 
               <AnimatedSection animation="slide-left">
                 <Card className="shadow-card border-0 border-l-4 border-l-accent">
-                  <CardContent className="p-6">
-                    <h3 className="font-heading text-2xl font-semibold text-secondary mb-4">
+                  <CardContent className="p-5 sm:p-6">
+                    <h3 className="font-heading text-xl sm:text-2xl font-semibold text-secondary mb-3 sm:mb-4">
                       Our Mission
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                       To foster innovation, technical proficiency, and
                       collaborative learning among engineering students by
                       providing a competitive platform that emphasizes
@@ -266,60 +239,60 @@ const Home = () => {
       </section>
 
       {/* Contact & Location Section */}
-      <section className="py-20 bg-peach/50">
+      <section className="py-16 sm:py-20 bg-peach/50">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {/* Contact Us */}
             <AnimatedSection animation="slide-left">
               <Card className="shadow-card border-0 h-full">
-                <CardContent className="p-8">
-                  <h3 className="font-heading text-2xl font-bold text-primary mb-6">
+                <CardContent className="p-6 sm:p-8">
+                  <h3 className="font-heading text-2xl font-bold text-primary mb-5 sm:mb-6">
                     Contact Us
                   </h3>
-                  <div className="space-y-5">
-                    <div className="flex items-start gap-4">
+                  <div className="space-y-4 sm:space-y-5">
+                    <div className="flex items-start gap-3 sm:gap-4">
                       <div className="p-3 rounded-full bg-accent/10 text-accent flex-shrink-0">
                         <MapPin className="h-5 w-5" />
                       </div>
                       <div>
-                        <p className="text-foreground font-semibold">
+                        <p className="text-foreground font-semibold text-sm sm:text-base">
                           Department of Production Engineering,
                         </p>
-                        <p className="text-muted-foreground">
+                        <p className="text-muted-foreground text-sm sm:text-base">
                           PSG College of Technology, Coimbatore,
                         </p>
-                        <p className="text-muted-foreground">
+                        <p className="text-muted-foreground text-sm sm:text-base">
                           Tamil Nadu, India
                         </p>
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-3 sm:gap-4">
                       <div className="p-3 rounded-full bg-accent/10 text-accent flex-shrink-0">
                         <Mail className="h-5 w-5" />
                       </div>
                       <a
                         href="mailto:pea.prod@psgtech.ac.in"
-                        className="text-secondary hover:text-accent font-medium transition-smooth"
+                        className="text-secondary hover:text-accent font-medium text-sm sm:text-base transition-smooth break-all"
                       >
                         pea.prod@psgtech.ac.in
                       </a>
                     </div>
 
-                    <div className="flex items-start gap-4">
+                    <div className="flex items-start gap-3 sm:gap-4">
                       <div className="p-3 rounded-full bg-accent/10 text-accent flex-shrink-0">
                         <Phone className="h-5 w-5" />
                       </div>
                       <div>
                         <a
                           href="tel:+918838892817"
-                          className="text-foreground font-medium hover:text-accent transition-smooth block"
+                          className="text-foreground font-medium hover:text-accent transition-smooth block text-sm sm:text-base"
                         >
                           BALAJI C : +91 8838892817
                         </a>
                         <a
                           href="tel:+919843306391"
-                          className="text-foreground font-medium hover:text-accent transition-smooth block"
+                          className="text-foreground font-medium hover:text-accent transition-smooth block text-sm sm:text-base"
                         >
                           LAKSHMAN : +91 98433 06391
                         </a>
@@ -333,11 +306,11 @@ const Home = () => {
             {/* Our Location */}
             <AnimatedSection animation="slide-right">
               <Card className="shadow-card border-0 overflow-hidden h-full">
-                <CardContent className="p-0 h-full">
-                  <h3 className="font-heading text-2xl font-bold text-primary p-8 pb-4">
+                <CardContent className="p-0 h-full flex flex-col">
+                  <h3 className="font-heading text-2xl font-bold text-primary px-6 sm:px-8 pt-6 pb-3 sm:pb-4">
                     Our Location
                   </h3>
-                  <div className="h-[300px] lg:h-[calc(100%-80px)]">
+                  <div className="h-[260px] sm:h-[320px] lg:h-[calc(100%-72px)]">
                     <iframe
                       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1521.8367616013686!2d77.00286481472448!3d11.02453589516701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8582f1435fa59%3A0x137d95bfd8909293!2sPSG%20College%20Of%20Technology!5e0!3m2!1sen!2sin!4v1765214451220!5m2!1sen!2sin"
                       width="100%"
