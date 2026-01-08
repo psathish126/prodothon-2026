@@ -18,7 +18,7 @@ const peaMembers: Member[] = [
   { sno: 6, position: "Senior Lead Executive", name: "ARUNRAJA C", image: "" },
   { sno: 7, position: "Senior Lead Executive", name: "S SHANMUGAM", image: "/team/shan.jpg" },
   { sno: 8, position: "Senior Lead Executive", name: "RAMAKRISHNAN K", image: "/team/rama.jpg" },
-  { sno: 9, position: "Senior Lead Executive", name: "HARISH N", image: "" },
+  { sno: 9, position: "Senior Lead Executive", name: "HARISH N", image: "/team/hari.jpg" },
   { sno: 10, position: "Junior Executive", name: "KANCIA ROSLIN MARY S", image: "/team/kan.jpg" },
   { sno: 11, position: "Junior Executive", name: "AISHAA NIHAR Z", image: "/team/aisha.jpg" },
   { sno: 12, position: "Junior Executive", name: "NEKA S", image: "/team/neka.jpg" },
