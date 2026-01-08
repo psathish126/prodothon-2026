@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Calendar, MapPin, Users, Phone, MessageCircle, GraduationCap } from "lucide-react";
+import { Calendar, MapPin, Users, Phone, MessageCircle, GraduationCap, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
 
 const Events = () => {
   const [activeFilter, setActiveFilter] = useState("all");
   const [expandedEvent, setExpandedEvent] = useState<number | null>(null);
+  const [rulesOpen, setRulesOpen] = useState<number | null>(null);
 
   const events = [
     {
@@ -23,6 +24,20 @@ const Events = () => {
         { name: "Harish N", phone: "7418760901" },
         { name: "Logeshwaran M", phone: "7339506691" }
       ]
+      ,
+      rules: `EVENT RULES & GUIDELINES
+The case study will be provided on the day of the event.
+Participants must prepare and present their analysis on the same day before a panel of judges.
+A maximum of 1.5 hours will be allotted for preparation of the presentation.
+The presentation must not exceed 6 slides; an official template will be provided.
+Presentation duration shall be 6 minutes, followed by a Question and Answer (Q&A) session.
+All submitted work must be original and must not be copied from any source.
+The use of AI tools for content generation is discouraged.
+Presentations must be submitted within the stipulated time; once submitted, no further modifications will be permitted.
+Participants are required to bring their own laptops.
+Mobile phones are strictly prohibited during the event.
+Writing sheets will be provided to participants for rough work.
+Prizes will be awarded to the top three winners in each category (PSG and Non-PSG).`
     },
     {
       id: 2,
@@ -36,6 +51,21 @@ const Events = () => {
         { name: "Rithika G", phone: "8220824986" },
         { name: "Neka S", phone: "9751085106" }
       ]
+      ,
+      rules: `EVENT RULES & SUBMISSION GUIDELINES
+Participants may present either individually or in a team of a maximum of two members.
+Participants can present Technical Papers OR Project Models / Case Studies.
+The submitted paper must be original and free from plagiarism.
+Topics should be technical or research-oriented and relevant to the event theme.
+Abstract submission is mandatory prior to full paper submission.
+Each presentation will be allotted 8–10 minutes, followed by a Question & Answer session.
+Presentations must be prepared and delivered using Microsoft PowerPoint (PPT).
+Participants are required to carry their presentation on a pen drive.
+College ID card must be presented at the time of participation.
+Evaluation will be based on content quality, innovation, clarity, and presentation skills.
+The decision of the judges shall be final and binding.
+Any form of misconduct or plagiarism will result in immediate disqualification.
+Certificates will be issued to all participants.`
     },
     {
       id: 3,
@@ -49,6 +79,14 @@ const Events = () => {
         { name: "Krisitha J S", phone: "6382163572" },
         { name: "Makeshwaran T", phone: "9342205832" }
       ]
+      ,
+      rules: `WORKSHOP GUIDELINES
+This workshop requires hands-on participation.
+Seats may be limited and registration is mandatory.
+Participants should bring their own laptop with necessary software installed.
+Software requirements will be communicated by organizers in advance.
+A sample optimisation case will be completed during the session.
+Attendance and active participation are required to receive a certificate.`
     },
     {
       id: 4,
@@ -63,6 +101,16 @@ const Events = () => {
         { name: "Nharguna Nangai M B", phone: "7904416005" },
         { name: "Sunanthika S", phone: "9488611002" }
       ]
+      ,
+      rules: `EVENT RULES & GUIDELINES
+Number of rounds: 2
+Participation criteria: Individual
+Eligibility: Open to students from all academic years
+Round 1 – Part Modeling: Create accurate 3D models of the given parts using CAD software within a time limit of 1 hour.
+Participants who successfully design the maximum number of accurate components within the given time limit will qualify for Round 2.
+Round 2 – Mechanism Assembly & Animation: Create a working animated mechanism that clearly demonstrates the motion, functionality, and working principle of the given system.
+Participants advancing to Round 2 will be selected based on accuracy and completeness.
+Judges' decisions are final and binding.`
     },
     {
       id: 5,
@@ -76,6 +124,23 @@ const Events = () => {
         { name: "N Mugilan", phone: "7904083428" },
         { name: "Dhanalakshmi K", phone: "7339092514" }
       ]
+      ,
+      rules: `EVENT RULES & GUIDELINES
+Number of rounds: 2
+Participation criteria: Team of 2 to 3 members
+Eligibility: Open to all students from all academic years
+Round 1 – Autonomous Navigation and Parking: The arena simulates a real-world parking lot environment with clearly marked lanes, parking slots, and entry points.
+Robot must independently perform path planning and navigation without external intervention.
+The arena will contain both static and dynamic obstacles.
+Robot is required to identify an available parking slot and park with proper alignment and positional accuracy.
+Round 2 – Precision Autonomous Parking: Program robots to autonomously park in predefined parking slots of varying sizes.
+Smaller parking slots require higher precision and carry higher scores.
+The robot must operate fully autonomously throughout the event.
+Manual control, remote operation, or any form of external assistance is strictly prohibited.
+The robot must comply with the specified dimension and weight limits.
+The robot must operate safely and avoid collisions at all times.
+Scores will be reduced for collisions and incomplete or partial parking.
+Any form of human intervention after the start of the task will result in penalties and corresponding score reductions.`
     },
     {
       id: 6,
@@ -90,6 +155,23 @@ const Events = () => {
         { name: "Ari Prasanna V", phone: "9042461791" },
         { name: "Karunya V", phone: "9952200812" }
       ]
+      ,
+      rules: `EVENT RULES & GUIDELINES
+Participation criteria: 2 members per team
+Eligibility: Open to all mechanical allied departments
+Each team shall consist of two members.
+The game shall commence only after a team rolls a one (1) on the dice.
+Within each team, one member shall roll the dice, while the other shall move the token on the board.
+A team shall be permitted to move on the board only upon answering a question correctly.
+Team members must answer questions alternately—one member will answer the first question, the other the next.
+Each question must be answered within 5 seconds.
+If a team fails to answer within the allotted time or answers incorrectly, the question shall not be repeated.
+The same question shall not be carried forward; a new question shall be posed to the next team.
+The event is time-bound, with each round lasting 20 minutes.
+Five teams shall participate in the first round.
+The winning teams of the first round shall advance to the second round.
+The final winner shall be determined based on the board position achieved within the allotted time.
+Judges' decisions are final and binding.`
     },
     {
       id: 7,
@@ -104,6 +186,19 @@ const Events = () => {
         { name: "Nimesha S", phone: "6369672135" },
         { name: "Nuthanasri V", phone: "9360672939" }
       ]
+      ,
+      rules: `EVENT RULES & GUIDELINES
+Participation criteria: Team of 2 to 4
+Eligibility: Open to all students from all academic years
+All required materials (sticks, glue, cutters) will be provided by the organizers.
+Stick usage must not exceed the announced limit.
+Participants must complete the truss within the allotted time.
+The use of mobile phones and electronic gadgets is strictly prohibited.
+Participants may bring basic tools such as rulers and markers; however, sticks and glue are not permitted.
+The truss must be self-supporting and must adhere to the specified dimensions.
+During evaluation, loads will be applied incrementally at the center of the span until structural failure occurs.
+Judges will assess the model's stability, stiffness, durability, and overall design effectiveness.
+The judges' decisions shall be final and binding.`
     },
     {
       id: 8,
@@ -111,12 +206,22 @@ const Events = () => {
       category: "discussion",
       image: "https://images.unsplash.com/photo-1556155092-490a1ba16284?w=600",
       description: "Panel Discussion on \"Sustainability in Manufacturing\" brings together renowned industry professionals, technical experts, and thought leaders from across the country to explore emerging approaches that are shaping the future of sustainable manufacturing. The discussion aims to provide students, researchers, and budding engineers with deep industry insights, real-world challenges, and practical perspectives on how sustainability can be effectively embedded into modern manufacturing environments. By engaging directly with accomplished professionals, participants will gain valuable exposure to industry expectations, evolving trends, and the skills required to contribute to a greener and more sustainable industrial landscape. This event serves as a bridge academia and industry, promote responsible engineering practices, and inspire the next generation of innovators.",
-      date: "Feb 28, 2026 | 3:00 PM",
+      date: "Feb 27, 2026 | 9:30 AM to 12:30 PM",
       venue: "Conference Hall",
       coordinators: [
         { name: "Aishaa Nihar Z", phone: "9363022355" },
         { name: "Kancia Roslin Mary S", phone: "8438303204" }
       ]
+      ,
+      rules: `EVENT DETAILS & GUIDELINES
+Panel Discussion on "Sustainability in Manufacturing" brings together renowned industry professionals, technical experts, and thought leaders.
+The session explores emerging approaches shaping the future of sustainable manufacturing.
+Participants will gain deep industry insights, real-world challenges, and practical perspectives.
+Learn how sustainability can be effectively embedded into modern manufacturing environments.
+Participants are encouraged to engage respectfully during the discussion and Q&A sessions.
+This event serves as a bridge between academia and industry.
+Promotes responsible engineering practices and sustainable innovation.
+Inspire the next generation of engineers to contribute to a greener industrial landscape.`
     }
   ];
 
@@ -302,11 +407,20 @@ const Events = () => {
                         </div>
                       </div>
 
-                      <Link to="/register" className="block mt-6">
-                        <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-semibold shadow-lg hover:shadow-xl transition-all duration-300 py-6 text-lg">
-                          Register for {event.name} →
-                        </Button>
-                      </Link>
+                      <div className="mt-6 grid grid-cols-1 gap-3">
+                        <button
+                          onClick={() => setRulesOpen(event.id)}
+                          className="w-full bg-secondary/10 text-secondary hover:bg-secondary/20 font-semibold px-4 py-3 rounded-lg shadow-sm"
+                        >
+                          EVENT RULES & GUIDELINES
+                        </button>
+
+                        <Link to="/register" className="block">
+                          <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-semibold shadow-lg hover:shadow-xl transition-all duration-300 py-6 text-lg">
+                            Register for {event.name} →
+                          </Button>
+                        </Link>
+                      </div>
                     </CardContent>
                   </div>
                 </Card>
@@ -315,6 +429,71 @@ const Events = () => {
           </div>
         </div>
       </section>
+
+      {/* Rules & Guidelines Modal */}
+      {rulesOpen !== null && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-0">
+          {/* Backdrop */}
+          <div 
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm" 
+            onClick={() => setRulesOpen(null)} 
+          />
+          
+          {/* Modal Card */}
+          <Card className="relative w-full max-w-2xl z-10 border-0 shadow-2xl max-h-[85vh] flex flex-col">
+            {/* Header */}
+            <div className="sticky top-0 border-b border-border/50 bg-card rounded-t-lg px-6 py-5 flex justify-between items-center">
+              <h2 className="font-heading text-2xl font-bold text-secondary">
+                Rules & Guidelines
+              </h2>
+              <button 
+                onClick={() => setRulesOpen(null)} 
+                className="p-1.5 text-muted-foreground hover:text-foreground hover:bg-secondary/10 rounded-lg transition-colors"
+                title="Close"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            
+            {/* Content */}
+            <CardContent className="flex-1 overflow-y-auto p-6">
+              <div className="text-muted-foreground space-y-3 leading-relaxed">
+                {(events.find(e => e.id === rulesOpen)?.rules || 'No rules available for this event.')
+                  .split('\n')
+                  .filter(line => line.trim())
+                  .map((line, idx) => {
+                    const trimmed = line.trim();
+                    // Check if it's a header/title (ends with colon or is all caps)
+                    const isHeader = trimmed.endsWith(':') || (trimmed === trimmed.toUpperCase() && trimmed.length > 2);
+                    return (
+                      <div key={idx}>
+                        {isHeader ? (
+                          <h3 className="font-bold text-secondary mt-4 mb-2">{trimmed}</h3>
+                        ) : (
+                          <div className="flex gap-3 items-start">
+                            <span className="text-accent font-bold mt-1 flex-shrink-0">•</span>
+                            <span>{trimmed}</span>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })
+                }
+              </div>
+            </CardContent>
+            
+            {/* Footer */}
+            <div className="sticky bottom-0 border-t border-border/50 bg-card rounded-b-lg px-6 py-4 flex justify-end">
+              <button
+                onClick={() => setRulesOpen(null)}
+                className="px-6 py-2 bg-accent text-accent-foreground font-semibold rounded-lg hover:bg-accent/90 transition-colors"
+              >
+                Close
+              </button>
+            </div>
+          </Card>
+        </div>
+      )}
 
       {/* CTA Section */}
       <section className="py-16 bg-secondary">

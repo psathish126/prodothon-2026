@@ -1,153 +1,197 @@
-import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
-const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const location = useLocation();
+/* Navigation Sections */
+const sections = [
+  { name: "Home", id: "home", path: "/" },
+  { name: "Events", id: "events", path: "/events" },
+  { name: "Accommodation", id: "accommodation", path: "/accommodation" },
+  { name: "Gallery", id: "gallery", path: "/gallery" },
+  { name: "About", id: "about", path: "/about" },
+  { name: "Team", id: "team", path: "/team" },
+  { name: "Contact", id: "contact", path: "/contact" },
+];
 
+/* Logos */
+const logoFiles = [
+  { src: "/Logo/Psgct.png", alt: "PSG College of Technology" },
+  { src: "/Logo/100 yrs.png", alt: "100 Years Celebration" },
+  { src: "/Logo/75 no bg.png", alt: "75 Years" },
+  { src: "/Logo/prod.png", alt: "Prodothon 2026" },
+  { src: "/Logo/pea.png", alt: "PEA" },
+  { src: "/Logo/Sme.png", alt: "SME" },
+];
+
+const Navbar = () => {
+  const [active, setActive] = useState("home");
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  /* Shrink on Scroll */
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setIsScrolled(window.scrollY > 80);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const navLinks = [
-    { name: "Home", path: "/" },
-    { name: "Events", path: "/events" },
-    { name: "Accommodation", path: "/accommodation" },
-    { name: "Gallery", path: "/gallery" },
-    { name: "About", path: "/about" },
-    { name: "Team", path: "/team" },
-    { name: "Contact", path: "/contact" },
-  ];
+  /* ScrollSpy */
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActive(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.6 }
+    );
 
-  // Placeholder logos - replace with actual logo paths
-  const logos = [
-    { name: "PSG Tech", alt: "PSG College of Technology" },
-    { name: "100 Years", alt: "100 Years Celebration" },
-    { name: "75 Years", alt: "75 Years" },
-    { name: "PRODOTHON", alt: "Prodothon 2026" },
-    { name: "PEA", alt: "PEA Logo" },
-    { name: "SME", alt: "SME Logo" },
-  ];
+    sections.forEach((s) => {
+      const el = document.getElementById(s.id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  /* Close mobile menu on ESC */
+  useEffect(() => {
+    const onKey = (e) => e.key === "Escape" && setMenuOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-      {/* Logo Bar */}
-      <div
-        className={`transition-smooth ${
-          isScrolled
-            ? "bg-background/95 backdrop-blur-md shadow-sm py-2"
-            : "bg-primary py-4"
-        }`}
-      >
-        <div className="container mx-auto px-4">
-          <div className="hidden md:flex items-center justify-center gap-3 md:gap-6 flex-wrap">
-            {logos.map((logo, index) => (
-              <div
-                key={index}
-                className={`flex items-center justify-center transition-smooth ${
-                  isScrolled ? "h-8 md:h-10" : "h-10 md:h-12"
-                }`}
-              >
-                <div
-                  className={`px-3 py-1.5 rounded-lg text-xs md:text-sm font-semibold transition-smooth ${
-                    isScrolled
-                      ? "bg-secondary/10 text-secondary border border-secondary/20"
-                      : "bg-white/10 text-white border border-white/20"
-                  }`}
-                >
-                  {logo.name}
-                </div>
-              </div>
-            ))}
-          </div>
+      {/* LOGO BAR */}
+     {/* LOGO BAR – Equal Distribution */}
+<div
+  className={`bg-white border-b transition-all duration-300 ${
+    isScrolled ? "py-2" : "py-4"
+  }`}
+>
+  <div className="max-w-7xl mx-auto px-4">
+    <div className="hidden md:grid grid-cols-6 items-center gap-7">
+      {logoFiles.map((logo, i) => (
+        <div
+          key={i}
+          className="flex justify-center items-center"
+        >
+          <img
+            src={logo.src}
+            alt={logo.alt}
+            loading="lazy"
+            className={`object-contain transition-all ${
+              isScrolled ? "h-12 md:h-16" : "h-16 md:h-20"
+            }`}
+            onError={(e) => (e.currentTarget.style.display = "none")}
+          />
         </div>
-      </div>
+      ))}
+    </div>
+  </div>
+</div>
 
-      {/* Navigation Bar */}
+
+      {/* NAVBAR */}
       <nav
-        className={`transition-smooth ${
-          isScrolled
-            ? "bg-secondary text-white shadow-card"
-            : "bg-secondary/90 text-white"
+        className={`bg-white transition-shadow duration-200 ${
+          isScrolled ? "shadow-md" : ""
         }`}
+        role="navigation"
       >
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-12 md:h-14">
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center justify-center w-full space-x-1">
-              {navLinks.map((link) => (
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="h-14 flex items-center justify-between">
+            {/* Desktop Menu */}
+            <div className="hidden md:flex items-center gap-8 mx-auto">
+              {sections.map((item) => (
                 <Link
-                  key={link.path}
-                  to={link.path}
-                  className={`px-4 py-2 rounded-lg transition-smooth font-medium text-sm uppercase tracking-wide ${
-                    location.pathname === link.path
-                      ? "text-accent bg-accent/20"
-                      : "text-white hover:text-accent hover:bg-white/10"
-                  }`}
+                  key={item.id}
+                  to={item.path}
+                  onClick={() => setActive(item.id)}
+                  className={`relative text-sm font-semibold uppercase tracking-wide px-3 py-2 transition-colors
+                    ${
+                      active === item.id
+                        ? "text-accent"
+                        : "text-gray-800 hover:text-accent"
+                    }
+                    after:absolute after:left-0 after:-bottom-2
+                    after:h-[3px] after:w-full after:bg-accent after:rounded-full
+                    after:scale-x-0 after:origin-left after:transition-transform
+                    hover:after:scale-x-100
+                    ${active === item.id ? "after:scale-x-100" : ""}
+                  `}
                 >
-                  {link.name}
+                  {item.name}
                 </Link>
               ))}
-              <Link to="/register">
-                <Button className="ml-4 bg-accent text-accent-foreground hover:bg-accent/90 shadow-glow uppercase text-sm tracking-wide font-semibold">
+
+              <Link to="/register" className="ml-4">
+                <Button className="bg-accent text-white hover:bg-accent/90 px-5">
                   Register
                 </Button>
               </Link>
             </div>
 
-            {/* Mobile: Title + Menu Button */}
-            <div className="md:hidden flex items-center justify-between w-full">
-              <span className="font-heading font-bold text-white text-lg">
-                PRODOTHON'26
-              </span>
+            {/* Mobile Header */}
+            <div className="md:hidden flex w-full justify-between items-center">
+              <div className="flex items-center gap-2">
+                <img
+                  src="/Logo/prod.png"
+                  alt="Prodothon"
+                  className="h-8 object-contain"
+                />
+                <span className="font-bold tracking-wide">PRODOTHON’26</span>
+              </div>
+
               <button
-                className="p-2 text-white"
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                onClick={() => setMenuOpen(!menuOpen)}
+                className="p-2 rounded-md hover:bg-gray-100"
+                aria-label="Toggle menu"
               >
-                {isMobileMenuOpen ? (
-                  <X className="h-6 w-6" />
-                ) : (
-                  <Menu className="h-6 w-6" />
-                )}
+                {menuOpen ? <X /> : <Menu />}
               </button>
             </div>
           </div>
 
           {/* Mobile Menu */}
-          {isMobileMenuOpen && (
-            <div className="md:hidden pb-4 animate-fade-in bg-secondary rounded-b-lg">
-              {navLinks.map((link) => (
+          <div
+            className={`md:hidden overflow-hidden transition-all duration-300 ${
+              menuOpen ? "max-h-96 py-4" : "max-h-0"
+            }`}
+          >
+            <div className="bg-white rounded-xl p-3 shadow-sm">
+              {sections.map((item) => (
                 <Link
-                  key={link.path}
-                  to={link.path}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={`block px-4 py-3 rounded-lg transition-smooth ${
-                    location.pathname === link.path
-                      ? "text-accent bg-accent/20"
-                      : "text-white hover:text-accent hover:bg-white/10"
-                  }`}
+                  key={item.id}
+                  to={item.path}
+                  onClick={() => {
+                    setMenuOpen(false);
+                    setActive(item.id);
+                  }}
+                  className={`block py-3 px-3 rounded-md text-sm font-medium
+                    ${
+                      active === item.id
+                        ? "text-accent border-l-4 border-accent pl-4"
+                        : "text-gray-700 hover:bg-gray-50"
+                    }`}
                 >
-                  {link.name}
+                  {item.name}
                 </Link>
               ))}
-              <Link
-                to="/register"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block mt-2 px-4"
-              >
-                <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-semibold">
-                  Register Now
-                </Button>
-              </Link>
+
+              <div className="mt-3 px-3">
+                <Link to="/register" onClick={() => setMenuOpen(false)}>
+                  <Button className="w-full bg-accent text-white">
+                    Register
+                  </Button>
+                </Link>
+              </div>
             </div>
-          )}
+          </div>
         </div>
       </nav>
     </header>

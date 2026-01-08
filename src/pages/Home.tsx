@@ -67,7 +67,7 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center gradient-hero text-white overflow-hidden pt-32">
+      <section className="relative min-h-screen flex items-center gradient-hero text-white overflow-hidden pt-">
         <ParticleBackground />
         <div className="absolute inset-0 tech-pattern opacity-20"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-primary/50"></div>
