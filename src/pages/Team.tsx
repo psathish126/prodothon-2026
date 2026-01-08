@@ -10,39 +10,39 @@ type Member = {
 };
 
 const peaMembers: Member[] = [
-  { sno: 1, position: "Secretary", name: "BALAJI C", image: "/team/balaji.HEIC" },
-  { sno: 2, position: "Treasurer", name: "DEVISRI J", image: "/team/devisri.HEIC" },
-  { sno: 3, position: "Joint Secretary", name: "SUKANTH N R", image: "/team/sukanthnr.HEIC" },
-  { sno: 4, position: "Joint Secretary", name: "NHARGUNA NANGAI M B", image: "/team/nharguna.HEIC" },
-  { sno: 5, position: "Graduate Executive", name: "NALVETHA B", image: "/team/nalvetha.HEIC" },
-  { sno: 6, position: "Senior Lead Executive", name: "ARUNRAJA C", image: "/team/arunraja.HEIC" },
-  { sno: 7, position: "Senior Lead Executive", name: "S SHANMUGAM", image: "/team/shanmugam.HEIC" },
-  { sno: 8, position: "Senior Lead Executive", name: "RAMAKRISHNAN K", image: "/team/ramakrishnan.HEIC" },
-  { sno: 9, position: "Senior Lead Executive", name: "HARISH N", image: "/team/harish.HEIC" },
-  { sno: 10, position: "Junior Executive", name: "KANCIA ROSLIN MARY S", image: "/team/kancia.HEIC" },
-  { sno: 11, position: "Junior Executive", name: "AISHAA NIHAR Z", image: "/team/aishaa.HEIC" },
-  { sno: 12, position: "Junior Executive", name: "NEKA S", image: "/team/neka.HEIC" },
-  { sno: 13, position: "Junior Executive", name: "DHANALAKSHMI K", image: "/team/dhanalakshmi.HEIC" },
-  { sno: 14, position: "Junior Executive", name: "MAKESHWARAN T", image: "/team/makeshwaran.HEIC" },
-  { sno: 15, position: "Junior Executive", name: "KARUNYA V", image: "/team/karunya.HEIC" },
+  { sno: 1, position: "Secretary", name: "BALAJI C", image: "/team/balaji.jpg" },
+  { sno: 2, position: "Treasurer", name: "DEVISRI J", image: "/team/devi.jpg" },
+  { sno: 3, position: "Joint Secretary", name: "SUKANTH N R", image: "" },
+  { sno: 4, position: "Joint Secretary", name: "NHARGUNA NANGAI M B", image: "/team/nangai.jpg" },
+  { sno: 5, position: "Graduate Executive", name: "NALVETHA B", image: "" },
+  { sno: 6, position: "Senior Lead Executive", name: "ARUNRAJA C", image: "" },
+  { sno: 7, position: "Senior Lead Executive", name: "S SHANMUGAM", image: "/team/shan.jpg" },
+  { sno: 8, position: "Senior Lead Executive", name: "RAMAKRISHNAN K", image: "/team/rama.jpg" },
+  { sno: 9, position: "Senior Lead Executive", name: "HARISH N", image: "" },
+  { sno: 10, position: "Junior Executive", name: "KANCIA ROSLIN MARY S", image: "/team/kan.jpg" },
+  { sno: 11, position: "Junior Executive", name: "AISHAA NIHAR Z", image: "/team/aisha.jpg" },
+  { sno: 12, position: "Junior Executive", name: "NEKA S", image: "/team/neka.jpg" },
+  { sno: 13, position: "Junior Executive", name: "DHANALAKSHMI K", image: "/team/dhana.jpg" },
+  { sno: 14, position: "Junior Executive", name: "MAKESHWARAN T", image: "/team/mahe.jpg" },
+  { sno: 15, position: "Junior Executive", name: "KARUNYA V", image: "/team/karu.jpg" },
 ];
 
 const smeMembers: Member[] = [
-  { sno: 1, position: "Secretary", name: "LAKSHMAN RAGHAV V G", image: "/team/lakshman.HEIC" },
-  { sno: 2, position: "Treasurer", name: "DIYA VISALI R S", image: "/team/diya.HEIC" },
-  { sno: 3, position: "Joint Secretary", name: "RITHIKA G", image: "/team/rithika.HEIC" },
-  { sno: 4, position: "Joint Secretary", name: "NIMESHA S", image: "/team/nimesha.HEIC" },
-  { sno: 5, position: "Graduate Executive", name: "NARMADA B S", image: "/team/narmada.HEIC" },
-  { sno: 6, position: "Senior Lead Executive", name: "K KARTHIKRAJA", image: "/team/karthikraja.HEIC" },
-  { sno: 7, position: "Senior Lead Executive", name: "MANJUSWETHA S V", image: "/team/manjuswetha.HEIC" },
-  { sno: 8, position: "Senior Lead Executive", name: "KRISITHA J S", image: "/team/krisitha.HEIC" },
-  { sno: 9, position: "Senior Lead Executive", name: "MUGILAN N", image: "/team/mugilan.HEIC" },
-  { sno: 10, position: "Junior Executive", name: "ARI PRASANNA V", image: "/team/ariprasanna.HEIC" },
-  { sno: 11, position: "Junior Executive", name: "S ABIRAMI", image: "/team/abirami.HEIC" },
-  { sno: 12, position: "Junior Executive", name: "DINESH KARTHICK N C", image: "/team/dineshkarthick.HEIC" },
-  { sno: 13, position: "Junior Executive", name: "SUNANTHIKA S", image: "/team/sunanthika.HEIC" },
-  { sno: 14, position: "Junior Executive", name: "NUTHANASRI V R", image: "/team/nuthanasri.HEIC" },
-  { sno: 15, position: "Junior Executive", name: "M LOGESHWARAN", image: "/team/logeshwaran.HEIC" },
+  { sno: 1, position: "Secretary", name: "LAKSHMAN RAGHAV V G", image: "/team/laks.jpg" },
+  { sno: 2, position: "Treasurer", name: "DIYA VISALI R S", image: "" },
+  { sno: 3, position: "Joint Secretary", name: "RITHIKA G", image: "/team/rithi.jpg" },
+  { sno: 4, position: "Joint Secretary", name: "NIMESHA S", image: "/team/nime.jpg" },
+  { sno: 5, position: "Graduate Executive", name: "NARMADA B S", image: "/team/narmada.jpg" },
+  { sno: 6, position: "Senior Lead Executive", name: "K KARTHIKRAJA", image: "" },
+  { sno: 7, position: "Senior Lead Executive", name: "MANJUSWETHA S V", image: "/team/manju.jpg" },
+  { sno: 8, position: "Senior Lead Executive", name: "KRISITHA J S", image: "/team/krish.jpg" },
+  { sno: 9, position: "Senior Lead Executive", name: "MUGILAN N", image: "/team/mug.jpg" },
+  { sno: 10, position: "Junior Executive", name: "ARI PRASANNA V", image: "/team/ari.jpg" },
+  { sno: 11, position: "Junior Executive", name: "S ABIRAMI", image: "/team/abi.jpg" },
+  { sno: 12, position: "Junior Executive", name: "DINESH KARTHICK N C", image: "" },
+  { sno: 13, position: "Junior Executive", name: "SUNANTHIKA S", image: "/team/suna.jpg" },
+  { sno: 14, position: "Junior Executive", name: "NUTHANASRI V R", image: "/team/nuthana.jpg" },
+  { sno: 15, position: "Junior Executive", name: "M LOGESHWARAN", image: "/team/logeshwaran.jpg" },
 ];
 
 const MemberCard = ({
@@ -52,12 +52,10 @@ const MemberCard = ({
   member: Member;
   accentColor: string;
 }) => (
-  <Card className="shadow-card hover:shadow-card-hover transition-all duration-300 border-0 overflow-hidden group hover:-translate-y-2 bg-card/95 backdrop-blur-md rounded-2xl">
-    <CardContent className="p-0">
-      {/* Photo Section */}
-      <div
-        className={`relative h-32 sm:h-36 ${accentColor} flex items-center justify-center overflow-hidden`}
-      >
+  <Card className="bg-white shadow-lg hover:shadow-2xl transition-all duration-300 border-0 overflow-hidden group hover:-translate-y-2 rounded-3xl">
+    {/* Photo Section */}
+    <div className="relative h-40 sm:h-48 bg-gray-50 flex items-end justify-center overflow-hidden">
+      {member.image ? (
         <img
           src={member.image}
           alt={member.name}
@@ -66,31 +64,33 @@ const MemberCard = ({
             (e.currentTarget as HTMLImageElement).style.display = "none";
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent" />
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center border-2 border-white/40 group-hover:scale-110 transition-transform duration-300">
-            <User className="w-8 h-8 sm:w-10 sm:h-10 text-white/85" />
-          </div>
+      ) : (
+        <div className={`w-full h-full flex items-center justify-center ${accentColor}`}>
+          <User className="w-12 h-12 sm:w-14 sm:h-14 text-white/85" />
         </div>
-      </div>
+      )}
 
-      {/* Info Section */}
-      <div className="p-3 sm:p-4 text-center">
-        <h3 className="font-heading text-sm sm:text-base font-bold text-foreground mb-1 line-clamp-2">
-          {member.name}
-        </h3>
-        <span
-          className={`inline-block px-3 py-1 rounded-full text-[10px] sm:text-xs font-semibold ${
-            member.position === "Secretary"
-              ? "bg-accent text-accent-foreground"
-              : member.position === "Treasurer"
-              ? "bg-secondary text-white"
-              : "bg-peach text-primary"
-          }`}
-        >
-          {member.position}
-        </span>
-      </div>
+      {/* white wave bottom */}
+      <svg
+        className="absolute bottom-0 left-0 right-0 w-full"
+        viewBox="0 0 500 80"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M0,40 C150,80 350,0 500,40 L500,80 L0,80 Z"
+          fill="#ffffff"
+        />
+      </svg>
+    </div>
+
+    {/* Info Section */}
+    <CardContent className="pt-4 pb-5 px-4 text-center">
+      <h3 className="font-heading text-sm sm:text-base md:text-lg font-semibold text-slate-900 mb-1">
+        {member.name}
+      </h3>
+      <p className="text-[11px] sm:text-xs md:text-sm text-slate-500">
+        {member.position}
+      </p>
     </CardContent>
   </Card>
 );
@@ -115,7 +115,7 @@ const TeamSection = ({
       </h2>
       <p className="text-white/85 text-xs md:text-sm">{subtitle}</p>
     </div>
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-5">
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
       {members.map((member, index) => (
         <AnimatedSection
           key={member.sno}
@@ -144,10 +144,7 @@ const Team = () => {
               <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold">
                 Our Team
               </h1>
-              <p className="text-sm md:text-base text-white/85">
-                Office bearers of Production Engineering Association (PEA) and
-                Society of Manufacturing Engineers (SME) Students&apos; Chapter.
-              </p>
+              
             </div>
           </AnimatedSection>
         </div>

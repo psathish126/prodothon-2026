@@ -22,14 +22,27 @@ const Footer = () => {
               PRODOTHON <span className="text-accent">'26</span>
             </h3>
             <p className="text-white/80 text-sm">
-              An Inter-College Festival at the Department of Production Engineering, PSG College of Technology.
+              An inter-college festival by the Department of Production
+              Engineering, PSG College of Technology.
             </p>
-            <p className="text-accent font-semibold text-sm tracking-wider">LEARN • IMPACT • INNOVATE</p>
+            <p className="text-accent font-semibold text-sm tracking-wider">
+              LEARN • IMPACT • INNOVATE
+            </p>
             <div className="flex space-x-4 pt-2">
-              <a href="https://www.instagram.com/pea_sme?igsh=Y3dvNHRzMzd2d2l5" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-white/10 hover:bg-accent hover:text-accent-foreground transition-smooth">
+              <a
+                href="https://www.instagram.com/pea_sme?igsh=Y3dvNHRzMzd2d2l5"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-full bg-white/10 hover:bg-accent hover:text-accent-foreground transition-smooth"
+              >
                 <Instagram className="h-5 w-5" />
               </a>
-              <a href="https://www.linkedin.com/company/pea-sme-psg-tech/" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-white/10 hover:bg-accent hover:text-accent-foreground transition-smooth">
+              <a
+                href="https://www.linkedin.com/company/pea-sme-psg-tech/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-full bg-white/10 hover:bg-accent hover:text-accent-foreground transition-smooth"
+              >
                 <Linkedin className="h-5 w-5" />
               </a>
             </div>
@@ -59,16 +72,28 @@ const Footer = () => {
               <div className="flex items-start space-x-3 text-sm">
                 <MapPin className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
                 <span className="text-white/80">
-                  Department of Production Engineering<br />
-                  PSG College of Technology<br />
+                  Department of Production Engineering
+                  <br />
+                  PSG College of Technology
+                  <br />
                   Coimbatore, Tamil Nadu
                 </span>
               </div>
               <div className="flex items-start space-x-3 text-sm">
                 <Phone className="h-5 w-5 text-accent flex-shrink-0" />
                 <div className="text-white/80">
-                  <a href="tel:+918838892817" className="block hover:text-accent transition-smooth">BALAJI C: +91 8838892817</a>
-                  <a href="tel:+919843306391" className="block hover:text-accent transition-smooth">LAKSHMAN: +91 98433 06391</a>
+                  <a
+                    href="tel:+918838892817"
+                    className="block hover:text-accent transition-smooth"
+                  >
+                    BALAJI C: +91 8838892817
+                  </a>
+                  <a
+                    href="tel:+919843306391"
+                    className="block hover:text-accent transition-smooth"
+                  >
+                    LAKSHMAN: +91 98433 06391
+                  </a>
                 </div>
               </div>
               <div className="flex items-center space-x-3 text-sm">
@@ -82,8 +107,16 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="font-heading text-lg font-semibold">Organized By</h4>
             <div className="space-y-2 text-sm text-white/80">
-              <p><span className="font-semibold text-accent">PEA</span><br/>Production Engineering Association</p>
-              <p><span className="font-semibold text-accent">SME</span><br/>Society of Manufacturing Engineers</p>
+              <p>
+                <span className="font-semibold text-accent">PEA</span>
+                <br />
+                Production Engineering Association
+              </p>
+              <p>
+                <span className="font-semibold text-accent">SME</span>
+                <br />
+                Society of Manufacturing Engineers
+              </p>
             </div>
             <Link to="/register" className="inline-block mt-4">
               <button className="bg-accent text-accent-foreground px-6 py-2 rounded-lg font-semibold hover:bg-accent/90 transition-smooth text-sm">
@@ -93,9 +126,43 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-white/20 text-center text-sm text-white/60">
-          <p>&copy; 2026 Prodothon - PSG College of Technology. All rights reserved.</p>
-          <p className="mt-1">Department of Production Engineering</p>
+        {/* Bottom strip */}
+        <div className="mt-12 pt-8 border-t border-white/15 text-center text-xs sm:text-sm text-white/70 space-y-2">
+          <p>
+            &copy; 2026 Prodothon - PSG College of Technology. All rights
+            reserved.
+          </p>
+          <p>Department of Production Engineering</p>
+
+          {/* Designed by */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-3 pt-2">
+            <span className="text-white/60">Designed &amp; developed by</span>
+            <span className="font-semibold text-accent text-center">
+              Sathish P (Final Year BE Production Engineering · Technical Staff
+              @ Haiva AI)
+            </span>
+          </div>
+
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-2">
+            <a
+              href="https://www.instagram.com/sathish__126_/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/10 text-white/80 hover:text-accent transition-smooth"
+            >
+              <Instagram className="h-4 w-4" />
+              <span className="text-xs sm:text-sm">@sathish__126_</span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/sathishkumarp126/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/10 text-white/80 hover:text-accent transition-smooth"
+            >
+              <Linkedin className="h-4 w-4" />
+              <span className="text-xs sm:text-sm">/in/sathishkumarp126</span>
+            </a>
+          </div>
         </div>
       </div>
     </footer>
