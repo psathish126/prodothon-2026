@@ -14,38 +14,18 @@ const Home = () => {
     seconds: 0,
   });
 
-  // Countdown to Feb 27, 2026
-  useEffect(() => {
-    const targetDate = new Date("2026-02-27T09:00:00").getTime();
 
-    const updateCountdown = () => {
-      const now = new Date().getTime();
-      const difference = targetDate - now;
-
-      if (difference > 0) {
-        setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
-          seconds: Math.floor((difference % (1000 * 60)) / 1000),
-        });
-      }
-    };
-
-    updateCountdown();
-    const interval = setInterval(updateCountdown, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
 
   const CountdownUnit = ({ value, label }: { value: number; label: string }) => (
     <div className="flex flex-col items-center">
-      <div className="bg-white/10 backdrop-blur-md rounded-xl p-3 md:p-4 min-w-[60px] md:min-w-[80px] border border-white/20 shadow-lg">
+      <div className="bg-white/15 backdrop-blur-md rounded-xl px-4 md:px-5 py-3 md:py-4 min-w-[60px] md:min-w-[80px] border border-white/20 shadow-lg transition-shadow duration-300">
         <span className="text-3xl md:text-5xl font-bold text-white font-mono">
-          {value.toString().padStart(2, '0')}
+          {value.toString().padStart(2, "0")}
         </span>
       </div>
-      <span className="text-xs md:text-sm text-white/80 mt-2 uppercase tracking-wider font-medium">{label}</span>
+      <span className="text-xs md:text-sm text-white/80 mt-2 uppercase tracking-wider font-medium">
+        {label}
+      </span>
     </div>
   );
 
@@ -67,91 +47,96 @@ const Home = () => {
 
   return (
     <div className="min-h-screen">
+      {/* thin accent bar just under navbar (place this in layout if your nav is outside Home) */}
+      <div className="h-[3px] w-full bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-400" />
+
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center gradient-hero text-white overflow-hidden pt-">
+      <section className="relative min-h-screen flex items-center gradient-hero text-white overflow-hidden pt-28 md:pt-36">
         <ParticleBackground />
         <div className="absolute inset-0 tech-pattern opacity-20"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-primary/50"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-primary/60"></div>
+
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center space-y-6 md:space-y-8">
-            <AnimatedSection animation="scale-in">
-              <h1 className="font-heading text-6xl md:text-8xl font-extrabold leading-tight tracking-tight">
-                PRODOTHON'26
-              </h1>
-            </AnimatedSection>
-            
-            <AnimatedSection animation="fade-in-up" delay={0.2}>
-              <p className="text-2xl md:text-3xl font-bold text-accent uppercase tracking-[0.3em]">
-                Learn • Impact • Innovate
-              </p>
-            </AnimatedSection>
-
-            <AnimatedSection animation="fade-in-up" delay={0.4}>
-              <div className="text-3xl md:text-5xl font-bold bg-peach text-primary inline-block px-8 py-4 rounded-xl">
-                FEB 27 & 28
-              </div>
-            </AnimatedSection>
-
-            {/* Countdown Timer */}
-            <AnimatedSection animation="fade-in-up" delay={0.5}>
-              <div className="pt-4">
-                <p className="text-white/80 text-sm md:text-base mb-4 uppercase tracking-widest">Event starts in</p>
-                <div className="flex justify-center gap-3 md:gap-5">
-                  <CountdownUnit value={timeLeft.days} label="Days" />
-                  <span className="text-3xl md:text-4xl text-white/40 self-start mt-4 md:mt-5">:</span>
-                  <CountdownUnit value={timeLeft.hours} label="Hours" />
-                  <span className="text-3xl md:text-4xl text-white/40 self-start mt-4 md:mt-5">:</span>
-                  <CountdownUnit value={timeLeft.minutes} label="Mins" />
-                  <span className="text-3xl md:text-4xl text-white/40 self-start mt-4 md:mt-5">:</span>
-                  <CountdownUnit value={timeLeft.seconds} label="Secs" />
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="bg-white/5 border border-white/15 rounded-3xl shadow-2xl backdrop-blur-xl px-4 md:px-10 py-8 md:py-12 space-y-6 md:space-y-8">
+              <AnimatedSection animation="fade-in-up">
+                <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-black/30 border border-white/20 text-[10px] md:text-xs tracking-[0.35em] uppercase mb-1">
+                  <span>PSG COLLEGE OF TECHNOLOGY</span>
+                  <span className="h-1 w-1 rounded-full bg-accent" />
+                  <span>PRODOTHON’26</span>
                 </div>
-              </div>
-            </AnimatedSection>
+              </AnimatedSection>
 
-            <AnimatedSection animation="fade-in-up" delay={0.6}>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
-                <Button size="lg" className="bg-white text-primary hover:bg-white/90 text-lg px-8 h-14 font-semibold shadow-lg">
-                  <Download className="mr-2 h-5 w-5" />
-                  Download Brochure
-                </Button>
-                <Link to="/register">
-                  <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 shadow-glow animate-pulse-glow text-lg px-8 h-14 font-semibold">
-                    Register Here
+              <AnimatedSection animation="scale-in">
+                <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight tracking-tight md:tracking-tight drop-shadow-[0_0_35px_rgba(0,0,0,0.55)]">
+                  PRODOTHON&apos;26
+                </h1>
+              </AnimatedSection>
+
+              <AnimatedSection animation="fade-in-up" delay={0.2}>
+                <p className="text-xl md:text-2xl font-bold text-accent uppercase tracking-[0.35em]">
+                  Learn • Impact • Innovate
+                </p>
+              </AnimatedSection>
+
+              <AnimatedSection animation="fade-in-up" delay={0.35}>
+                <div className="text-2xl md:text-4xl lg:text-5xl font-bold bg-peach text-primary inline-block px-8 md:px-10 py-3 md:py-4 rounded-xl shadow-[0_18px_45px_rgba(0,0,0,0.45)] border border-white/20">
+                  FEB 27 &amp; 28
+                </div>
+              </AnimatedSection>
+
+              
+              <AnimatedSection animation="fade-in-up" delay={0.55}>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4 md:pt-6">
+                  <Button
+                    size="lg"
+                    className="bg-white text-primary hover:bg-white/90 text-base md:text-lg px-8 h-12 md:h-14 font-semibold shadow-lg"
+                  >
+                    <Download className="mr-2 h-5 w-5" />
+                    Download Brochure
                   </Button>
-                </Link>
-              </div>
-            </AnimatedSection>
+                  <Link to="/register">
+                    <Button
+                      size="lg"
+                      className="bg-accent text-accent-foreground hover:bg-accent/90 shadow-glow animate-pulse-glow text-base md:text-lg px-8 h-12 md:h-14 font-semibold"
+                    >
+                      Register Here
+                    </Button>
+                  </Link>
+                </div>
+              </AnimatedSection>
+            </div>
           </div>
         </div>
       </section>
 
-{/* Sponsors Section */}
-<section className="py-16 bg-peach">
-  <div className="container mx-auto px-4">
-    <AnimatedSection>
-      <h2 className="font-heading text-3xl font-bold text-center text-primary mb-10">
-        Our Sponsors
-      </h2>
-    </AnimatedSection>
+      {/* Sponsors Section */}
+      <section className="py-16 bg-peach/80">
+        <div className="container mx-auto px-4">
+          <AnimatedSection>
+            <h2 className="font-heading text-3xl font-bold text-center text-primary mb-8">
+              Our Sponsors
+            </h2>
+          </AnimatedSection>
 
-    <div className="flex justify-center flex-wrap gap-x-12 gap-y-8">
-      {sponsors.map((sponsor, index) => (
-        <div
-          key={index}
-          className="w-36 h-20 bg-white rounded-xl flex items-center justify-center text-primary font-semibold shadow-card hover:shadow-card-hover hover:scale-105 transition-transform"
-        >
-          <img
-            src={sponsor.image}
-            alt={sponsor.name}
-            className="w-full h-full object-contain"
-          />
+          <div className="bg-white/60 backdrop-blur-md rounded-3xl px-6 py-8 shadow-xl">
+            <div className="flex justify-center flex-wrap gap-x-12 gap-y-8">
+              {sponsors.map((sponsor, index) => (
+                <div
+                  key={index}
+                  className="w-36 h-20 bg-white rounded-xl flex items-center justify-center text-primary font-semibold shadow-card hover:shadow-card-hover hover:scale-105 transition-transform"
+                >
+                  <img
+                    src={sponsor.image}
+                    alt={sponsor.name}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
-
-
+      </section>
 
       {/* Events Section */}
       <section className="py-20 bg-background">
@@ -163,19 +148,28 @@ const Home = () => {
           </AnimatedSection>
           <div className="flex overflow-x-auto gap-6 pb-4 snap-x snap-mandatory md:grid md:grid-cols-4 md:overflow-visible">
             {events.map((event, index) => (
-              <AnimatedSection key={event.id} animation="scale-in" delay={index * 0.1}>
-                <Card className="flex-shrink-0 w-64 md:w-auto snap-center shadow-card hover:shadow-card-hover transition-smooth border-0 overflow-hidden group">
+              <AnimatedSection
+                key={event.id}
+                animation="scale-in"
+                delay={index * 0.1}
+              >
+                <Card className="flex-shrink-0 w-64 md:w-auto snap-center shadow-card hover:shadow-card-hover transition-smooth border border-primary/10 overflow-hidden group rounded-2xl">
                   <div className="aspect-[3/4] relative overflow-hidden">
                     <img
                       src={event.image}
                       alt={event.name}
-                      className="w-full h-full object-fill transition-transform duration-500 group-hover:scale-110"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent" />
                     <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                      <h3 className="font-heading text-lg font-bold mb-2">{event.name}</h3>
+                      <h3 className="font-heading text-lg font-bold mb-2">
+                        {event.name}
+                      </h3>
                       <Link to="/register">
-                        <Button size="sm" className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-semibold">
+                        <Button
+                          size="sm"
+                          className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-semibold"
+                        >
                           Register Here
                         </Button>
                       </Link>
@@ -187,7 +181,10 @@ const Home = () => {
           </div>
           <AnimatedSection className="text-center mt-8">
             <Link to="/events">
-              <Button variant="outline" className="border-secondary text-secondary hover:bg-secondary hover:text-white font-semibold">
+              <Button
+                variant="outline"
+                className="border-secondary text-secondary hover:bg-secondary hover:text-white font-semibold"
+              >
                 View All Events
               </Button>
             </Link>
@@ -204,7 +201,7 @@ const Home = () => {
                 About Prodothon
               </h2>
             </AnimatedSection>
-            
+
             <div className="space-y-8">
               <AnimatedSection animation="slide-left">
                 <Card className="shadow-card border-0 border-l-4 border-l-accent">
@@ -213,7 +210,16 @@ const Home = () => {
                       What is Prodothon?
                     </h3>
                     <p className="text-muted-foreground leading-relaxed">
-                      Prodothon is an Inter-College Festival at the Department of Production Engineering, PSG College of Technology. Spanning two days, this event is tailored for undergraduate students from the Mechanical Stream. The festival aims to embrace the students' spirit in the Mechanical Stream with events, competitions, workshops, entrepreneur initiatives, presentations, and exhibitions. It serves as a dynamic platform for students to showcase their technical expertise, problem-solving skills, and innovative thinking.
+                      Prodothon is an Inter-College Festival at the Department
+                      of Production Engineering, PSG College of Technology.
+                      Spanning two days, this event is tailored for
+                      undergraduate students from the Mechanical Stream. The
+                      festival aims to embrace the students&apos; spirit in the
+                      Mechanical Stream with events, competitions, workshops,
+                      entrepreneur initiatives, presentations, and exhibitions.
+                      It serves as a dynamic platform for students to showcase
+                      their technical expertise, problem-solving skills, and
+                      innovative thinking.
                     </p>
                   </CardContent>
                 </Card>
@@ -226,7 +232,13 @@ const Home = () => {
                       Our Vision
                     </h3>
                     <p className="text-muted-foreground leading-relaxed">
-                      To become a flagship event that inspires the next generation of engineers to embrace excellence in manufacturing and mechanical engineering, bridging the gap between academic learning and industry practices while promoting sustainable and innovative solutions. We aim to engage in activities guided by values and ethics with a sense of responsibility to society and the environment.
+                      To become a flagship event that inspires the next
+                      generation of engineers to embrace excellence in
+                      manufacturing and mechanical engineering, bridging the
+                      gap between academic learning and industry practices while
+                      promoting sustainable and innovative solutions. We aim to
+                      engage in activities guided by values and ethics with a
+                      sense of responsibility to society and the environment.
                     </p>
                   </CardContent>
                 </Card>
@@ -239,7 +251,11 @@ const Home = () => {
                       Our Mission
                     </h3>
                     <p className="text-muted-foreground leading-relaxed">
-                      To foster innovation, technical proficiency, and collaborative learning among engineering students by providing a competitive platform that emphasizes cutting-edge technologies, practical knowledge, industry-relevant skills, and teamwork.
+                      To foster innovation, technical proficiency, and
+                      collaborative learning among engineering students by
+                      providing a competitive platform that emphasizes
+                      cutting-edge technologies, practical knowledge,
+                      industry-relevant skills, and teamwork.
                     </p>
                   </CardContent>
                 </Card>
@@ -266,28 +282,47 @@ const Home = () => {
                         <MapPin className="h-5 w-5" />
                       </div>
                       <div>
-                        <p className="text-foreground font-semibold">Department of Production Engineering,</p>
-                        <p className="text-muted-foreground">PSG College of Technology, Coimbatore,</p>
-                        <p className="text-muted-foreground">Tamil Nadu, India</p>
+                        <p className="text-foreground font-semibold">
+                          Department of Production Engineering,
+                        </p>
+                        <p className="text-muted-foreground">
+                          PSG College of Technology, Coimbatore,
+                        </p>
+                        <p className="text-muted-foreground">
+                          Tamil Nadu, India
+                        </p>
                       </div>
                     </div>
-                    
+
                     <div className="flex items-center gap-4">
                       <div className="p-3 rounded-full bg-accent/10 text-accent flex-shrink-0">
                         <Mail className="h-5 w-5" />
                       </div>
-                      <a href="mailto:pea.prod@psgtech.ac.in" className="text-secondary hover:text-accent font-medium transition-smooth">
+                      <a
+                        href="mailto:pea.prod@psgtech.ac.in"
+                        className="text-secondary hover:text-accent font-medium transition-smooth"
+                      >
                         pea.prod@psgtech.ac.in
                       </a>
                     </div>
-                    
+
                     <div className="flex items-start gap-4">
                       <div className="p-3 rounded-full bg-accent/10 text-accent flex-shrink-0">
                         <Phone className="h-5 w-5" />
                       </div>
                       <div>
-                        <a href="tel:+918838892817" className="text-foreground font-medium hover:text-accent transition-smooth block">BALAJI C : +91 8838892817</a>
-                        <a href="tel:+919843306391" className="text-foreground font-medium hover:text-accent transition-smooth block">LAKSHMAN : +91 98433 06391</a>
+                        <a
+                          href="tel:+918838892817"
+                          className="text-foreground font-medium hover:text-accent transition-smooth block"
+                        >
+                          BALAJI C : +91 8838892817
+                        </a>
+                        <a
+                          href="tel:+919843306391"
+                          className="text-foreground font-medium hover:text-accent transition-smooth block"
+                        >
+                          LAKSHMAN : +91 98433 06391
+                        </a>
                       </div>
                     </div>
                   </div>

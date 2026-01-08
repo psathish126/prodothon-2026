@@ -1,7 +1,15 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Calendar, MapPin, Users, Phone, MessageCircle, GraduationCap, X } from "lucide-react";
+import {
+  Calendar,
+  MapPin,
+  Users,
+  Phone,
+  MessageCircle,
+  GraduationCap,
+  X,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
 
@@ -232,13 +240,16 @@ Inspire the next generation of engineers to contribute to a greener industrial l
     { id: "discussion", label: "Discussion" },
   ];
 
-  const filteredEvents = activeFilter === "all" 
-    ? events 
-    : events.filter(event => event.category === activeFilter);
+  const filteredEvents =
+    activeFilter === "all"
+      ? events
+      : events.filter((event) => event.category === activeFilter);
 
   const handleWhatsApp = (phone: string, eventName: string) => {
-    const message = encodeURIComponent(`Hi! I'm interested in the event "${eventName}" at PRODOTHON'26. Can you provide more details?`);
-    window.open(`https://wa.me/91${phone}?text=${message}`, '_blank');
+    const message = encodeURIComponent(
+      `Hi! I'm interested in the event "${eventName}" at PRODOTHON'26. Can you provide more details?`
+    );
+    window.open(`https://wa.me/91${phone}?text=${message}`, "_blank");
   };
 
   const handleCall = (phone: string) => {
@@ -246,27 +257,12 @@ Inspire the next generation of engineers to contribute to a greener industrial l
   };
 
   return (
-    <div className="min-h-screen pt-28 md:pt-32">
+    <div className="min-h-screen pt-28 md:pt-32 bg-background">
       {/* Header */}
-      <section className="py-20 gradient-hero text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-white/5" />
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <AnimatedSection animation="scale-in">
-            <span className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium mb-6 border border-white/20">
-              8 Exciting Events
-            </span>
-            <h1 className="font-heading text-5xl md:text-7xl font-bold mb-6 tracking-tight">
-              EVENTS
-            </h1>
-            <p className="text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
-              Explore our exciting lineup of technical competitions, workshops, and interactive sessions
-            </p>
-          </AnimatedSection>
-        </div>
-      </section>
+     
 
       {/* Events Grid */}
-      <section className="py-20 bg-gradient-to-b from-peach/20 to-background">
+      <section className="py-16 md:py-20 bg-gradient-to-b from-peach/20 to-background">
         <div className="container mx-auto px-4">
           {/* Filter Buttons */}
           <AnimatedSection animation="fade-in-up" className="mb-10">
@@ -275,9 +271,9 @@ Inspire the next generation of engineers to contribute to a greener industrial l
                 <button
                   key={filter.id}
                   onClick={() => setActiveFilter(filter.id)}
-                  className={`px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 ${
+                  className={`px-5 md:px-6 py-2.5 rounded-full font-semibold text-xs md:text-sm transition-all duration-300 ${
                     activeFilter === filter.id
-                      ? "bg-accent text-accent-foreground shadow-lg"
+                      ? "bg-accent text-accent-foreground shadow-lg shadow-accent/40"
                       : "bg-secondary/10 text-secondary hover:bg-secondary/20"
                   }`}
                 >
@@ -287,107 +283,151 @@ Inspire the next generation of engineers to contribute to a greener industrial l
             </div>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 gap-8">
+          <div className="space-y-8">
             {filteredEvents.map((event, index) => (
-              <AnimatedSection key={event.id} animation="fade-in-up" delay={index * 0.1}>
-                <Card className="shadow-card hover:shadow-card-hover transition-all duration-500 border-0 overflow-hidden group bg-card">
-                  <div className="flex flex-col lg:flex-row">
+              <AnimatedSection
+                key={event.id}
+                animation="fade-in-up"
+                delay={index * 0.07}
+              >
+                <Card className="shadow-card hover:shadow-card-hover transition-all duration-500 border border-border/40 overflow-hidden group bg-card/95 backdrop-blur-md rounded-3xl">
+                  <div className="flex flex-col xl:flex-row">
                     {/* Image Section */}
-                    <div className="lg:w-1/3 relative overflow-hidden">
+                    <div className="w-full xl:w-1/3 relative overflow-hidden max-h-64 xl:max-h-none">
                       <img
                         src={event.image}
                         alt={event.name}
-                        className="w-full h-full lg:h-full object-center transition-transform duration-700 group-hover:scale-110"
+                        className="w-full h-full object-fill transition-transform duration-700 group-hover:scale-110"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                      <div className="absolute top-4 left-4 flex gap-2">
-                        <span className="px-3 py-1 bg-accent text-accent-foreground text-xs font-bold rounded-full shadow-lg">
+                      <div className="absolute inset-0 bg-gradient-to-t xl:bg-gradient-to-r from-primary/70 to-transparent opacity-60" />
+                      <div className="absolute top-4 left-4 flex flex-wrap gap-2">
+                        <span className="px-3 py-1 bg-accent text-accent-foreground text-[11px] font-bold rounded-full shadow-lg">
                           Event #{event.id}
                         </span>
-                        <span className={`px-3 py-1 text-xs font-bold rounded-full shadow-lg ${
-                          event.category === 'workshop' ? 'bg-primary text-white' :
-                          event.category === 'discussion' ? 'bg-secondary text-white' :
-                          'bg-peach text-primary'
-                        }`}>
-                          {event.category.charAt(0).toUpperCase() + event.category.slice(1)}
+                        <span
+                          className={`px-3 py-1 text-[11px] font-bold rounded-full shadow-lg ${
+                            event.category === "workshop"
+                              ? "bg-primary text-white"
+                              : event.category === "discussion"
+                              ? "bg-secondary text-white"
+                              : "bg-peach text-primary"
+                          }`}
+                        >
+                          {event.category.charAt(0).toUpperCase() +
+                            event.category.slice(1)}
                         </span>
                       </div>
                     </div>
-                    
+
                     {/* Content Section */}
-                    <CardContent className="lg:w-2/3 p-6 lg:p-8 flex flex-col">
+                    <CardContent className="w-full xl:w-2/3 p-5 md:p-7 flex flex-col">
                       <div className="flex-1">
-                        <h3 className="font-heading text-2xl lg:text-3xl font-bold text-secondary mb-4 group-hover:text-primary transition-colors">
+                        <h3 className="font-heading text-xl md:text-2xl lg:text-3xl font-bold text-secondary mb-3 md:mb-4 group-hover:text-primary transition-colors">
                           {event.name}
                         </h3>
-                        
-                        {/* Full Description */}
-                        <div className="mb-6">
-                          <p className={`text-muted-foreground leading-relaxed ${
-                            expandedEvent === event.id ? '' : 'line-clamp-4'
-                          }`}>
+
+                        {/* Description */}
+                        <div className="mb-5 md:mb-6">
+                          <p
+                            className={`text-sm md:text-base text-muted-foreground leading-relaxed ${
+                              expandedEvent === event.id ? "" : "line-clamp-4"
+                            }`}
+                          >
                             {event.description}
                           </p>
-                          {event.description.length > 300 && (
+                          {event.description.length > 320 && (
                             <button
-                              onClick={() => setExpandedEvent(expandedEvent === event.id ? null : event.id)}
-                              className="text-accent font-semibold text-sm mt-2 hover:underline"
+                              onClick={() =>
+                                setExpandedEvent(
+                                  expandedEvent === event.id ? null : event.id
+                                )
+                              }
+                              className="text-accent font-semibold text-xs md:text-sm mt-2 hover:underline"
                             >
-                              {expandedEvent === event.id ? 'Show Less' : 'Read More'}
+                              {expandedEvent === event.id
+                                ? "Show Less"
+                                : "Read More"}
                             </button>
                           )}
                         </div>
-                        
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                          <div className="flex items-center gap-3 bg-peach/30 rounded-lg p-3">
+
+                        {/* Date & Venue */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 mb-5 md:mb-6">
+                          <div className="flex items-center gap-3 bg-peach/30 rounded-xl p-3">
                             <Calendar className="h-5 w-5 text-accent flex-shrink-0" />
                             <div>
-                              <span className="text-xs text-muted-foreground block">Date & Time</span>
-                              <span className="font-semibold text-foreground">{event.date}</span>
+                              <span className="text-[11px] text-muted-foreground block">
+                                Date &amp; Time
+                              </span>
+                              <span className="font-semibold text-foreground text-sm md:text-base">
+                                {event.date}
+                              </span>
                             </div>
                           </div>
-                          <div className="flex items-center gap-3 bg-peach/30 rounded-lg p-3">
+                          <div className="flex items-center gap-3 bg-peach/30 rounded-xl p-3">
                             <MapPin className="h-5 w-5 text-accent flex-shrink-0" />
                             <div>
-                              <span className="text-xs text-muted-foreground block">Venue</span>
-                              <span className="font-semibold text-foreground">{event.venue}</span>
+                              <span className="text-[11px] text-muted-foreground block">
+                                Venue
+                              </span>
+                              <span className="font-semibold text-foreground text-sm md:text-base">
+                                {event.venue}
+                              </span>
                             </div>
                           </div>
                         </div>
 
-                        {/* Staff Incharge (if exists) */}
+                        {/* Staff Incharge */}
                         {event.staffIncharge && (
-                          <div className="bg-secondary/5 rounded-lg p-4 mb-4">
-                            <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+                          <div className="bg-secondary/5 rounded-xl p-4 mb-4">
+                            <div className="flex items-center gap-2 text-xs md:text-sm text-muted-foreground mb-2">
                               <GraduationCap className="h-4 w-4 text-secondary" />
-                              <span className="font-semibold uppercase tracking-wide">Staff Incharge</span>
+                              <span className="font-semibold uppercase tracking-wide">
+                                Staff Incharge
+                              </span>
                             </div>
                             <div className="flex flex-wrap gap-2">
-                              {event.staffIncharge.map((staff, idx) => (
-                                <span key={idx} className="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm font-medium">
-                                  {staff}
-                                </span>
-                              ))}
+                              {event.staffIncharge.map(
+                                (staff: string, idx: number) => (
+                                  <span
+                                    key={idx}
+                                    className="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-xs md:text-sm font-medium"
+                                  >
+                                    {staff}
+                                  </span>
+                                )
+                              )}
                             </div>
                           </div>
                         )}
 
                         {/* Coordinators */}
                         <div className="border-t border-border/50 pt-4">
-                          <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
+                          <div className="flex items-center gap-2 text-xs md:text-sm text-muted-foreground mb-3">
                             <Users className="h-4 w-4 text-accent" />
-                            <span className="font-semibold uppercase tracking-wide">Event Coordinators</span>
+                            <span className="font-semibold uppercase tracking-wide">
+                              Event Coordinators
+                            </span>
                           </div>
                           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                             {event.coordinators.map((coord, idx) => (
-                              <div key={idx} className="flex items-center justify-between bg-background rounded-lg p-3 shadow-sm border border-border/30">
+                              <div
+                                key={idx}
+                                className="flex items-center justify-between bg-background rounded-lg p-3 shadow-sm border border-border/30"
+                              >
                                 <div>
-                                  <p className="font-medium text-foreground text-sm">{coord.name}</p>
-                                  <p className="text-xs text-muted-foreground">{coord.phone}</p>
+                                  <p className="font-medium text-foreground text-xs md:text-sm">
+                                    {coord.name}
+                                  </p>
+                                  <p className="text-[11px] md:text-xs text-muted-foreground">
+                                    {coord.phone}
+                                  </p>
                                 </div>
-                                <div className="flex gap-1">
+                                <div className="flex gap-1.5">
                                   <button
-                                    onClick={() => handleWhatsApp(coord.phone, event.name)}
+                                    onClick={() =>
+                                      handleWhatsApp(coord.phone, event.name)
+                                    }
                                     className="p-2 bg-green-500 hover:bg-green-600 text-white rounded-full transition-colors"
                                     title="WhatsApp"
                                   >
@@ -407,16 +447,17 @@ Inspire the next generation of engineers to contribute to a greener industrial l
                         </div>
                       </div>
 
-                      <div className="mt-6 grid grid-cols-1 gap-3">
+                      {/* CTAs */}
+                      <div className="mt-5 md:mt-6 grid grid-cols-1 gap-3">
                         <button
                           onClick={() => setRulesOpen(event.id)}
-                          className="w-full bg-secondary/10 text-secondary hover:bg-secondary/20 font-semibold px-4 py-3 rounded-lg shadow-sm"
+                          className="w-full bg-secondary/10 text-secondary hover:bg-secondary/20 font-semibold px-4 py-3 rounded-lg shadow-sm text-sm md:text-base"
                         >
-                          EVENT RULES & GUIDELINES
+                          Event Rules &amp; Guidelines
                         </button>
 
                         <Link to="/register" className="block">
-                          <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-semibold shadow-lg hover:shadow-xl transition-all duration-300 py-6 text-lg">
+                          <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-semibold shadow-lg hover:shadow-xl transition-all duration-300 py-3.5 md:py-4 text-sm md:text-base">
                             Register for {event.name} →
                           </Button>
                         </Link>
@@ -432,61 +473,67 @@ Inspire the next generation of engineers to contribute to a greener industrial l
 
       {/* Rules & Guidelines Modal */}
       {rulesOpen !== null && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-0">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6">
           {/* Backdrop */}
-          <div 
-            className="absolute inset-0 bg-black/60 backdrop-blur-sm" 
-            onClick={() => setRulesOpen(null)} 
+          <div
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            onClick={() => setRulesOpen(null)}
           />
-          
+
           {/* Modal Card */}
-          <Card className="relative w-full max-w-2xl z-10 border-0 shadow-2xl max-h-[85vh] flex flex-col">
+          <Card className="relative w-full max-w-2xl z-10 border-0 shadow-2xl max-h-[85vh] flex flex-col bg-card/95 backdrop-blur-xl rounded-2xl">
             {/* Header */}
-            <div className="sticky top-0 border-b border-border/50 bg-card rounded-t-lg px-6 py-5 flex justify-between items-center">
-              <h2 className="font-heading text-2xl font-bold text-secondary">
-                Rules & Guidelines
+            <div className="sticky top-0 border-b border-border/50 bg-card/95 rounded-t-2xl px-5 md:px-6 py-4 md:py-5 flex justify-between items-center">
+              <h2 className="font-heading text-xl md:text-2xl font-bold text-secondary">
+                Rules &amp; Guidelines
               </h2>
-              <button 
-                onClick={() => setRulesOpen(null)} 
+              <button
+                onClick={() => setRulesOpen(null)}
                 className="p-1.5 text-muted-foreground hover:text-foreground hover:bg-secondary/10 rounded-lg transition-colors"
                 title="Close"
               >
                 <X className="h-5 w-5" />
               </button>
             </div>
-            
+
             {/* Content */}
-            <CardContent className="flex-1 overflow-y-auto p-6">
-              <div className="text-muted-foreground space-y-3 leading-relaxed">
-                {(events.find(e => e.id === rulesOpen)?.rules || 'No rules available for this event.')
-                  .split('\n')
-                  .filter(line => line.trim())
+            <CardContent className="flex-1 overflow-y-auto p-5 md:p-6">
+              <div className="text-xs md:text-sm text-muted-foreground space-y-3 leading-relaxed">
+                {(events.find((e) => e.id === rulesOpen)?.rules ||
+                  "No rules available for this event.")
+                  .split("\n")
+                  .filter((line) => line.trim())
                   .map((line, idx) => {
                     const trimmed = line.trim();
-                    // Check if it's a header/title (ends with colon or is all caps)
-                    const isHeader = trimmed.endsWith(':') || (trimmed === trimmed.toUpperCase() && trimmed.length > 2);
+                    const isHeader =
+                      trimmed.endsWith(":") ||
+                      (trimmed === trimmed.toUpperCase() &&
+                        trimmed.length > 2);
                     return (
                       <div key={idx}>
                         {isHeader ? (
-                          <h3 className="font-bold text-secondary mt-4 mb-2">{trimmed}</h3>
+                          <h3 className="font-bold text-secondary mt-4 mb-2">
+                            {trimmed.replace(/:$/, "")}
+                          </h3>
                         ) : (
-                          <div className="flex gap-3 items-start">
-                            <span className="text-accent font-bold mt-1 flex-shrink-0">•</span>
+                          <div className="flex gap-2 md:gap-3 items-start">
+                            <span className="text-accent font-bold mt-0.5 md:mt-1 flex-shrink-0">
+                              •
+                            </span>
                             <span>{trimmed}</span>
                           </div>
                         )}
                       </div>
                     );
-                  })
-                }
+                  })}
               </div>
             </CardContent>
-            
+
             {/* Footer */}
-            <div className="sticky bottom-0 border-t border-border/50 bg-card rounded-b-lg px-6 py-4 flex justify-end">
+            <div className="sticky bottom-0 border-t border-border/50 bg-card/95 rounded-b-2xl px-5 md:px-6 py-3.5 md:py-4 flex justify-end">
               <button
                 onClick={() => setRulesOpen(null)}
-                className="px-6 py-2 bg-accent text-accent-foreground font-semibold rounded-lg hover:bg-accent/90 transition-colors"
+                className="px-6 py-2 bg-accent text-accent-foreground font-semibold rounded-lg hover:bg-accent/90 text-sm md:text-base transition-colors"
               >
                 Close
               </button>
@@ -502,11 +549,16 @@ Inspire the next generation of engineers to contribute to a greener industrial l
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-4">
               Ready to Compete?
             </h2>
-            <p className="text-white/80 mb-8 max-w-xl mx-auto">
-              Register now and be part of PRODOTHON'26. Maximum 4 events per participant.
+            <p className="text-white/80 mb-8 max-w-xl mx-auto text-sm md:text-base">
+              Register now and be part of PRODOTHON&apos;26. Each participant
+              can register for up to four events across competitions and
+              workshops.
             </p>
             <Link to="/register">
-              <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-bold px-8 py-6 text-lg shadow-xl">
+              <Button
+                size="lg"
+                className="bg-accent text-accent-foreground hover:bg-accent/90 font-bold px-8 py-3.5 md:py-4 text-base md:text-lg shadow-xl"
+              >
                 Register for Events
               </Button>
             </Link>

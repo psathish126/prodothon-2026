@@ -43,37 +43,47 @@ const Accommodation = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-28 md:pt-32">
+    <div className="min-h-screen pt-28 md:pt-32 bg-background">
       {/* Header */}
-      <section className="py-16 gradient-hero text-white">
-        <div className="container mx-auto px-4 text-center">
+      <section className="relative py-16 md:py-20 gradient-hero text-white overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60" />
+        <div className="container mx-auto px-4 relative z-10">
           <AnimatedSection animation="scale-in">
-            <h1 className="font-heading text-5xl md:text-6xl font-bold mb-4">
-              Accommodation Details
-            </h1>
-            <p className="text-xl text-white/90">
-              Your comfort is our priority
-            </p>
+            <div className="max-w-3xl mx-auto text-center bg-white/5 border border-white/15 rounded-3xl shadow-2xl backdrop-blur-xl px-6 md:px-10 py-8 md:py-10 space-y-4">
+              <p className="text-[11px] md:text-xs uppercase tracking-[0.35em] text-white/70">
+                Stay at PSG Campus • Safe & Comfortable
+              </p>
+              <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold">
+                Accommodation
+              </h1>
+              <p className="text-sm md:text-base text-white/85 max-w-2xl mx-auto">
+                Well‑organized hostel facilities for PRODOTHON&apos;26
+                participants with separate arrangements for boys and girls.
+              </p>
+            </div>
           </AnimatedSection>
         </div>
       </section>
 
-      <section className="py-16 bg-gradient-to-b from-peach/30 to-background">
-        <div className="container mx-auto px-4 max-w-5xl space-y-12">
+      <section className="py-16 md:py-20 bg-gradient-to-b from-peach/30 to-background">
+        <div className="container mx-auto px-4 max-w-5xl space-y-10 md:space-y-12">
           {/* Guidelines */}
           <AnimatedSection animation="fade-in-up">
-            <Card className="shadow-card border-0 border-l-4 border-l-accent">
-              <CardHeader>
-                <CardTitle className="font-heading text-2xl text-secondary">
-                  Guidelines
+            <Card className="shadow-card border-0 bg-white/80 backdrop-blur-md rounded-3xl">
+              <CardHeader className="pb-3 md:pb-4">
+                <CardTitle className="font-heading text-xl md:text-2xl text-secondary">
+                  General Guidelines
                 </CardTitle>
               </CardHeader>
-              <CardContent>
-                <ul className="space-y-2">
+              <CardContent className="pt-0">
+                <ul className="space-y-2.5 md:space-y-3 text-sm md:text-base">
                   {guidelines.map((item, index) => (
-                    <li key={index} className="flex items-start gap-2 text-muted-foreground">
-                      <span className="text-accent font-bold">•</span>
-                      {item}
+                    <li
+                      key={index}
+                      className="flex items-start gap-2 text-muted-foreground"
+                    >
+                      <span className="mt-1 text-accent font-bold">•</span>
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -83,64 +93,85 @@ const Accommodation = () => {
 
           {/* Accommodation Fees */}
           <AnimatedSection animation="fade-in-up" delay={0.1}>
-            <Card className="shadow-card border-0">
-              <CardHeader className="bg-secondary text-white rounded-t-lg">
-                <CardTitle className="font-heading text-2xl">
-                  Accommodation Fees
+            <Card className="shadow-card border-0 bg-white/85 backdrop-blur-md rounded-3xl overflow-hidden">
+              <CardHeader className="bg-secondary text-white rounded-t-3xl px-6 md:px-8 py-4 md:py-5">
+                <CardTitle className="font-heading text-xl md:text-2xl">
+                  Accommodation Fees (Per Day)
                 </CardTitle>
               </CardHeader>
-              <CardContent className="p-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <CardContent className="p-5 md:p-6 lg:p-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                   {/* Boys Hostel */}
-                  <div className="bg-peach/30 rounded-lg p-6">
-                    <h4 className="font-heading text-lg font-semibold text-secondary mb-4 pb-2 border-b border-secondary/20">
+                  <div className="bg-peach/35 rounded-2xl p-5 md:p-6">
+                    <h4 className="font-heading text-lg md:text-xl font-semibold text-secondary mb-3 md:mb-4 pb-2 border-b border-secondary/20">
                       Boys Hostel
                     </h4>
                     <div className="space-y-3">
                       {boysHostel.map((item, index) => (
-                        <div key={index} className="flex justify-between items-center py-2 border-b border-secondary/10 last:border-0">
-                          <span className="text-foreground text-sm">{item.type}</span>
-                          <span className="text-accent font-bold">{item.price}</span>
+                        <div
+                          key={index}
+                          className="flex justify-between items-center py-2 border-b border-secondary/10 last:border-0"
+                        >
+                          <span className="text-foreground text-sm md:text-base">
+                            {item.type}
+                          </span>
+                          <span className="text-accent font-bold text-sm md:text-base">
+                            {item.price}
+                          </span>
                         </div>
                       ))}
                     </div>
                   </div>
 
                   {/* Girls Hostel */}
-                  <div className="bg-peach/30 rounded-lg p-6">
-                    <h4 className="font-heading text-lg font-semibold text-secondary mb-4 pb-2 border-b border-secondary/20">
+                  <div className="bg-peach/35 rounded-2xl p-5 md:p-6">
+                    <h4 className="font-heading text-lg md:text-xl font-semibold text-secondary mb-3 md:mb-4 pb-2 border-b border-secondary/20">
                       Girls Hostel
                     </h4>
                     <div className="space-y-3">
                       {girlsHostel.map((item, index) => (
-                        <div key={index} className="flex justify-between items-center py-2 border-b border-secondary/10 last:border-0">
-                          <span className="text-foreground text-sm">{item.type}</span>
-                          <span className="text-accent font-bold">{item.price}</span>
+                        <div
+                          key={index}
+                          className="flex justify-between items-center py-2 border-b border-secondary/10 last:border-0"
+                        >
+                          <span className="text-foreground text-sm md:text-base">
+                            {item.type}
+                          </span>
+                          <span className="text-accent font-bold text-sm md:text-base">
+                            {item.price}
+                          </span>
                         </div>
                       ))}
                     </div>
                   </div>
                 </div>
+                <p className="text-xs md:text-sm text-muted-foreground mt-4">
+                  Note: Food‑included options cover breakfast, lunch, and dinner
+                  at the respective hostel mess.
+                </p>
               </CardContent>
             </Card>
           </AnimatedSection>
 
           {/* Hostel Rules */}
           <AnimatedSection animation="fade-in-up" delay={0.2}>
-            <Card className="shadow-card border-0 border-l-4 border-l-secondary">
-              <CardHeader>
-                <CardTitle className="font-heading text-2xl text-secondary">
-                  Hostel Rules and Regulations
+            <Card className="shadow-card border-0 bg-white/80 backdrop-blur-md rounded-3xl">
+              <CardHeader className="pb-3 md:pb-4">
+                <CardTitle className="font-heading text-xl md:text-2xl text-secondary">
+                  Hostel Rules &amp; Regulations
                 </CardTitle>
               </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
+              <CardContent className="pt-0">
+                <ul className="space-y-3 text-sm md:text-base">
                   {hostelRules.map((rule, index) => (
-                    <li key={index} className="flex items-start gap-3 text-muted-foreground">
-                      <span className="bg-secondary text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0">
+                    <li
+                      key={index}
+                      className="flex items-start gap-3 text-muted-foreground"
+                    >
+                      <span className="bg-secondary text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                         {index + 1}
                       </span>
-                      {rule}
+                      <span>{rule}</span>
                     </li>
                   ))}
                 </ul>
@@ -150,18 +181,21 @@ const Accommodation = () => {
 
           {/* Payment Guidelines */}
           <AnimatedSection animation="fade-in-up" delay={0.3}>
-            <Card className="shadow-card border-0 border-l-4 border-l-accent">
-              <CardHeader>
-                <CardTitle className="font-heading text-2xl text-secondary">
+            <Card className="shadow-card border-0 bg-white/80 backdrop-blur-md rounded-3xl">
+              <CardHeader className="pb-3 md:pb-4">
+                <CardTitle className="font-heading text-xl md:text-2xl text-secondary">
                   Payment Guidelines
                 </CardTitle>
               </CardHeader>
-              <CardContent>
-                <ul className="space-y-2">
+              <CardContent className="pt-0">
+                <ul className="space-y-2.5 md:space-y-3 text-sm md:text-base">
                   {paymentGuidelines.map((item, index) => (
-                    <li key={index} className="flex items-start gap-2 text-muted-foreground">
-                      <span className="text-accent font-bold">•</span>
-                      {item}
+                    <li
+                      key={index}
+                      className="flex items-start gap-2 text-muted-foreground"
+                    >
+                      <span className="mt-1 text-accent font-bold">•</span>
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -171,29 +205,45 @@ const Accommodation = () => {
 
           {/* Bank Details */}
           <AnimatedSection animation="scale-in" delay={0.4}>
-            <Card className="shadow-card-hover border-0 bg-primary text-white overflow-hidden">
-              <CardHeader>
-                <CardTitle className="font-heading text-2xl text-accent">
-                  Bank Details
+            <Card className="shadow-card border-0 bg-primary text-white rounded-3xl overflow-hidden">
+              <CardHeader className="px-6 md:px-8 pt-5 md:pt-6 pb-3">
+                <CardTitle className="font-heading text-xl md:text-2xl text-accent">
+                  Bank Details for Payment
                 </CardTitle>
               </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <CardContent className="px-6 md:px-8 pb-6 md:pb-7">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
                   <div>
-                    <p className="text-white/70 text-sm">Name of Account Holder</p>
-                    <p className="font-semibold">PSG Center for Nonformal and Continuing Education</p>
+                    <p className="text-white/70 text-xs md:text-sm">
+                      Name of Account Holder
+                    </p>
+                    <p className="font-semibold text-sm md:text-base">
+                      PSG Center for Nonformal and Continuing Education
+                    </p>
                   </div>
                   <div>
-                    <p className="text-white/70 text-sm">Account Number</p>
-                    <p className="font-semibold text-accent text-xl">1481267367</p>
+                    <p className="text-white/70 text-xs md:text-sm">
+                      Account Number
+                    </p>
+                    <p className="font-semibold text-accent text-lg md:text-xl">
+                      1481267367
+                    </p>
                   </div>
                   <div>
-                    <p className="text-white/70 text-sm">IFSC Code</p>
-                    <p className="font-semibold text-accent text-xl">CBIN0280913</p>
+                    <p className="text-white/70 text-xs md:text-sm">
+                      IFSC Code
+                    </p>
+                    <p className="font-semibold text-accent text-lg md:text-xl">
+                      CBIN0280913
+                    </p>
                   </div>
                   <div>
-                    <p className="text-white/70 text-sm">Bank Name</p>
-                    <p className="font-semibold">Central Bank of India</p>
+                    <p className="text-white/70 text-xs md:text-sm">
+                      Bank Name
+                    </p>
+                    <p className="font-semibold text-sm md:text-base">
+                      Central Bank of India
+                    </p>
                   </div>
                 </div>
               </CardContent>
@@ -202,9 +252,16 @@ const Accommodation = () => {
 
           {/* CTA */}
           <AnimatedSection className="text-center">
+            <p className="text-muted-foreground text-sm md:text-base mb-3">
+              Once your accommodation and registration fees are paid, complete
+              the registration form to confirm your stay.
+            </p>
             <Link to="/register">
-              <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 shadow-glow text-lg px-12 h-14 font-semibold">
-                Register Now
+              <Button
+                size="lg"
+                className="bg-accent text-accent-foreground hover:bg-accent/90 shadow-glow text-base md:text-lg px-10 md:px-12 h-12 md:h-14 font-semibold"
+              >
+                Proceed to Registration
               </Button>
             </Link>
           </AnimatedSection>
