@@ -15,7 +15,7 @@ const Events = () => {
       id: 1,
       name: "Production Meishu",
       category: "competition",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600",
+      image: "/eventlogo/The production meishu_.png",
       description: "Production Meishu is a platform where participants present their skills in product design, manufacturing, cost estimation, and marketing to a panel of judges. The event emphasizes innovative product development, smart selection of manufacturing processes, and efficient production planning. Participants must showcase cost-effective methods, apply lean manufacturing to reduce waste, and highlight quality control measures that ensure product standards. Environment-friendly practices such as recycling, energy efficiency, and waste reduction—are also expected. Strong application of production, operations, and supply chain management principles will be key to demonstrating optimized manufacturing and logistics efficiency.",
       date: "Feb 27-28, 2026",
       venue: "Main Auditorium",
@@ -43,7 +43,7 @@ Prizes will be awarded to the top three winners in each category (PSG and Non-PS
       id: 2,
       name: "Paper / Project Presentation",
       category: "competition",
-      image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600",
+      image: "/eventlogo/Paper presentation_.png",
       description: "Paper / Project Presentation is an academic platform created to encourage students to showcase their innovative thinking, technical research and engineering problem-solving skills. This event aims to promote knowledge sharing, critical thinking, and collaborative learning through discussions on emerging trends in the industry. Participants can present Technical Papers OR Project Models / Case Studies. Participants can present any technical paper from Mechanical stream (Production, Mechanical, Mechatronics, Automobile or Industrial Engineering domain.)",
       date: "Feb 27, 2026",
       venue: "Seminar Hall A",
@@ -92,7 +92,7 @@ Attendance and active participation are required to receive a certificate.`
       id: 4,
       name: "The CAD Master Challenge",
       category: "competition",
-      image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=600",
+      image: "/eventlogo/Cad combat.jpg",
       description: "The CAD Master Challenge is a two-round technical competition designed to test participants' 3D modelling, assembly, and animation skills using CAD software. The event aims to evaluate both speed and design precision, pushing participants to showcase their creativity and technical excellence in computer-aided design.",
       date: "Feb 27, 2026 | 10:00 AM",
       venue: "CAD Lab",
@@ -116,7 +116,7 @@ Judges' decisions are final and binding.`
       id: 5,
       name: "AutoQuest",
       category: "competition",
-      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600",
+      image: "/eventlogo/Autoquest_.jpg",
       description: "AutoQuest is a two-round robotics challenge that tests participants' skills in autonomous navigation, intelligent sensing, and real-time decision-making. Competitors must design and program self-driven electric bots capable of completing dynamic arena challenges without human control. From precision parking maneuvers to strategic target-hunting duels, every round pushes the limits of coding logic, sensor fusion, and control design. AutoQuest isn't just about building a bot — it's about engineering machines that think, sense, and act on their own. The event fosters creativity, teamwork, and hands-on problem-solving under pressure. AutoQuest ultimately prepares future engineers for real-world autonomous systems used in modern manufacturing, mobility, and smart industries.",
       date: "Feb 27-28, 2026",
       venue: "Robotics Arena",
@@ -146,7 +146,7 @@ Any form of human intervention after the start of the task will result in penalt
       id: 6,
       name: "Ladder Rush",
       category: "competition",
-      image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=600",
+      image: "/eventlogo/LadderRush.jpg",
       description: "This event brings a creative twist to the classic board game Snakes and Ladders, transforming it into an exciting blend of engineering knowledge, teamwork, and fast decision-making. This dynamic format adds an extra layer of excitement, ensuring every team stays alert and prepared. The mix of luck, knowledge, and quick reflexes promises plenty of surprises whether you're climbing up a ladder or sliding down a tricky snake. The goal of this event is not only to entertain but also to strengthen bonding within the Production Engineering community, encourage active participation, and refresh fundamental engineering concepts in a fun, relaxed environment. Join us for three unforgettable hours of strategy, laughter, and friendly competition!",
       date: "Feb 28, 2026 | 2:00 PM",
       venue: "Recreation Hall",
@@ -177,7 +177,7 @@ Judges' decisions are final and binding.`
       id: 7,
       name: "Stick It! Structure It!",
       category: "competition",
-      image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600",
+      image: "/eventlogo/Stick it structure it_.jpg",
       description: "Inspired by modern advancements in sustainable engineering, where lightweight truss systems are replacing heavy metallic structures in cranes and cantilevers, this event challenges participants to design and construct a miniature Truss Crane Arm using renewable materials. Using only wooden sticks, glue, elastic thread, and basic tools, participants must create a cantilever-type crane arm capable of supporting the maximum possible load at its free end. The structure should reflect superior strength, minimal deflection, and efficient material utilization. During evaluation, judges will progressively apply load at the crane's tip until structural failure to assess stability, durability, and design efficiency. This event encourages sustainable innovation through minimal material use, thoughtful engineering design, and responsible resource management.",
       date: "Feb 28, 2026 | 10:00 AM",
       venue: "Workshop Hall",
@@ -204,7 +204,7 @@ The judges' decisions shall be final and binding.`
       id: 8,
       name: "Panel Discussion on Sustainability in Manufacturing",
       category: "discussion",
-      image: "https://images.unsplash.com/photo-1556155092-490a1ba16284?w=600",
+      image: "/eventlogo/Panel discussion_.png",
       description: "Panel Discussion on \"Sustainability in Manufacturing\" brings together renowned industry professionals, technical experts, and thought leaders from across the country to explore emerging approaches that are shaping the future of sustainable manufacturing. The discussion aims to provide students, researchers, and budding engineers with deep industry insights, real-world challenges, and practical perspectives on how sustainability can be effectively embedded into modern manufacturing environments. By engaging directly with accomplished professionals, participants will gain valuable exposure to industry expectations, evolving trends, and the skills required to contribute to a greener and more sustainable industrial landscape. This event serves as a bridge academia and industry, promote responsible engineering practices, and inspire the next generation of innovators.",
       date: "Feb 27, 2026 | 9:30 AM to 12:30 PM",
       venue: "Conference Hall",
@@ -297,7 +297,7 @@ Inspire the next generation of engineers to contribute to a greener industrial l
                       <img
                         src={event.image}
                         alt={event.name}
-                        className="w-full h-64 lg:h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        className="w-full h-full lg:h-full object-center transition-transform duration-700 group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       <div className="absolute top-4 left-4 flex gap-2">

@@ -50,18 +50,19 @@ const Home = () => {
   );
 
   const events = [
-    { id: 1, name: "Production Meishu", image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400" },
-    { id: 2, name: "Paper / Project Presentation", image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400" },
+    { id: 1, name: "Production Meishu", image: "/eventlogo/The production meishu_.png" },
+    { id: 2, name: "Paper / Project Presentation", image: "/eventlogo/Paper presentation_.png" },
     { id: 3, name: "AI-Driven Design Workshop", image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400" },
-    { id: 4, name: "CAD Master Challenge", image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=400" },
-    { id: 5, name: "AutoQuest", image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400" },
-    { id: 6, name: "Ladder Rush", image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=400" },
-    { id: 7, name: "Stick It! Structure It!", image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400" },
-    { id: 8, name: "Panel Discussion", image: "https://images.unsplash.com/photo-1556155092-490a1ba16284?w=400" },
+    { id: 4, name: "CAD Master Challenge", image: "/eventlogo/Cad combat.jpg" },
+    { id: 5, name: "AutoQuest", image: "/eventlogo/Autoquest_.jpg" },
+    { id: 6, name: "Ladder Rush", image: "/eventlogo/LadderRush.jpg" },
+    { id: 7, name: "Stick It! Structure It!", image: "/eventlogo/Stick it structure it_.jpg" },
+    { id: 8, name: "Panel Discussion", image: "/eventlogo/Panel discussion_.png" },
   ];
 
   const sponsors = [
-    "Sponsor 1", "Sponsor 2", "Sponsor 3", "Sponsor 4", "Sponsor 5", "Sponsor 6"
+    { name: "Sponsor 1", image: "/Sponsers/_image.webp" },
+    { name: "Sponsor 2", image: "/Sponsers/IMG-20260106-WA0037.jpg" },
   ];
 
   return (
@@ -124,28 +125,33 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Sponsors Section */}
-      <section className="py-16 bg-peach overflow-hidden">
-        <div className="container mx-auto px-4">
-          <AnimatedSection>
-            <h2 className="font-heading text-3xl font-bold text-center text-primary mb-10">
-              Our Sponsors
-            </h2>
-          </AnimatedSection>
-          <div className="relative">
-            <div className="flex animate-scroll-left gap-8 md:gap-12">
-              {[...sponsors, ...sponsors, ...sponsors].map((sponsor, index) => (
-                <div
-                  key={index}
-                  className="flex-shrink-0 w-36 h-20 bg-white rounded-xl flex items-center justify-center text-primary font-semibold shadow-card hover:shadow-card-hover hover:scale-105 transition-smooth"
-                >
-                  {sponsor}
-                </div>
-              ))}
-            </div>
-          </div>
+{/* Sponsors Section */}
+<section className="py-16 bg-peach">
+  <div className="container mx-auto px-4">
+    <AnimatedSection>
+      <h2 className="font-heading text-3xl font-bold text-center text-primary mb-10">
+        Our Sponsors
+      </h2>
+    </AnimatedSection>
+
+    <div className="flex justify-center flex-wrap gap-x-12 gap-y-8">
+      {sponsors.map((sponsor, index) => (
+        <div
+          key={index}
+          className="w-36 h-20 bg-white rounded-xl flex items-center justify-center text-primary font-semibold shadow-card hover:shadow-card-hover hover:scale-105 transition-transform"
+        >
+          <img
+            src={sponsor.image}
+            alt={sponsor.name}
+            className="w-full h-full object-contain"
+          />
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+
+
 
       {/* Events Section */}
       <section className="py-20 bg-background">
@@ -163,7 +169,7 @@ const Home = () => {
                     <img
                       src={event.image}
                       alt={event.name}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="w-full h-full object-fill transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent" />
                     <div className="absolute bottom-0 left-0 right-0 p-4 text-white">

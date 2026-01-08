@@ -18,6 +18,7 @@ import Team from "./pages/Team";
 import Contact from "./pages/Contact";
 import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
+import HaivaAgent from "./components/Haiva";
 
 const queryClient = new QueryClient();
 
@@ -47,6 +48,7 @@ const App = () => (
           <Footer />
           <BackToTop />
           <RegisterReminder />
+          <HaivaAgent />
         </div>
       </BrowserRouter>
     </TooltipProvider>
