@@ -86,13 +86,13 @@ const Footer = () => {
                     href="tel:+918838892817"
                     className="block hover:text-accent transition-smooth"
                   >
-                    BALAJI C: +91 8838892817
+                    Balaji C: +91 8838892817
                   </a>
                   <a
                     href="tel:+919843306391"
                     className="block hover:text-accent transition-smooth"
                   >
-                    LAKSHMAN: +91 98433 06391
+                    Lakshman Raghav V G: +91 98433 06391
                   </a>
                 </div>
               </div>
@@ -115,7 +115,7 @@ const Footer = () => {
               <p>
                 <span className="font-semibold text-accent">SME</span>
                 <br />
-                Society of Manufacturing Engineers
+                Society of Manufacturing Engineers - Students' Chapter
               </p>
             </div>
             <Link to="/register" className="inline-block mt-4">

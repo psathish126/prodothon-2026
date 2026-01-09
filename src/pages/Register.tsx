@@ -7,7 +7,7 @@ const Register = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       window.open(GOOGLE_FORM_URL, "_blank");
-    }, 5000);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
