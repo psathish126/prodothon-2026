@@ -41,7 +41,7 @@ const Events = () => {
       category: "competition",
       image: "/eventlogo/The production meishu_.png",
       description:
-        "Production Meishu is a platform where participants present their skills in product design, manufacturing, cost estimation, and marketing to a panel of judges. The event emphasizes innovative product development, smart selection of manufacturing processes, and efficient production planning.",
+        "Production Meishu is a platform where participants showcase their expertise in product design, manufacturing, cost estimation, and marketing through a comprehensive presentation before a panel of judges. During the event, a product or case study will be provided, and participants are required to prepare and present their analysis on the same day. The presentation may begin with a detailed product design phase, applying innovation-driven product development principles, followed by the selection of appropriate manufacturing processes and materials with an emphasis on efficiency and cost-effectiveness. Participants are expected to address process planning and cost estimation while integrating lean manufacturing principles to minimize waste and enhance overall production efficiency. Quality control measures must be highlighted to ensure compliance with product specifications, along with environmentally conscious manufacturing practices such as recycling, energy efficiency, and waste reduction. Additionally, the effective application of production and operations management principles, along with supply chain management concepts, will be crucial in optimizing manufacturing processes and improving overall logistics efficiency.",
       date: "Feb 27, 2026 (Friday) • 9:30 AM – 12:30 PM",
       venue: "Main Auditorium",
       day: "Day 1",
@@ -70,7 +70,7 @@ Prizes will be awarded to the top three winners in each category (PSG and Non-PS
       category: "competition",
       image: "/eventlogo/Paper presentation_.png",
       description:
-        "Paper / Project Presentation encourages students to showcase innovative thinking, technical research and engineering problem-solving skills. Participants can present technical papers or project models from any mechanical allied stream.",
+        "Paper / Project Presentation is an academic platform created to encourage students to showcase their innovative thinking, technical research and engineering problem-solving skills. This event aims to promote knowledge sharing, critical thinking, and collaborative learning through discussions on emerging trends in the industry. Participants can present Technical Papers OR Project Models / Case Studies related to the suggested mechanical and allied engineering domains listed in the event brochure.",
       date: "Feb 27, 2026 (Friday) • 1:30 PM – 4:30 PM",
       venue: "Seminar Hall A",
       day: "Day 1",
@@ -100,7 +100,7 @@ Certificates will be issued to all participants.`,
       image:
         "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800",
       description:
-        "Hands-on workshop that demonstrates how generative design and FEA can be combined to create lightweight, high-performance components. Participants complete an optimisation case and validate it using FEA tools.",
+        "Hands-on workshop that demonstrates how generative design and FEA can be combined to create lightweight, high-performance components. Participants will work through an optimisation case and validate the outcome using FEA tools, gaining exposure to AI-driven design workflows.",
       date: "Feb 27, 2026 (Friday) • 1:30 PM – 4:30 PM",
       venue: "Computer Lab 1",
       day: "Day 1",
@@ -122,7 +122,7 @@ Attendance and active participation are required to receive a certificate.`,
       category: "competition",
       image: "/eventlogo/Cad combat.jpg",
       description:
-        "Two–round CAD contest that tests part modelling and mechanism animation skills. Participants compete to model accurate components quickly and assemble them into a functional mechanism.",
+        "The CAD/CAM event is a technical design competition aimed at assessing participants’ proficiency in computer-aided design, part modelling, and mechanism animation. The event challenges students to apply their engineering knowledge, creativity, and time-management skills in a simulated industrial design environment through two competitive rounds completed within a fixed duration.",
       date: "Feb 28, 2026 (Saturday) • 9:30 AM – 12:30 PM",
       venue: "CAD Lab",
       day: "Day 2",
@@ -144,7 +144,7 @@ Judges' decisions are final and binding.`,
       category: "competition",
       image: "/eventlogo/Autoquest_.jpg",
       description:
-        "Two–round robotics challenge focused on autonomous navigation, sensing and decision-making. Teams design self-driven electric bots to handle parking and precision tasks without human control.",
+        "The Autonomous Parking Challenge is a robotics competition designed to test participants’ skills in autonomous navigation, path planning, and precision parking. The arena simulates a real-world parking lot, and teams must develop intelligent robots that identify parking spaces, navigate safely around obstacles, and park accurately without human intervention across two rounds.",
       date: "Feb 28, 2026 (Saturday) • 9:30 AM – 12:30 PM",
       venue: "Robotics Arena",
       day: "Day 2",
@@ -157,7 +157,11 @@ Number of rounds: 2.
 Participation criteria: Team of 2 to 3 members.
 Robots must operate fully autonomously; any human intervention results in penalties.
 Dynamic and static obstacles will be present in the arena.
-Scores depend on navigation accuracy, parking precision and collision avoidance.`,
+Scores depend on navigation accuracy, parking precision and collision avoidance.
+The robot must comply with the specified dimension and weight limits.
+The robot must operate safely and avoid collisions at all times.
+Scores will be reduced for collisions and incomplete or partial parking.
+Any form of human intervention after the start of the task will result in penalties and corresponding score reductions.`,
     },
     {
       id: 6,
@@ -165,7 +169,7 @@ Scores depend on navigation accuracy, parking precision and collision avoidance.
       category: "competition",
       image: "/eventlogo/LadderRush.jpg",
       description:
-        "A high‑energy adaptation of Snakes and Ladders blended with rapid‑fire technical questions. Teams race across the board by answering engineering questions within seconds.",
+        "This event is a creative adaptation of Snakes and Ladders that integrates engineering knowledge, teamwork, and quick decision-making. Teams of two advance on the board only when they answer rapid-fire technical questions correctly within a fixed time limit, with winners decided based on the highest board position.",
       date: "Feb 28, 2026 (Saturday) • 1:30 PM – 4:00 PM",
       venue: "Recreation Hall",
       day: "Day 2",
@@ -175,10 +179,19 @@ Scores depend on navigation accuracy, parking precision and collision avoidance.
         { name: "Karunya V", phone: "9952200812" },
       ],
       rules: `EVENT RULES & GUIDELINES
-Team of 2 members.
-Move only if the answer is correct within 5 seconds.
-Rounds are time-bound; winners are decided by position on the board.
-Judges' decisions are final and binding.`,
+Each team shall consist of two members.
+The game shall commence only after a team rolls a one (1) on the dice.
+Within each team, one member shall roll the dice, while the other shall move the token on the board.
+A team shall be permitted to move on the board only upon answering a question correctly.
+Team members must answer questions alternately throughout the game.
+Each question must be answered within 5 seconds.
+If a team fails to answer within the allotted time or answers incorrectly, the question shall not be repeated.
+In such cases, the same question shall not be carried forward, and a new question shall be posed to the next team.
+The event is time-bound, with each round lasting 20 minutes.
+Five teams shall participate in the first round.
+Winning teams from the first round shall advance to the second round.
+The final winner shall be determined based on the board position achieved within the allotted time.
+The game may be conducted in multiple rounds depending on the number of teams.`,
     },
     {
       id: 7,
@@ -186,7 +199,7 @@ Judges' decisions are final and binding.`,
       category: "competition",
       image: "/eventlogo/Stick it structure it_.jpg",
       description:
-        "Sustainable design challenge where teams build a truss crane arm using wooden sticks. The structure is evaluated for load-carrying capacity, stiffness and efficient material use.",
+        "Inspired by sustainable engineering practices, this event challenges participants to design and fabricate a miniature truss-based simply supported structure using wooden sticks and basic tools. The model must carry maximum load at mid-span with minimal deflection, promoting efficient material usage and aligning with Sustainable Development Goal 12 on responsible consumption and production.",
       date: "Feb 28, 2026 (Saturday) • 1:30 PM – 4:00 PM",
       venue: "Workshop Hall",
       day: "Day 2",
@@ -197,9 +210,14 @@ Judges' decisions are final and binding.`,
       ],
       rules: `EVENT RULES & GUIDELINES
 Team size: 2 to 4.
-Materials provided by organizers; stick usage limited.
-Truss must be self-supporting and follow dimensions.
-Loads applied incrementally until failure to rank designs.`,
+All required materials (sticks, glue, cutters) will be provided by the organizers.
+Stick usage must not exceed the announced limit.
+Participants must complete the truss within the allotted time.
+The use of mobile phones and electronic gadgets is strictly prohibited.
+Participants may bring basic tools such as rulers and markers; however, sticks and glue from outside are not permitted.
+The truss must be self-supporting and must adhere to the specified dimensions.
+Loads will be applied incrementally at mid-span until failure to rank designs.
+The judges’ decisions shall be final and binding.`,
     },
     {
       id: 8,
@@ -207,7 +225,7 @@ Loads applied incrementally until failure to rank designs.`,
       category: "discussion",
       image: "/eventlogo/Panel discussion_.png",
       description:
-        "Panel featuring industry experts who share insights on embedding sustainability in modern manufacturing. Ideal for students who want real‑world perspective on green engineering.",
+        "This panel discussion brings together renowned industry professionals, technical experts, and thought leaders to explore emerging approaches shaping the future of sustainable manufacturing. It offers students and budding engineers deep insights into real-world challenges, industry expectations, and practical strategies for embedding sustainability in modern manufacturing environments.",
       date: "Feb 27, 2026 (Friday) • 9:30 AM – 12:30 PM",
       venue: "Conference Hall",
       day: "Day 1",
