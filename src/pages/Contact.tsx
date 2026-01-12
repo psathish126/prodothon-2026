@@ -82,7 +82,7 @@ const Contact = () => {
                           href="tel:+919843306391"
                           className="block text-foreground font-semibold text-base md:text-lg hover:text-accent transition-colors"
                         >
-                          LAKSHMAN: +91 98433 06391
+                          Lakshman Raghav V G: +91 98433 06391
                         </a>
                       </div>
                     </div>

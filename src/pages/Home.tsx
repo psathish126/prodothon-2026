@@ -51,11 +51,7 @@ const Home = () => {
             <AnimatedSection animation="scale-in">
               <div className="bg-white/5 border border-white/15 rounded-3xl shadow-2xl backdrop-blur-2xl px-3 sm:px-4 md:px-10 py-6 sm:py-8 md:py-12 space-y-4 sm:space-y-6 md:space-y-8 animate-[fadeIn_0.8s_ease-out]">
                 <AnimatedSection animation="fade-in-up">
-                  <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1 rounded-full bg-black/40 border border-white/25 text-[9px] sm:text-[10px] md:text-xs tracking-[0.28em] sm:tracking-[0.35em] uppercase mb-1">
-                    <span>PSG COLLEGE OF TECHNOLOGY</span>
-                    <span className="h-1 w-1 rounded-full bg-accent" />
-                    <span>PRODOTHON’26</span>
-                  </div>
+                  
                 </AnimatedSection>
 
                 <AnimatedSection animation="scale-in" delay={0.1}>

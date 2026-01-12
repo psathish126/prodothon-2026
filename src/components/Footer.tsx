@@ -143,27 +143,7 @@ const Footer = () => {
             </span>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-2">
-            <a
-              href="https://www.instagram.com/sathish__126_/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/10 text-white/80 hover:text-accent transition-smooth"
-            >
-              <Instagram className="h-4 w-4" />
-              <span className="text-xs sm:text-sm">@sathish__126_</span>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/sathishkumarp126/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/10 text-white/80 hover:text-accent transition-smooth"
-            >
-              <Linkedin className="h-4 w-4" />
-              <span className="text-xs sm:text-sm">/in/sathishkumarp126</span>
-            </a>
-          </div>
-        </div>
+                  </div>
       </div>
     </footer>
   );
