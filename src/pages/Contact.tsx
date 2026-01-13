@@ -60,10 +60,10 @@ const Contact = () => {
                         <Mail className="h-5 w-5 md:h-6 md:w-6" />
                       </div>
                       <a
-                        href="mailto:pea.prod@psgtech.ac.in"
+                        href="mailto:prodothon@psgtech.ac.in"
                         className="text-secondary hover:text-accent font-semibold text-base md:text-lg transition-colors break-all"
                       >
-                        pea.prod@psgtech.ac.in
+                        prodothon@psgtech.ac.in
                       </a>
                     </div>
 

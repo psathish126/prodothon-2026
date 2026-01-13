@@ -98,7 +98,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3 text-sm">
                 <Mail className="h-5 w-5 text-accent flex-shrink-0" />
-                <span className="text-white/80">pea.prod@psgtech.ac.in</span>
+                <span className="text-white/80">prodothon@psgtech.ac.in</span>
               </div>
             </div>
           </div>

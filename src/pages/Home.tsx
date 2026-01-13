@@ -289,10 +289,10 @@ const Home = () => {
                         <Mail className="h-5 w-5" />
                       </div>
                       <a
-                        href="mailto:pea.prod@psgtech.ac.in"
+                        href="mailto:prodothon@psgtech.ac.in"
                         className="text-secondary hover:text-accent font-medium text-sm sm:text-base transition-smooth break-all"
                       >
-                        pea.prod@psgtech.ac.in
+                        prodothon@psgtech.ac.in
                       </a>
                     </div>
 
@@ -311,7 +311,7 @@ const Home = () => {
                           href="tel:+919843306391"
                           className="text-foreground font-medium hover:text-accent transition-smooth block text-sm sm:text-base"
                         >
-                          LAKSHMAN : +91 98433 06391
+                          Lakshman Raghav V G: +91 98433 06391
                         </a>
                       </div>
                     </div>
