@@ -138,8 +138,7 @@ const Footer = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-3 pt-2">
             <span className="text-white/60">Designed &amp; developed by</span>
             <span className="font-semibold text-accent text-center">
-              Sathish P (Final Year BE Production Engineering · Technical Staff
-              @ Haiva AI)
+              Sathish P (Final Year BE Production Engineering)
             </span>
           </div>
 
