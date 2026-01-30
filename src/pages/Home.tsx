@@ -56,26 +56,21 @@ const Home = () => {
           <div className="w-[200%] h-[200%] bg-[linear-gradient(to_right,rgba(148,163,184,0.18)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.18)_1px,transparent_1px)] bg-[size:40px_40px] animate-[slow-pan_35s_linear_infinite]" />
         </div>
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="container mx-auto px-3 xs:px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-5xl mx-auto text-center">
             <AnimatedSection animation="scale-in">
-              <div className="relative overflow-hidden bg-black/35 sm:bg-black/40 border border-white/15 rounded-[28px] sm:rounded-[32px] shadow-[0_22px_110px_rgba(0,0,0,0.9)] backdrop-blur-2xl px-4 sm:px-7 md:px-10 py-6 sm:py-8 md:py-12 space-y-4 sm:space-y-6 md:space-y-8">
+              <div className="relative overflow-hidden bg-black/40 border border-white/15 rounded-[18px] xs:rounded-[20px] sm:rounded-[32px] shadow-[0_22px_110px_rgba(0,0,0,0.9)] backdrop-blur-2xl px-3 xs:px-4 sm:px-7 md:px-10 py-4 xs:py-5 sm:py-8 md:py-12 space-y-3 xs:space-y-4 sm:space-y-6 md:space-y-8">
                 <div className="pointer-events-none absolute inset-0 rounded-[32px] border border-emerald-400/40 opacity-70 [mask-image:radial-gradient(circle_at_top,_black,transparent_70%)] animate-[border-glow_5s_ease-in-out_infinite]" />
 
                 {/* top pill */}
-                <AnimatedSection animation="fade-in-up">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-emerald-300/40 bg-emerald-500/10 px-3.5 py-1 text-[10px] xs:text-[11px] sm:text-xs uppercase tracking-[0.22em] text-emerald-100/95 font-display">
-                    <Sparkles className="h-3 w-3 text-emerald-300" />
-                    <span>Department of Production Engineering</span>
-                  </div>
-                </AnimatedSection>
+             
 
-                {/* hero heading with catchy font */}
+                {/* hero heading */}
                 <AnimatedSection animation="scale-in" delay={0.1}>
                   <h1
                     className="
                       font-heading font-black
-                      text-4xl xs:text-[2.6rem] sm:text-5xl md:text-7xl lg:text-[4.8rem]
+                      text-[2rem] xs:text-[2.3rem] sm:text-5xl md:text-7xl lg:text-[4.8rem]
                       leading-tight md:leading-[1.05]
                       tracking-tight
                     "
@@ -87,7 +82,7 @@ const Home = () => {
                 </AnimatedSection>
 
                 <AnimatedSection animation="fade-in-up" delay={0.25}>
-                  <p className="font-display text-[10px] xs:text-[11px] sm:text-sm md:text-[0.95rem] lg:text-base font-semibold text-emerald-200/90 uppercase tracking-[0.3em] sm:tracking-[0.38em]">
+                  <p className="font-display text-[9px] xs:text-[10px] sm:text-sm md:text-[0.95rem] lg:text-base font-semibold text-emerald-200/90 uppercase tracking-[0.22em] sm:tracking-[0.32em]">
                     Learn • Impact • Innovate
                   </p>
                 </AnimatedSection>
@@ -96,7 +91,7 @@ const Home = () => {
                   <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 justify-center">
                     <div className="relative">
                       <div className="absolute inset-0 rounded-2xl bg-emerald-500/50 blur-2xl opacity-70 animate-[pulse_3s_ease-in-out_infinite]" />
-                      <div className="relative font-display text-lg xs:text-xl sm:text-2xl md:text-4xl lg:text-[2.6rem] font-extrabold bg-gradient-to-r from-amber-300 via-emerald-200 to-teal-200 text-slate-950 px-7 sm:px-9 md:px-12 py-2.5 sm:py-3 md:py-4 rounded-2xl shadow-[0_18px_50px_rgba(0,0,0,0.7)] border border-white/30 tracking-wide">
+                      <div className="relative font-display text-base xs:text-lg sm:text-2xl md:text-4xl lg:text-[2.6rem] font-extrabold bg-gradient-to-r from-amber-300 via-emerald-200 to-teal-200 text-slate-950 px-5 xs:px-6 sm:px-9 md:px-12 py-2 xs:py-2.5 sm:py-3 md:py-4 rounded-2xl shadow-[0_18px_50px_rgba(0,0,0,0.7)] border border-white/30 tracking-wide">
                         FEB 27 &amp; 28
                       </div>
                     </div>
@@ -104,7 +99,7 @@ const Home = () => {
                 </AnimatedSection>
 
                 <AnimatedSection animation="fade-in-up" delay={0.55}>
-                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center pt-2.5 sm:pt-4 md:pt-6">
+                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center pt-2 xs:pt-2.5 sm:pt-4 md:pt-6">
                     <a
                       href="/brochure.pdf"
                       download
@@ -113,7 +108,7 @@ const Home = () => {
                     >
                       <Button
                         size="lg"
-                        className="group bg-white text-slate-950 hover:bg-slate-100 text-xs xs:text-sm sm:text-base md:text-lg px-6 sm:px-8 h-10 xs:h-11 sm:h-12 md:h-14 font-semibold shadow-xl hover:shadow-[0_0_40px_rgba(248,250,252,0.9)] transition-transform duration-200 hover:-translate-y-0.5"
+                        className="group bg-white text-slate-950 hover:bg-slate-100 text-xs xs:text-sm sm:text-base md:text-lg px-4 xs:px-5 sm:px-8 h-9 xs:h-10 sm:h-11 md:h-12 font-semibold shadow-xl hover:shadow-[0_0_40px_rgba(248,250,252,0.9)] transition-transform duration-200 hover:-translate-y-0.5"
                       >
                         <Download className="mr-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:scale-110 transition-transform" />
                         Download Brochure
@@ -123,9 +118,9 @@ const Home = () => {
                     <Link to="/register">
                       <Button
                         size="lg"
-                        className="group bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-300 text-slate-950 hover:from-emerald-300 hover:via-teal-300 hover:to-emerald-200 shadow-[0_0_55px_rgba(34,197,94,0.9)] animate-pulse-glow text-xs xs:text-sm sm:text-base md:text-lg px-6 sm:px-8 h-10 xs:h-11 sm:h-12 md:h-14 font-semibold hover:shadow-[0_0_70px_rgba(45,212,191,1)] transition-transform duration-200 hover:-translate-y-0.5"
+                        className="group bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-300 text-slate-950 hover:from-emerald-300 hover:via-teal-300 hover:to-emerald-200 shadow-[0_0_55px_rgba(34,197,94,0.9)] animate-pulse-glow text-xs xs:text-sm sm:text-base md:text-lg px-4 xs:px-5 sm:px-8 h-9 xs:h-10 sm:h-11 md:h-12 font-semibold hover:shadow-[0_0_70px_rgba(45,212,191,1)] transition-transform duration-200 hover:-translate-y-0.5"
                       >
-                        <span className="mr-2">Register Here</span>
+                        <span className="mr-2 whitespace-nowrap">Register Here</span>
                         <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
                       </Button>
                     </Link>
@@ -138,9 +133,9 @@ const Home = () => {
       </section>
 
       {/* Sponsors Section */}
-      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-slate-950 via-slate-900 to-emerald-950/60 relative overflow-hidden">
+      <section className="py-10 sm:py-16 md:py-20 bg-gradient-to-b from-slate-950 via-slate-900 to-emerald-950/60 relative overflow-hidden">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_bottom,_rgba(45,212,191,0.18),transparent_60%)]" />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
+        <div className="container mx-auto px-3 xs:px-4 sm:px-6 lg:px-10 relative z-10">
           <AnimatedSection animation="fade-in-up">
             <div className="flex justify-center mb-4 sm:mb-6">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-300/30 bg-emerald-500/10 text-[10px] xs:text-[11px] sm:text-xs text-emerald-100/90 font-display tracking-[0.2em] uppercase">
@@ -148,13 +143,13 @@ const Home = () => {
                 <span>Powered by Industry Leaders</span>
               </div>
             </div>
-            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-center text-emerald-50 mb-6 sm:mb-8">
+            <h2 className="font-heading text-xl sm:text-3xl md:text-4xl font-bold text-center text-emerald-50 mb-6 sm:mb-8">
               Our Sponsors
             </h2>
           </AnimatedSection>
 
           <AnimatedSection animation="scale-in" delay={0.1}>
-            <div className="bg-white/5 backdrop-blur-xl rounded-3xl px-4 sm:px-6 md:px-8 py-6 sm:py-8 shadow-[0_24px_80px_rgba(0,0,0,0.85)] border border-emerald-200/20">
+            <div className="bg-white/5 backdrop-blur-xl rounded-3xl px-4 sm:px-6 md:px-8 py-5 sm:py-8 shadow-[0_24px_80px_rgba(0,0,0,0.85)] border border-emerald-200/20">
               <div className="flex justify-center flex-wrap gap-x-6 sm:gap-x-10 md:gap-x-12 gap-y-6 sm:gap-y-8">
                 {sponsors.map((sponsor, index) => (
                   <div
@@ -178,11 +173,11 @@ const Home = () => {
       </section>
 
       {/* Events Section */}
-      <section className="py-16 sm:py-20 md:py-24 bg-[radial-gradient(circle_at_top,_#020617_0,_#020617_40%,_#000000_100%)] relative overflow-hidden">
+      <section className="py-14 sm:py-20 md:py-24 bg-[radial-gradient(circle_at_top,_#020617_0,_#020617_40%,_#000000_100%)] relative overflow-hidden">
         <div className="pointer-events-none absolute inset-0 opacity-[0.12] bg-[linear-gradient(to_right,rgba(15,23,42,0.9),transparent_20%,transparent_80%,rgba(15,23,42,0.9)),radial-gradient(circle_at_top,rgba(45,212,191,0.3),transparent_55%)]" />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="container mx-auto px-3 xs:px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimatedSection animation="fade-in-up">
-            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-center text-emerald-50 mb-8 sm:mb-10 md:mb-12">
+            <h2 className="font-heading text-xl sm:text-3xl md:text-4xl font-bold text-center text-emerald-50 mb-7 sm:mb-10 md:mb-12">
               Events
             </h2>
           </AnimatedSection>
@@ -237,9 +232,9 @@ const Home = () => {
       </section>
 
       {/* About Section */}
-      <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-b from-slate-950 via-slate-900 to-emerald-950/40 relative overflow-hidden">
+      <section className="py-14 sm:py-20 md:py-24 bg-gradient-to-b from-slate-950 via-slate-900 to-emerald-950/40 relative overflow-hidden">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.35),transparent_55%),radial-gradient(circle_at_bottom_right,rgba(45,212,191,0.35),transparent_55%)] opacity-70" />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="container mx-auto px-3 xs:px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto">
             <AnimatedSection animation="fade-in-up">
               <div className="flex justify-center mb-3 sm:mb-4">
@@ -248,7 +243,7 @@ const Home = () => {
                   <span>About Prodothon</span>
                 </div>
               </div>
-              <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-center text-emerald-50 mb-8 sm:mb-10 md:mb-12">
+              <h2 className="font-heading text-xl sm:text-3xl md:text-4xl font-bold text-center text-emerald-50 mb-8 sm:mb-10 md:mb-12">
                 About Prodothon
               </h2>
             </AnimatedSection>
@@ -257,7 +252,7 @@ const Home = () => {
               <AnimatedSection animation="slide-left">
                 <Card className="shadow-[0_20px_70px_rgba(0,0,0,0.9)] hover:shadow-[0_22px_90px_rgba(45,212,191,0.45)] transition-all duration-300 border border-emerald-300/30 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
                   <CardContent className="p-5 sm:p-6 md:p-7">
-                    <h3 className="font-heading text-xl sm:text-2xl font-semibold text-emerald-200 mb-3 sm:mb-4">
+                    <h3 className="font-heading text-lg sm:text-2xl font-semibold text-emerald-200 mb-3 sm:mb-4">
                       What is Prodothon?
                     </h3>
                     <p className="text-[13px] sm:text-[15px] md:text-base text-slate-200/90 leading-relaxed">
@@ -277,7 +272,7 @@ const Home = () => {
               <AnimatedSection animation="slide-right">
                 <Card className="shadow-[0_20px_70px_rgba(0,0,0,0.9)] hover:shadow-[0_22px_90px_rgba(56,189,248,0.45)] transition-all duration-300 border border-cyan-300/30 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
                   <CardContent className="p-5 sm:p-6 md:p-7">
-                    <h3 className="font-heading text-xl sm:text-2xl font-semibold text-cyan-200 mb-3 sm:mb-4">
+                    <h3 className="font-heading text-lg sm:text-2xl font-semibold text-cyan-200 mb-3 sm:mb-4">
                       Our Vision
                     </h3>
                     <p className="text-[13px] sm:text-[15px] md:text-base text-slate-200/90 leading-relaxed">
@@ -295,7 +290,7 @@ const Home = () => {
               <AnimatedSection animation="slide-left">
                 <Card className="shadow-[0_20px_70px_rgba(0,0,0,0.9)] hover:shadow-[0_22px_90px_rgba(34,197,94,0.5)] transition-all duration-300 border border-emerald-300/30 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
                   <CardContent className="p-5 sm:p-6 md:p-7">
-                    <h3 className="font-heading text-xl sm:text-2xl font-semibold text-emerald-200 mb-3 sm:mb-4">
+                    <h3 className="font-heading text-lg sm:text-2xl font-semibold text-emerald-200 mb-3 sm:mb-4">
                       Our Mission
                     </h3>
                     <p className="text-[13px] sm:text-[15px] md:text-base text-slate-200/90 leading-relaxed">
@@ -314,15 +309,15 @@ const Home = () => {
       </section>
 
       {/* Contact & Location Section */}
-      <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-b from-emerald-950/60 via-slate-950 to-black relative overflow-hidden">
+      <section className="py-14 sm:py-20 md:py-24 bg-gradient-to-b from-emerald-950/60 via-slate-950 to-black relative overflow-hidden">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,197,94,0.3),transparent_55%)] opacity-70" />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
+        <div className="container mx-auto px-3 xs:px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 max-w-6xl mx-auto">
             {/* Contact Us */}
             <AnimatedSection animation="slide-left">
               <Card className="shadow-[0_22px_80px_rgba(0,0,0,0.95)] hover:shadow-[0_24px_100px_rgba(45,212,191,0.5)] transition-all duration-300 border border-emerald-300/30 h-full bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
-                <CardContent className="p-6 sm:p-7 md:p-8">
-                  <h3 className="font-heading text-2xl sm:text-[1.7rem] font-bold text-emerald-50 mb-5 sm:mb-6 flex items-center gap-2">
+                <CardContent className="p-5 sm:p-6 md:p-8">
+                  <h3 className="font-heading text-xl sm:text-[1.7rem] font-bold text-emerald-50 mb-5 sm:mb-6 flex items-center gap-2">
                     <span>Contact Us</span>
                     <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500/20 border border-emerald-300/60">
                       <Sparkles className="h-3.5 w-3.5 text-emerald-300" />
@@ -386,15 +381,15 @@ const Home = () => {
             <AnimatedSection animation="slide-right">
               <Card className="shadow-[0_22px_80px_rgba(0,0,0,0.95)] hover:shadow-[0_24px_100px_rgba(34,197,94,0.55)] transition-all duration-300 border border-emerald-300/30 overflow-hidden h-full bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
                 <CardContent className="p-0 h-full flex flex-col">
-                  <div className="flex items-center justify-between px-6 sm:px-7 md:px-8 pt-6 pb-3 sm:pb-4">
-                    <h3 className="font-heading text-2xl sm:text-[1.7rem] font-bold text-emerald-50">
+                  <div className="flex items-center justify-between px-5 sm:px-6 md:px-8 pt-6 pb-3 sm:pb-4">
+                    <h3 className="font-heading text-xl sm:text-[1.7rem] font-bold text-emerald-50">
                       Our Location
                     </h3>
                     <span className="text-[10px] xs:text-[11px] sm:text-xs text-emerald-200/80">
                       Tap to explore on Maps
                     </span>
                   </div>
-                  <div className="h-[240px] xs:h-[260px] sm:h-[320px] lg:h-[calc(100%-72px)] relative">
+                  <div className="h-[220px] xs:h-[240px] sm:h-[320px] lg:h-[calc(100%-72px)] relative">
                     <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,197,94,0.2),transparent_55%)] opacity-60" />
                     <iframe
                       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1521.8367616013686!2d77.00286481472448!3d11.02453589516701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8582f1435fa59%3A0x137d95bfd8909293!2sPSG%20College%20Of%20Technology!5e0!3m2!1sen!2sin!4v1765214451220!5m2!1sen!2sin"
