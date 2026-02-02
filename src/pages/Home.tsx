@@ -18,15 +18,23 @@ const Home = () => {
     { id: 1, name: "Panel Discussion", image: "/eventlogo/Panel discussion_.png" },
     { id: 2, name: "Production Meishu", image: "/eventlogo/The production meishu_.png" },
     { id: 3, name: "Paper / Project Presentation", image: "/eventlogo/Paper presentation_.png" },
-    { id: 4, name: "AI-Driven Design Workshop", image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400" },
+    { id: 4, name: "AI-Driven Design Workshop", image: "/eventlogo/workshop.png" },
     { id: 5, name: "CAD Combat", image: "/eventlogo/Cad combat.jpg" },
     { id: 6, name: "AutoQuest", image: "/eventlogo/Autoquest_.jpg" },
     { id: 7, name: "Ladder Rush", image: "/eventlogo/LadderRush.jpg" },
     { id: 8, name: "Stick It! Structure It!", image: "/eventlogo/Stick it structure it_.jpg" },
   ];
 
+  // images are served from public/Sponsers/* as /Sponsers/filename.jpg
   const sponsors = [
     { name: "Sponsor 2", image: "/Sponsers/IMG-20260106-WA0037.jpg" },
+  ];
+
+  const collaborators = [
+    { name: "Schneider Electric", image: "/Sponsers/schneider.jpg" },
+    { name: "ELGi", image: "/Sponsers/elgi.jpg" },
+    { name: "Opel", image: "/Sponsers/opel.jpg" },
+    { name: "Radiant", image: "/Sponsers/radiant.jpg" },
   ];
 
   return (
@@ -147,42 +155,80 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Sponsors Section */}
+      {/* Sponsors & Collaborators Section */}
       <section className="py-10 sm:py-16 md:py-20 bg-gradient-to-b from-white via-slate-50 to-emerald-50/40 relative overflow-hidden">
         <div className="container mx-auto px-3 xs:px-4 sm:px-6 lg:px-10 relative z-10">
           <AnimatedSection animation="fade-in-up">
             <div className="flex justify-center mb-4 sm:mb-6">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-200 bg-emerald-50 text-[10px] xs:text-[11px] sm:text-xs text-emerald-700 font-display tracking-[0.2em] uppercase">
                 <Sparkles className="h-3 w-3 text-emerald-500" />
-                <span>Powered by Industry Leaders</span>
+                <span>Partners</span>
               </div>
             </div>
             <h2 className="font-heading text-[clamp(1.35rem,3vw,2.1rem)] sm:text-3xl md:text-4xl font-bold text-center text-slate-900 mb-6 sm:mb-8">
-              Our Sponsors
+              Sponsors & Collaborators
             </h2>
           </AnimatedSection>
 
-          <AnimatedSection animation="scale-in" delay={0.1}>
-            <div className="bg-white rounded-3xl px-4 sm:px-6 md:px-8 py-5 sm:py-8 shadow-[0_16px_50px_rgba(15,23,42,0.12)] border border-slate-200">
-              <div className="flex justify-center flex-wrap gap-x-6 sm:gap-x-10 md:gap-x-12 gap-y-6 sm:gap-y-8">
-                {sponsors.map((sponsor, index) => (
-                  <div
-                    key={index}
-                    className="relative group w-24 h-14 xs:w-28 xs:h-16 sm:w-32 sm:h-18 md:w-40 md:h-20 rounded-2xl overflow-hidden bg-slate-50 shadow-sm border border-slate-200 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(15,23,42,0.25)] transition-all duration-300"
-                  >
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-[radial-gradient(circle_at_center,rgba(45,212,191,0.18),transparent_55%)] transition-opacity duration-300" />
-                    <div className="h-full w-full flex items-center justify-center p-1">
+          <div className="max-w-5xl mx-auto space-y-6 sm:space-y-8">
+            {/* Top: Sponsors (highlighted) */}
+            <AnimatedSection animation="scale-in" delay={0.1}>
+              <div className="bg-gradient-to-r from-emerald-500/10 via-emerald-50 to-emerald-500/5 rounded-3xl px-4 sm:px-6 md:px-8 py-5 sm:py-7 md:py-8 shadow-[0_18px_60px_rgba(16,185,129,0.25)] border border-emerald-200">
+                <div className="flex items-center justify-between gap-3 mb-4 sm:mb-5">
+                  <h3 className="font-heading text-lg sm:text-xl md:text-2xl font-semibold text-slate-900">
+                    Sponsor
+                  </h3>
+                  <span className="inline-flex items-center rounded-full bg-emerald-500 text-white text-[10px] xs:text-[11px] sm:text-xs font-medium px-3 py-1 shadow-sm">
+                    Prime Partner
+                  </span>
+                </div>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 items-center justify-items-center">
+                  {sponsors.map((sponsor, index) => (
+                    <div
+                      key={index}
+                      className="relative group aspect-[3/2] w-full max-w-[180px] rounded-2xl overflow-hidden bg-white shadow-sm border border-emerald-100 hover:-translate-y-1 hover:shadow-[0_20px_55px_rgba(16,185,129,0.45)] transition-all duration-300 flex items-center justify-center"
+                    >
+                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.22),transparent_60%)] transition-opacity duration-300" />
                       <img
                         src={sponsor.image}
                         alt={sponsor.name}
-                        className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                        className="max-h-full max-w-[80%] object-contain transition-transform duration-500 group-hover:scale-105"
                       />
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
-          </AnimatedSection>
+            </AnimatedSection>
+
+            {/* Bottom: Collaborators */}
+            <AnimatedSection animation="scale-in" delay={0.2}>
+              <div className="bg-white rounded-3xl px-4 sm:px-6 md:px-8 py-5 sm:py-7 md:py-8 shadow-[0_16px_50px_rgba(15,23,42,0.10)] border border-slate-200">
+                <div className="flex items-center justify-between gap-3 mb-4 sm:mb-5">
+                  <h3 className="font-heading text-lg sm:text-xl md:text-2xl font-semibold text-slate-900">
+                    Collaborators
+                  </h3>
+                  <span className="text-[10px] xs:text-[11px] sm:text-xs text-slate-500">
+                    Supporting Industry Partners
+                  </span>
+                </div>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 items-center justify-items-center">
+                  {collaborators.map((collab, index) => (
+                    <div
+                      key={index}
+                      className="relative group aspect-[3/2] w-full max-w-[160px] rounded-2xl overflow-hidden bg-slate-50 shadow-sm border border-slate-200 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(15,23,42,0.20)] transition-all duration-300 flex items-center justify-center"
+                    >
+                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-[radial-gradient(circle_at_center,rgba(148,163,184,0.2),transparent_60%)] transition-opacity duration-300" />
+                      <img
+                        src={collab.image}
+                        alt={collab.name}
+                        className="max-h-full max-w-[78%] object-contain transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
         </div>
       </section>
 

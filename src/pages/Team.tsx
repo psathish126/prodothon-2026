@@ -16,9 +16,9 @@ const members: Member[] = [
   // PEA
   { sno: 1, position: "Secretary", name: "BALAJI C", image: "/team/balaji.jpg", club: "PEA" },
   { sno: 2, position: "Treasurer", name: "DEVISRI J", image: "/team/devi.jpg", club: "PEA" },
-  { sno: 3, position: "Joint Secretary", name: "SUKANTH N R", image: "", club: "PEA" },
+  { sno: 3, position: "Joint Secretary", name: "SUKANTH N R", image: "/team/sukanth.jpg", club: "PEA" },
   { sno: 4, position: "Joint Secretary", name: "NHARGUNA NANGAI M B", image: "/team/nangai.jpg", club: "PEA" },
-  { sno: 5, position: "Graduate Executive", name: "NALVETHA B", image: "", club: "PEA" },
+  { sno: 5, position: "Graduate Executive", name: "NALVETHA B", image: "/team/nalvetha.jpg", club: "PEA" },
   { sno: 7, position: "Senior Lead Executive", name: "S SHANMUGAM", image: "/team/shan.jpg", club: "PEA" },
   { sno: 8, position: "Senior Lead Executive", name: "RAMAKRISHNAN K", image: "/team/rama.jpg", club: "PEA" },
   { sno: 9, position: "Senior Lead Executive", name: "HARISH N", image: "/team/hari.jpg", club: "PEA" },

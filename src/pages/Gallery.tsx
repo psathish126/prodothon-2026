@@ -11,17 +11,15 @@ type GalleryImage = {
 };
 
 const prod25Images: GalleryImage[] = [
-  { id: "img1",  url: "/Prodothon 25/_DSC4845.JPG",            title: "PRODOTHON 25" },
   { id: "img2",  url: "/Prodothon 25/_DSC4891.JPG",            title: "PRODOTHON 25" },
-  { id: "img3",  url: "/Prodothon 25/_DSC4897.JPG",            title: "PRODOTHON 25" },
   { id: "img4",  url: "/Prodothon 25/_DSC4920.JPG",            title: "PRODOTHON 25" },
   { id: "img5",  url: "/Prodothon 25/_DSC4933.JPG",            title: "PRODOTHON 25" },
-  { id: "img6",  url: "/Prodothon 25/_DSC4976.JPG",            title: "PRODOTHON 25" },
+  { id: "img6",  url: "/Prodothon 25/_DSC4845.JPG",            title: "PRODOTHON 25" },
   { id: "img7",  url: "/Prodothon 25/_DSC5013.JPG",            title: "PRODOTHON 25" },
   { id: "img8",  url: "/Prodothon 25/_DSC5110.JPG",            title: "PRODOTHON 25" },
   { id: "img9",  url: "/Prodothon 25/_DSC5215.JPG",            title: "PRODOTHON 25" },
   { id: "img10", url: "/Prodothon 25/_DSC5469.JPG",            title: "PRODOTHON 25" },
-  { id: "img11", url: "/Prodothon 25/IMG_20251230_102948.jpg", title: "PRODOTHON 25" },
+  { id: "img11", url: "/Prodothon 25/_DSC4897.JPG", title: "PRODOTHON 25" },
   { id: "img12", url: "/Prodothon 25/IMG-20250225-WA0004.jpg", title: "PRODOTHON 25" },
   { id: "img13", url: "/Prodothon 25/IMG-20250301-WA0014.jpg", title: "PRODOTHON 25" },
   { id: "img14", url: "/Prodothon 25/IMG-20250304-WA0054.jpg", title: "PRODOTHON 25" },
