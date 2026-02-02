@@ -47,15 +47,15 @@ const RegisterReminder = () => {
 
     return () => clearInterval(interval);
   }, []);
-// Show popup every 3 minutes
-useEffect(() => {
-  const interval = setInterval(() => {
-    setIsOpen(true);
-  }, 180000); // 3 * 60 * 1000 ms
 
-  return () => clearInterval(interval);
-}, []);
+  // Show popup every 3 minutes
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsOpen(true);
+    }, 180000); // 3 * 60 * 1000 ms
 
+    return () => clearInterval(interval);
+  }, []);
 
   const handleRegister = () => {
     setIsOpen(false);
@@ -70,12 +70,12 @@ useEffect(() => {
     label: string;
   }) => (
     <div className="flex flex-col items-center">
-      <div className="bg-black/25 backdrop-blur-sm rounded-lg px-3 py-2 min-w-[56px] border border-white/25">
-        <span className="text-xl md:text-2xl font-bold text-white font-mono">
+      <div className="bg-white/80 backdrop-blur-sm rounded-lg px-3 py-2 min-w-[56px] border border-slate-200">
+        <span className="text-xl md:text-2xl font-bold text-slate-900 font-mono">
           {value.toString().padStart(2, "0")}
         </span>
       </div>
-      <span className="text-[10px] md:text-xs text-white/70 mt-1 uppercase tracking-[0.18em]">
+      <span className="text-[10px] md:text-xs text-slate-600 mt-1 uppercase tracking-[0.18em]">
         {label}
       </span>
     </div>
@@ -85,69 +85,69 @@ useEffect(() => {
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogContent className="sm:max-w-md md:max-w-lg p-0 border-0 bg-transparent shadow-none">
         {/* Backdrop card */}
-        <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-secondary via-primary to-secondary">
+        <div className="relative rounded-3xl overflow-hidden shadow-[0_18px_70px_rgba(15,23,42,0.18)] bg-gradient-to-br from-slate-50 via-white to-emerald-50">
           {/* Glass overlay */}
-          <div className="absolute inset-0 bg-black/30" />
+          <div className="absolute inset-0 bg-white/60 backdrop-blur-xl" />
 
           {/* Soft glows */}
-          <div className="pointer-events-none absolute -top-10 -right-10 w-32 h-32 bg-accent/30 rounded-full blur-3xl" />
-          <div className="pointer-events-none absolute -bottom-12 -left-6 w-40 h-40 bg-peach/30 rounded-full blur-3xl" />
+          <div className="pointer-events-none absolute -top-10 -right-10 w-32 h-32 bg-emerald-300/30 rounded-full blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-12 -left-6 w-40 h-40 bg-amber-300/30 rounded-full blur-3xl" />
 
           {/* Small sparkles – hidden on very small screens */}
-          <Sparkles className="hidden sm:block absolute top-6 right-10 w-6 h-6 text-accent/70 animate-pulse" />
+          <Sparkles className="hidden sm:block absolute top-6 right-10 w-6 h-6 text-emerald-400/80 animate-pulse" />
           <Sparkles
-            className="hidden sm:block absolute bottom-16 left-8 w-4 h-4 text-peach/70 animate-pulse"
+            className="hidden sm:block absolute bottom-16 left-8 w-4 h-4 text-amber-400/80 animate-pulse"
             style={{ animationDelay: "0.5s" }}
           />
 
           {/* Close button */}
           <button
             onClick={() => setIsOpen(false)}
-            className="absolute right-4 top-4 z-20 p-1.5 rounded-full bg-black/30 hover:bg-black/50 transition-all"
+            className="absolute right-4 top-4 z-20 p-1.5 rounded-full bg-white/70 hover:bg-white shadow-sm border border-slate-200 transition-all"
           >
-            <X className="w-4 h-4 text-white" />
+            <X className="w-4 h-4 text-slate-700" />
           </button>
 
           {/* Content */}
           <div className="relative z-10 px-5 py-6 md:px-8 md:py-8 text-center">
             {/* Event badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full border border-white/25 mb-4">
-              <CalendarDays className="w-4 h-4 text-accent" />
-              <span className="text-xs md:text-sm text-white font-semibold">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/80 backdrop-blur-md rounded-full border border-slate-200 mb-4">
+              <CalendarDays className="w-4 h-4 text-emerald-600" />
+              <span className="text-xs md:text-sm text-slate-800 font-semibold">
                 Feb 27 &amp; 28, 2026 • PSG Tech
               </span>
             </div>
 
             {/* Heading */}
-            <h2 className="font-heading text-2xl md:text-3xl font-bold text-white mb-1">
+            <h2 className="font-heading text-2xl md:text-3xl font-bold text-slate-900 mb-1">
               PRODOTHON&apos;26
             </h2>
-            <p className="text-peach-100 text-xs md:text-sm font-medium tracking-[0.25em] mb-4">
+            <p className="text-emerald-700 text-xs md:text-sm font-medium tracking-[0.25em] mb-4">
               LEARN • IMPACT • INNOVATE
             </p>
 
             {/* Short line */}
-            <p className="text-white/80 text-xs md:text-sm mb-4 md:mb-5 max-w-md mx-auto">
+            <p className="text-slate-700 text-xs md:text-sm mb-4 md:mb-5 max-w-md mx-auto">
               Secure your spot for competitions, workshops, and industry
               sessions before seats fill up.
             </p>
 
             {/* Countdown */}
             <div className="mb-5 md:mb-6">
-              <p className="text-white/75 text-[11px] md:text-xs mb-2 uppercase tracking-[0.18em]">
+              <p className="text-slate-600 text-[11px] md:text-xs mb-2 uppercase tracking-[0.18em]">
                 Event starts in
               </p>
               <div className="flex justify-center items-start gap-2 md:gap-3">
                 <CountdownUnit value={timeLeft.days} label="Days" />
-                <span className="text-lg md:text-xl text-white/50 mt-2">
+                <span className="text-lg md:text-xl text-slate-400 mt-2">
                   :
                 </span>
                 <CountdownUnit value={timeLeft.hours} label="Hours" />
-                <span className="text-lg md:text-xl text-white/50 mt-2">
+                <span className="text-lg md:text-xl text-slate-400 mt-2">
                   :
                 </span>
                 <CountdownUnit value={timeLeft.minutes} label="Mins" />
-                <span className="text-lg md:text-xl text-white/50 mt-2">
+                <span className="text-lg md:text-xl text-slate-400 mt-2">
                   :
                 </span>
                 <CountdownUnit value={timeLeft.seconds} label="Secs" />
@@ -156,23 +156,23 @@ useEffect(() => {
 
             {/* Features */}
             <div className="flex flex-wrap justify-center gap-2.5 mb-4 md:mb-5">
-              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md rounded-full px-3 py-1.5">
-                <Trophy className="w-4 h-4 text-accent" />
-                <span className="text-white/90 text-xs md:text-sm font-medium">
+              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-md rounded-full px-3 py-1.5 border border-slate-200">
+                <Trophy className="w-4 h-4 text-emerald-600" />
+                <span className="text-slate-800 text-xs md:text-sm font-medium">
                   8+ Events
                 </span>
               </div>
-              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md rounded-full px-3 py-1.5">
-                <Sparkles className="w-4 h-4 text-accent" />
-                <span className="text-white/90 text-xs md:text-sm font-medium">
+              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-md rounded-full px-3 py-1.5 border border-slate-200">
+                <Sparkles className="w-4 h-4 text-emerald-600" />
+                <span className="text-slate-800 text-xs md:text-sm font-medium">
                   Hands‑on Workshops
                 </span>
               </div>
             </div>
 
             {/* Urgency */}
-            <div className="bg-accent/25 backdrop-blur-md rounded-xl px-3 py-2 mb-5 border border-accent/40">
-              <p className="text-white text-xs md:text-sm font-semibold">
+            <div className="bg-emerald-50 backdrop-blur-md rounded-xl px-3 py-2 mb-5 border border-emerald-200">
+              <p className="text-emerald-900 text-xs md:text-sm font-semibold">
                 🔥 Limited seats per event — register early to choose your
                 favourite competitions.
               </p>
@@ -182,7 +182,7 @@ useEffect(() => {
             <div className="flex flex-col sm:flex-row gap-2.5 md:gap-3">
               <Button
                 onClick={handleRegister}
-                className="flex-1 bg-accent hover:bg-accent/90 text-primary font-bold py-3 md:py-4 text-sm md:text-base rounded-xl group transition-all hover:scale-[1.02] shadow-lg shadow-black/30"
+                className="flex-1 bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-400 hover:from-emerald-400 hover:via-teal-400 hover:to-emerald-300 text-white font-bold py-3 md:py-4 text-sm md:text-base rounded-xl group transition-all hover:scale-[1.02] shadow-[0_0_28px_rgba(16,185,129,0.6)]"
               >
                 Register Now
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -190,7 +190,7 @@ useEffect(() => {
               <Button
                 variant="ghost"
                 onClick={() => setIsOpen(false)}
-                className="flex-1 border border-white/30 text-white hover:bg-white/10 font-semibold py-3 md:py-4 text-sm md:text-base rounded-xl"
+                className="flex-1 border border-slate-200 text-slate-700 hover:bg-slate-50 font-semibold py-3 md:py-4 text-sm md:text-base rounded-xl"
               >
                 Maybe Later
               </Button>

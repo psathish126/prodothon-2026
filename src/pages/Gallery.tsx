@@ -57,11 +57,11 @@ const Gallery = () => {
           delay={delayBase + (index % 10) * 0.05}
         >
           <Card
-            className="relative overflow-hidden cursor-pointer shadow-[0_18px_60px_rgba(0,0,0,0.9)] hover:shadow-[0_22px_80px_rgba(34,197,94,0.6)] transition-all duration-500 border border-emerald-300/25 group aspect-square bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 backdrop-blur-xl rounded-2xl"
+            className="relative overflow-hidden cursor-pointer shadow-[0_18px_60px_rgba(15,23,42,0.12)] hover:shadow-[0_22px_80px_rgba(16,185,129,0.35)] transition-all duration-500 border border-slate-200 group aspect-square bg-white rounded-2xl"
             onClick={() => setSelectedImage(image)}
           >
-            {/* glow on hover */}
-            <div className="pointer-events-none absolute inset-0 rounded-2xl bg-[radial-gradient(circle_at_top,rgba(45,212,191,0.4),transparent_55%)] opacity-0 group-hover:opacity-80 transition-opacity duration-500" />
+            {/* subtle glow on hover */}
+            <div className="pointer-events-none absolute inset-0 rounded-2xl bg-[radial-gradient(circle_at_top,rgba(45,212,191,0.22),transparent_55%)] opacity-0 group-hover:opacity-80 transition-opacity duration-500" />
             <div className="relative w-full h-full overflow-hidden rounded-2xl">
               <img
                 src={image.url}
@@ -69,9 +69,9 @@ const Gallery = () => {
                 loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/10 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-300" />
               <div className="absolute inset-x-2 bottom-2 flex items-center justify-center">
-                <p className="inline-flex items-center gap-1.5 text-[10px] md:text-xs font-semibold text-emerald-50/95 bg-black/40 px-2.5 py-1 rounded-full backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p className="inline-flex items-center gap-1.5 text-[10px] md:text-xs font-semibold text-emerald-50 bg-slate-900/65 px-2.5 py-1 rounded-full backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <Sparkles className="h-3 w-3 text-emerald-300" />
                   <span>{image.title}</span>
                 </p>
@@ -84,49 +84,22 @@ const Gallery = () => {
   );
 
   return (
-    <div className="min-h-screen pt-24 sm:pt-28 md:pt-32 bg-[radial-gradient(circle_at_top,_#020617_0,_#020617_40%,_#000000_100%)] text-white">
-      {/* Header – jazzy glass hero */}
-      <section className="relative py-14 sm:py-16 md:py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(45,212,191,0.3),transparent_55%),radial-gradient(circle_at_bottom,_rgba(251,191,36,0.25),transparent_55%)] opacity-80" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/70 to-slate-950/90" />
-        <div className="pointer-events-none absolute inset-0 opacity-[0.16] hidden sm:block">
-          <div className="w-[200%] h-[200%] bg-[linear-gradient(to_right,rgba(148,163,184,0.18)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.18)_1px,transparent_1px)] bg-[size:40px_40px] animate-[slow-pan_35s_linear_infinite]" />
-        </div>
+    <div className="min-h-screen pt-24 sm:pt-28 md:pt-32 bg-gradient-to-b from-slate-50 via-white to-slate-50 text-slate-900">
+      {/* Header – light hero aligned with Home/Events/Accommodation */}
+  
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <AnimatedSection animation="scale-in">
-            <div className="max-w-3xl mx-auto bg-white/5 border border-white/15 rounded-[28px] sm:rounded-[32px] shadow-[0_22px_110px_rgba(0,0,0,0.9)] backdrop-blur-2xl px-5 sm:px-7 md:px-10 py-7 sm:py-8 md:py-10 space-y-3 sm:space-y-4">
-              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-300/40 bg-emerald-500/10 px-3.5 py-1 text-[10px] xs:text-[11px] sm:text-xs uppercase tracking-[0.24em] text-emerald-100/95">
-                <Sparkles className="h-3 w-3 text-emerald-300" />
-                <span>Highlights from previous editions</span>
-              </div>
-              <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.3rem] font-black">
-                <span className="bg-gradient-to-r from-emerald-300 via-teal-200 to-amber-200 bg-clip-text text-transparent inline-block drop-shadow-[0_0_35px_rgba(0,0,0,0.85)]">
-                  Gallery
-                </span>
-              </h1>
-              <p className="text-[13px] sm:text-sm md:text-base text-emerald-50/90 max-w-2xl mx-auto">
-                Relive the energy of PRODOTHON&apos;24 and PRODOTHON&apos;25 through moments captured
-                across events, workshops, and celebrations.
-              </p>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* Gallery Sections */}
-      <section className="py-14 sm:py-16 md:py-20 bg-gradient-to-b from-slate-950 via-slate-950 to-black relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_bottom,_rgba(34,197,94,0.25),transparent_55%)] opacity-80" />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12 md:space-y-14 relative z-10">
+      {/* Gallery Sections – light background */}
+      <section className="py-14 sm:py-16 md:py-20 bg-gradient-to-b from-slate-50 via-white to-slate-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12 md:space-y-14">
           {/* PRODOTHON 25 */}
           <AnimatedSection animation="fade-in-up">
             <div className="space-y-4 sm:space-y-5">
               <div className="flex items-center justify-between gap-2">
-                <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-emerald-50">
+                <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900">
                   PRODOTHON 25
                 </h2>
-                <span className="hidden sm:inline-flex items-center gap-1.5 text-[11px] sm:text-xs text-emerald-200/80 bg-slate-900/70 border border-emerald-300/40 px-3 py-1 rounded-full">
-                  <Sparkles className="h-3.5 w-3.5 text-emerald-300" />
+                <span className="hidden sm:inline-flex items-center gap-1.5 text-[11px] sm:text-xs text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full">
+                  <Sparkles className="h-3.5 w-3.5 text-emerald-500" />
                   <span>Most recent edition</span>
                 </span>
               </div>
@@ -138,7 +111,7 @@ const Gallery = () => {
           <AnimatedSection animation="fade-in-up">
             <div className="space-y-4 sm:space-y-5">
               <div className="flex items-center justify-between gap-2">
-                <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-emerald-50">
+                <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900">
                   PRODOTHON 24
                 </h2>
               </div>
@@ -148,7 +121,7 @@ const Gallery = () => {
         </div>
       </section>
 
-      {/* Lightbox Dialog – glassy & centered */}
+      {/* Lightbox Dialog – light/glass style */}
       <Dialog
         open={!!selectedImage}
         onOpenChange={() => setSelectedImage(null)}
@@ -156,25 +129,27 @@ const Gallery = () => {
         <DialogContent className="max-w-4xl p-0 border-0 bg-transparent shadow-none">
           {selectedImage && (
             <div className="relative">
-              <div className="absolute inset-0 rounded-3xl bg-[radial-gradient(circle_at_center,rgba(45,212,191,0.35),transparent_60%)] opacity-80 blur-3xl -z-10" />
-              <div className="relative bg-slate-950/90 border border-emerald-300/40 rounded-3xl overflow-hidden shadow-[0_26px_90px_rgba(0,0,0,0.95)] backdrop-blur-xl">
+              <div className="absolute inset-0 rounded-3xl bg-[radial-gradient(circle_at_center,rgba(45,212,191,0.3),transparent_60%)] opacity-80 blur-3xl -z-10" />
+              <div className="relative bg-white/95 border border-slate-200 rounded-3xl overflow-hidden shadow-[0_22px_80px_rgba(15,23,42,0.25)] backdrop-blur-xl">
                 <button
                   onClick={() => setSelectedImage(null)}
-                  className="absolute right-3 top-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-black/60 text-emerald-100 hover:bg-black/80 transition-colors"
+                  className="absolute right-3 top-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-slate-900/70 text-emerald-50 hover:bg-slate-900/85 transition-colors"
                 >
                   <X className="h-4 w-4" />
                 </button>
-                <img
-                  src={selectedImage.url}
-                  alt={selectedImage.title}
-                  className="w-full max-h-[70vh] object-contain bg-black"
-                />
-                <div className="px-4 sm:px-5 md:px-6 py-3 sm:py-4 border-t border-emerald-900/70 flex items-center justify-between gap-3">
-                  <p className="text-[12px] sm:text-sm text-emerald-100 font-medium">
+                <div className="bg-slate-900 flex items-center justify-center">
+                  <img
+                    src={selectedImage.url}
+                    alt={selectedImage.title}
+                    className="w-full max-h-[70vh] object-contain"
+                  />
+                </div>
+                <div className="px-4 sm:px-5 md:px-6 py-3 sm:py-4 border-t border-slate-200 flex items-center justify-between gap-3 bg-white/95">
+                  <p className="text-[12px] sm:text-sm text-slate-800 font-medium">
                     {selectedImage.title}
                   </p>
-                  <span className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs text-emerald-200/85 bg-slate-900/80 border border-emerald-300/40 px-2.5 py-1 rounded-full">
-                    <Sparkles className="h-3 w-3 text-emerald-300" />
+                  <span className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-full">
+                    <Sparkles className="h-3 w-3 text-emerald-500" />
                     <span>PRODOTHON Moments</span>
                   </span>
                 </div>

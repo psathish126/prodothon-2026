@@ -34,6 +34,24 @@ const Events = () => {
   const events: ProdothonEvent[] = [
     {
       id: 1,
+      name: "Panel Discussion on Sustainability in Manufacturing",
+      category: "discussion",
+      image: "/eventlogo/Panel discussion_.png",
+      description:
+        "This panel discussion brings together renowned industry professionals, technical experts, and thought leaders to explore emerging approaches shaping the future of sustainable manufacturing. It offers students and budding engineers deep insights into real-world challenges, industry expectations, and practical strategies for embedding sustainability in modern manufacturing environments.",
+      date: "Feb 27, 2026 (Friday) • 9:30 AM – 12:30 PM",
+      venue: "Conference Hall",
+      day: "Day 1",
+      coordinators: [
+        { name: "Aishaa Nihar Z", phone: "9363022355" },
+        { name: "Kancia Roslin Mary S", phone: "8438303204" },
+      ],
+      rules: `EVENT DETAILS & GUIDELINES
+Interactive panel with Q&A.
+Participants are expected to maintain decorum and engage respectfully.
+Focus on real-world case studies, challenges and solutions in sustainable manufacturing.`,
+    },{
+      id: 2,
       name: "Production Meishu",
       category: "competition",
       image: "/eventlogo/The production meishu_.png",
@@ -62,7 +80,7 @@ Writing sheets will be provided to participants for rough work.
 Prizes will be awarded to the top three winners in each category (PSG and Non-PSG).`,
     },
     {
-      id: 2,
+      id: 3,
       name: "Paper / Project Presentation",
       category: "competition",
       image: "/eventlogo/Paper presentation_.png",
@@ -91,12 +109,12 @@ Any form of misconduct or plagiarism will result in immediate disqualification.
 Certificates will be issued to all participants.`,
     },
     {
-      id: 3,
+      id: 4,
       name: "Workshop on AI-Driven Generative Design & FEA",
       category: "workshop",
       image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800",
       description:
-        "Hands-on workshop that demonstrates how generative design and FEA can be combined to create lightweight, high-performance components. Participants will work through an optimisation case and validate the outcome using FEA tools, gaining exposure to AI-driven design workflows.",
+        "WORKSHOP: Topic: Evolution of Safety Stock Models: From Classical Approaches to Multi-Echelon Inventory Optimization (MEIO). This workshop explores the evolution of safety stock modeling in inventory management, tracing its development from classical single-stage approaches to advanced multi-echelon inventory optimization (MEIO) frameworks. The session focuses on how uncertainty in demand, lead-time variability, and service-level requirements influence safety stock decisions across modern supply chains. Participants will be introduced to traditional safety stock concepts based on statistical demand forecasting and service-level targets, followed by a discussion on their limitations in complex, multi-level supply networks. The workshop then progresses to MEIO concepts, highlighting how inventory coordination across multiple echelons such as suppliers, distribution centers, and retailers can significantly enhance service performance while minimizing total inventory costs. Through practical illustrations and supply chain scenarios, the workshop demonstrates how integrated inventory planning enables effective risk pooling, improved responsiveness, and data-driven decision-making. The session emphasizes the relevance of safety stock optimization in contemporary supply chains characterized by volatility, globalization, and increasing customer service expectations. Requirements: Basic understanding of supply chain management and inventory control concepts, familiarity with demand forecasting, lead time, and service level metrics, and introductory knowledge of production planning or operations management is desirable. Outcomes: By the end of this workshop, participants will gain a clear understanding of the role of safety stock in managing demand and supply uncertainty within manufacturing and distribution systems, and appreciate the strategic importance of inventory coordination across supply chain levels.",
       date: "Feb 27, 2026 (Friday) • 1:30 PM – 4:30 PM",
       venue: "Computer Lab 1",
       day: "Day 1",
@@ -104,17 +122,41 @@ Certificates will be issued to all participants.`,
         { name: "Krisitha J S", phone: "6382163572" },
         { name: "Makeshwaran T", phone: "9342205832" },
       ],
-      rules: `WORKSHOP GUIDELINES
-This workshop requires hands-on participation.
-Seats may be limited and registration is mandatory.
-Participants should bring their own laptop with necessary software installed.
-Software requirements will be communicated by organizers in advance.
-A sample optimisation case will be completed during the session.
-Attendance and active participation are required to receive a certificate.`,
+      rules: `WORKSHOP DETAILS
+Topic: Evolution of Safety Stock Models: From Classical Approaches to Multi-Echelon Inventory Optimization (MEIO)
+Faculty Guide: Dr K. Anand
+Student Coordinators: Krisitha J S, Makeshwaran T
+
+EVENT INFORMATION
+Event date: 27-02-2026
+Participation criteria: Individual
+Expected number of participants: 100 Participants
+Event duration: 3 hrs
+
+DESCRIPTION
+This workshop explores the evolution of safety stock modeling in inventory management, tracing its development from classical single-stage approaches to advanced multi-echelon inventory optimization (MEIO) frameworks.
+The session focuses on how uncertainty in demand, lead-time variability, and service-level requirements influence safety stock decisions across modern supply chains.
+Participants will be introduced to traditional safety stock concepts based on statistical demand forecasting and service-level targets, followed by a discussion on their limitations in complex, multi-level supply networks.
+The workshop then progresses to MEIO concepts, highlighting how inventory coordination across multiple echelons such as suppliers, distribution centers, and retailers can significantly enhance service performance while minimizing total inventory costs.
+Through practical illustrations and supply chain scenarios, the workshop demonstrates how integrated inventory planning enables effective risk pooling, improved responsiveness, and data-driven decision-making.
+The session emphasizes the relevance of safety stock optimization in contemporary supply chains characterized by volatility, globalization, and increasing customer service expectations.
+
+REQUIREMENTS
+Basic understanding of supply chain management and inventory control concepts.
+Familiarity with demand forecasting, lead time, and service level metrics.
+Introductory knowledge of production planning or operations management is desirable.
+Willingness to engage in analytical discussions on uncertainty and inventory optimization.
+
+OUTCOMES
+By the end of this workshop, participants will gain a clear understanding of the role of safety stock in managing demand and supply uncertainty within manufacturing and distribution systems.
+Participants will be able to differentiate between classical safety stock models and multi-echelon optimization approaches.
+Participants will appreciate the strategic importance of inventory coordination across supply chain levels.
+Participants will be able to relate theoretical inventory models to real-world supply chain challenges such as service level trade-offs, cost minimization, and demand variability.
+The workshop will equip attendees with conceptual insights into how data-driven and system-wide inventory optimization supports resilient and efficient supply chain operations.`,
     },
     {
-      id: 4,
-      name: "The CAD Master Challenge",
+      id: 5,
+      name: "CAD Combat",
       category: "competition",
       image: "/eventlogo/Cad combat.jpg",
       description:
@@ -135,7 +177,7 @@ Participants advancing to Round 2 will be selected based on accuracy and complet
 Judges' decisions are final and binding.`,
     },
     {
-      id: 5,
+      id: 6,
       name: "AutoQuest",
       category: "competition",
       image: "/eventlogo/Autoquest_.jpg",
@@ -160,7 +202,7 @@ Scores will be reduced for collisions and incomplete or partial parking.
 Any form of human intervention after the start of the task will result in penalties and corresponding score reductions.`,
     },
     {
-      id: 6,
+      id: 7,
       name: "Ladder Rush",
       category: "competition",
       image: "/eventlogo/LadderRush.jpg",
@@ -190,7 +232,7 @@ The final winner shall be determined based on the board position achieved within
 The game may be conducted in multiple rounds depending on the number of teams.`,
     },
     {
-      id: 7,
+      id: 8,
       name: "Stick It! Structure It!",
       category: "competition",
       image: "/eventlogo/Stick it structure it_.jpg",
@@ -215,25 +257,7 @@ The truss must be self-supporting and must adhere to the specified dimensions.
 Loads will be applied incrementally at mid-span until failure to rank designs.
 The judges’ decisions shall be final and binding.`,
     },
-    {
-      id: 8,
-      name: "Panel Discussion on Sustainability in Manufacturing",
-      category: "discussion",
-      image: "/eventlogo/Panel discussion_.png",
-      description:
-        "This panel discussion brings together renowned industry professionals, technical experts, and thought leaders to explore emerging approaches shaping the future of sustainable manufacturing. It offers students and budding engineers deep insights into real-world challenges, industry expectations, and practical strategies for embedding sustainability in modern manufacturing environments.",
-      date: "Feb 27, 2026 (Friday) • 9:30 AM – 12:30 PM",
-      venue: "Conference Hall",
-      day: "Day 1",
-      coordinators: [
-        { name: "Aishaa Nihar Z", phone: "9363022355" },
-        { name: "Kancia Roslin Mary S", phone: "8438303204" },
-      ],
-      rules: `EVENT DETAILS & GUIDELINES
-Interactive panel with Q&A.
-Participants are expected to maintain decorum and engage respectfully.
-Focus on real-world case studies, challenges and solutions in sustainable manufacturing.`,
-    },
+    
   ];
 
   const filters = [
@@ -264,42 +288,18 @@ Focus on real-world case studies, challenges and solutions in sustainable manufa
   };
 
   return (
-    <div className="min-h-screen pt-24 sm:pt-28 md:pt-32 bg-[radial-gradient(circle_at_top,_#020617_0,_#020617_40%,_#000000_100%)] text-white">
-      {/* Hero Header – jazzy glass/gradient like Home */}
-      <section className="relative py-14 sm:py-16 md:py-20 overflow-hidden">
-        {/* glow layers */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(45,212,191,0.3),transparent_55%),radial-gradient(circle_at_bottom,_rgba(251,191,36,0.25),transparent_55%)] opacity-80" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/70 to-slate-950/90" />
-        <div className="pointer-events-none absolute inset-0 opacity-[0.16] hidden sm:block">
-          <div className="w-[200%] h-[200%] bg-[linear-gradient(to_right,rgba(148,163,184,0.18)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.18)_1px,transparent_1px)] bg-[size:40px_40px] animate-[slow-pan_35s_linear_infinite]" />
-        </div>
+    <div className="min-h-screen pt-24 sm:pt-28 md:pt-32 bg-gradient-to-b from-slate-50 via-white to-slate-50 text-slate-900">
+      {/* Hero Header – light to match Home */}
+      <section className="relative py-2 sm:py-4 md:py-6 overflow-hidden">
+        
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <AnimatedSection animation="scale-in">
-            <div className="max-w-4xl mx-auto text-center bg-white/5 border border-white/15 rounded-[28px] sm:rounded-[32px] shadow-[0_22px_110px_rgba(0,0,0,0.9)] backdrop-blur-2xl px-5 sm:px-7 md:px-10 py-7 sm:py-8 md:py-10 space-y-4 sm:space-y-5">
-              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-300/40 bg-emerald-500/10 px-3.5 py-1 text-[10px] xs:text-[11px] sm:text-xs uppercase tracking-[0.24em] text-emerald-100/95">
-                <Sparkles className="h-3 w-3 text-emerald-300" />
-                <span>Compete • Learn • Innovate</span>
-              </div>
-              <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.3rem] font-black tracking-tight">
-                <span className="bg-gradient-to-r from-emerald-300 via-teal-200 to-amber-200 bg-clip-text text-transparent inline-block drop-shadow-[0_0_35px_rgba(0,0,0,0.85)]">
-                  PRODOTHON&apos;26 Events
-                </span>
-              </h1>
-              <p className="text-[13px] sm:text-sm md:text-base text-emerald-50/90 max-w-2xl mx-auto">
-                Explore competitions, workshops, and discussions on February 27 &amp; 28, 2026. Pick
-                your track and get ready to showcase your skills.
-              </p>
-            </div>
-          </AnimatedSection>
-        </div>
       </section>
 
-      {/* Filters – pill buttons with glow */}
+      {/* Filters – light pills */}
       <section className="py-6 md:py-7 bg-transparent">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection animation="fade-in-up">
-            <div className="flex flex-wrap justify-center gap-2.5 sm:gap-3 bg-slate-950/70 border border-emerald-400/30 rounded-3xl px-3 sm:px-4 py-3 sm:py-3.5 backdrop-blur-xl shadow-[0_16px_60px_rgba(0,0,0,0.9)]">
+            <div className="flex flex-wrap justify-center gap-2.5 sm:gap-3 bg-white border border-slate-200 rounded-3xl px-3 sm:px-4 py-3 sm:py-3.5 shadow-[0_14px_45px_rgba(15,23,42,0.08)]">
               {filters.map((filter) => (
                 <button
                   key={filter.id}
@@ -307,12 +307,12 @@ Focus on real-world case studies, challenges and solutions in sustainable manufa
                   className={`px-3.5 sm:px-4 py-1.5 rounded-full font-semibold text-[11px] sm:text-xs md:text-sm transition-all duration-300 flex items-center gap-1.5
                     ${
                       activeFilter === filter.id
-                        ? "bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-300 text-slate-950 shadow-[0_0_25px_rgba(34,197,94,0.7)] scale-105"
-                        : "bg-slate-900/70 text-emerald-100 hover:bg-slate-800/80 border border-emerald-300/20"
+                        ? "bg-emerald-500 text-white shadow-md scale-105"
+                        : "bg-slate-50 text-slate-700 hover:bg-slate-100 border border-slate-200"
                     }`}
                 >
                   {activeFilter === filter.id && (
-                    <span className="h-1.5 w-1.5 rounded-full bg-slate-950" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-white" />
                   )}
                   {filter.label}
                 </button>
@@ -322,19 +322,19 @@ Focus on real-world case studies, challenges and solutions in sustainable manufa
         </div>
       </section>
 
-      {/* Events list – jazzy cards */}
-      <section className="pb-16 sm:pb-18 md:pb-20 bg-gradient-to-b from-slate-950 via-slate-950 to-black relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_bottom,_rgba(34,197,94,0.25),transparent_55%)] opacity-80" />
+      {/* Events list – light cards */}
+      <section className="pb-16 sm:pb-18 md:pb-20 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_bottom,_rgba(45,212,191,0.16),transparent_55%)]" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="space-y-7 sm:space-y-8 md:space-y-10">
             {filteredEvents.map((event, index) => {
               const isExpanded = expandedEvent === event.id;
               const accentColor =
                 event.category === "workshop"
-                  ? "from-sky-400/70 via-sky-500/70 to-cyan-400/70"
+                  ? "from-sky-300/90 via-sky-400/90 to-cyan-300/90"
                   : event.category === "discussion"
-                  ? "from-amber-300/80 via-orange-300/80 to-amber-200/80"
-                  : "from-emerald-400/75 via-teal-400/75 to-emerald-300/75";
+                  ? "from-amber-300/90 via-orange-300/90 to-amber-200/90"
+                  : "from-emerald-300/90 via-teal-300/90 to-emerald-200/90";
 
               return (
                 <AnimatedSection
@@ -342,10 +342,10 @@ Focus on real-world case studies, challenges and solutions in sustainable manufa
                   animation="fade-in-up"
                   delay={index * 0.07}
                 >
-                  <Card className="group relative overflow-hidden rounded-3xl border border-emerald-300/25 bg-gradient-to-br from-slate-950/95 via-slate-900/95 to-slate-950/95 shadow-[0_22px_80px_rgba(0,0,0,0.95)] hover:shadow-[0_26px_110px_rgba(34,197,94,0.55)] transition-all duration-500">
-                    {/* glowing border */}
+                  <Card className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_18px_60px_rgba(15,23,42,0.12)] hover:shadow-[0_22px_80px_rgba(16,185,129,0.25)] transition-all duration-500">
+                    {/* subtle glowing border */}
                     <div
-                      className={`pointer-events-none absolute -inset-[1px] rounded-[24px] bg-gradient-to-r ${accentColor} opacity-0 group-hover:opacity-70 blur-xl transition-opacity duration-500`}
+                      className={`pointer-events-none absolute -inset-[1px] rounded-[24px] bg-gradient-to-r ${accentColor} opacity-0 group-hover:opacity-60 blur-xl transition-opacity duration-500`}
                     />
 
                     <div className="relative flex flex-col lg:flex-row">
@@ -358,11 +358,11 @@ Focus on real-world case studies, challenges and solutions in sustainable manufa
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                           />
                         </div>
-                        <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/80 via-black/30 to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-slate-900/75 via-slate-900/15 to-transparent" />
 
                         {/* day + category pills */}
                         <div className="absolute top-3 left-3 flex flex-wrap gap-2">
-                          <span className="px-3 py-1 bg-emerald-400 text-slate-950 text-[10px] xs:text-[11px] font-extrabold rounded-full shadow-md uppercase tracking-wide">
+                          <span className="px-3 py-1 bg-emerald-500 text-white text-[10px] xs:text-[11px] font-extrabold rounded-full shadow-md uppercase tracking-wide">
                             {event.day}
                           </span>
                           <span
@@ -370,10 +370,10 @@ Focus on real-world case studies, challenges and solutions in sustainable manufa
                               px-3 py-1 text-[10px] xs:text-[11px] font-semibold rounded-full shadow-md uppercase tracking-wide
                               ${
                                 event.category === "workshop"
-                                  ? "bg-sky-500 text-slate-950"
+                                  ? "bg-sky-500 text-white"
                                   : event.category === "discussion"
-                                  ? "bg-amber-300 text-slate-900"
-                                  : "bg-fuchsia-400 text-slate-950"
+                                  ? "bg-amber-400 text-slate-900"
+                                  : "bg-fuchsia-400 text-white"
                               }
                             `}
                           >
@@ -387,22 +387,22 @@ Focus on real-world case studies, challenges and solutions in sustainable manufa
                       <CardContent className="w-full lg:w-[66%] p-5 sm:p-6 md:p-7 flex flex-col gap-4">
                         <div className="flex-1 space-y-4">
                           <div className="flex items-start justify-between gap-3">
-                            <h3 className="font-heading text-xl sm:text-2xl md:text-[1.6rem] font-bold text-emerald-50 group-hover:text-emerald-200 transition-colors">
+                            <h3 className="font-heading text-xl sm:text-2xl md:text-[1.6rem] font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
                               {event.name}
                             </h3>
                           </div>
 
                           {/* Date/time */}
                           <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
-                            <div className="flex-1 flex items-center gap-3 bg-slate-900/80 border border-emerald-300/30 rounded-2xl p-3.5 sm:p-4 shadow-inner">
-                              <div className="h-9 w-9 sm:h-10 sm:w-10 rounded-2xl bg-gradient-to-br from-emerald-400/80 to-teal-400/80 flex items-center justify-center text-slate-950 shadow-lg">
+                            <div className="flex-1 flex items-center gap-3 bg-emerald-50 border border-emerald-100 rounded-2xl p-3.5 sm:p-4 shadow-inner">
+                              <div className="h-9 w-9 sm:h-10 sm:w-10 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-400 flex items-center justify-center text-white shadow-md">
                                 <Calendar className="h-4 w-4 sm:h-5 sm:w-5" />
                               </div>
                               <div>
-                                <span className="text-[11px] sm:text-xs text-emerald-100/80 block uppercase tracking-wide">
+                                <span className="text-[11px] sm:text-xs text-emerald-800 block uppercase tracking-wide">
                                   Date &amp; Time
                                 </span>
-                                <span className="font-semibold text-emerald-50 text-xs sm:text-sm md:text-base">
+                                <span className="font-semibold text-slate-900 text-xs sm:text-sm md:text-base">
                                   {event.date}
                                 </span>
                               </div>
@@ -412,7 +412,7 @@ Focus on real-world case studies, challenges and solutions in sustainable manufa
                           {/* Description with expandable clamp */}
                           <div>
                             <div
-                              className={`text-[13px] sm:text-[14px] md:text-[15px] text-slate-100/90 leading-relaxed transition-all duration-300 ease-in-out ${
+                              className={`text-[13px] sm:text-[14px] md:text-[15px] text-slate-700 leading-relaxed transition-all duration-300 ease-in-out ${
                                 isExpanded ? "line-clamp-none" : "line-clamp-3"
                               }`}
                             >
@@ -422,16 +422,16 @@ Focus on real-world case studies, challenges and solutions in sustainable manufa
                               onClick={() =>
                                 setExpandedEvent(isExpanded ? null : event.id)
                               }
-                              className="mt-1.5 text-emerald-300 hover:text-emerald-200 font-semibold text-[11px] sm:text-xs md:text-sm underline-offset-4 hover:underline"
+                              className="mt-1.5 text-emerald-700 hover:text-emerald-800 font-semibold text-[11px] sm:text-xs md:text-sm underline-offset-4 hover:underline"
                             >
                               {isExpanded ? "Show Less" : "Read More"}
                             </button>
                           </div>
 
                           {/* Coordinators */}
-                          <div className="border-t border-emerald-900/60 pt-3.5 sm:pt-4">
-                            <div className="flex items-center gap-2 text-[11px] sm:text-xs md:text-sm text-emerald-200/90 mb-3">
-                              <Users className="h-4 w-4 text-emerald-300" />
+                          <div className="border-t border-slate-200 pt-3.5 sm:pt-4">
+                            <div className="flex items-center gap-2 text-[11px] sm:text-xs md:text-sm text-slate-600 mb-3">
+                              <Users className="h-4 w-4 text-emerald-500" />
                               <span className="font-semibold uppercase tracking-[0.16em]">
                                 Event Coordinators
                               </span>
@@ -440,13 +440,13 @@ Focus on real-world case studies, challenges and solutions in sustainable manufa
                               {event.coordinators.map((coord, idx) => (
                                 <div
                                   key={idx}
-                                  className="flex items-center justify-between bg-slate-950/80 border border-emerald-300/25 rounded-xl p-2.5 sm:p-3 shadow-[0_10px_30px_rgba(0,0,0,0.75)]"
+                                  className="flex items-center justify-between bg-slate-50 border border-slate-200 rounded-xl p-2.5 sm:p-3 shadow-sm"
                                 >
                                   <div className="pr-2">
-                                    <p className="font-medium text-emerald-50 text-xs sm:text-sm">
+                                    <p className="font-medium text-slate-900 text-xs sm:text-sm">
                                       {coord.name}
                                     </p>
-                                    <p className="text-[11px] sm:text-xs text-emerald-200/80">
+                                    <p className="text-[11px] sm:text-xs text-slate-600">
                                       {coord.phone}
                                     </p>
                                   </div>
@@ -455,14 +455,14 @@ Focus on real-world case studies, challenges and solutions in sustainable manufa
                                       onClick={() =>
                                         handleWhatsApp(coord.phone, event.name)
                                       }
-                                      className="p-1.5 sm:p-2 bg-green-500 hover:bg-green-600 text-white rounded-full transition-colors shadow-md"
+                                      className="p-1.5 sm:p-2 bg-green-500 hover:bg-green-600 text-white rounded-full transition-colors shadow-sm"
                                       title="WhatsApp"
                                     >
                                       <MessageCircle className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                                     </button>
                                     <button
                                       onClick={() => handleCall(coord.phone)}
-                                      className="p-1.5 sm:p-2 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full transition-colors shadow-md"
+                                      className="p-1.5 sm:p-2 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full transition-colors shadow-sm"
                                       title="Call"
                                     >
                                       <Phone className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
@@ -478,14 +478,14 @@ Focus on real-world case studies, challenges and solutions in sustainable manufa
                         <div className="mt-3 sm:mt-4 grid grid-cols-1 sm:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] gap-2.5 sm:gap-3">
                           <button
                             onClick={() => setRulesOpen(event.id)}
-                            className="w-full bg-slate-900/80 text-emerald-200 hover:bg-slate-800/90 border border-emerald-300/40 font-semibold px-4 py-2.5 sm:py-3 rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.8)] text-[11px] sm:text-xs md:text-sm"
+                            className="w-full bg-slate-50 text-slate-800 hover:bg-slate-100 border border-slate-200 font-semibold px-4 py-2.5 sm:py-3 rounded-xl shadow-sm text-[11px] sm:text-xs md:text-sm"
                           >
                             Event Rules &amp; Guidelines
                           </button>
 
                           <Link to="/register" className="block">
                             <Button
-                              className="w-full bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-300 text-slate-950 hover:from-emerald-300 hover:via-teal-300 hover:to-emerald-200 font-semibold shadow-[0_0_40px_rgba(34,197,94,0.8)] hover:shadow-[0_0_55px_rgba(34,197,94,1)] transition-all duration-300 px-4 py-2.5 sm:py-3 text-[11px] sm:text-xs md:text-sm lg:text-base rounded-xl"
+                              className="w-full bg-emerald-500 text-white hover:bg-emerald-600 font-semibold shadow-md hover:shadow-lg transition-all duration-300 px-4 py-2.5 sm:py-3 text-[11px] sm:text-xs md:text-sm lg:text-base rounded-xl"
                             >
                               <span className="block truncate">
                                 Register for {event.name}
@@ -503,36 +503,36 @@ Focus on real-world case studies, challenges and solutions in sustainable manufa
         </div>
       </section>
 
-      {/* Rules Modal – same content, stylized */}
+      {/* Rules Modal – light theme */}
       {rulesOpen !== null && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-5 md:p-6">
           <div
-            className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+            className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm"
             onClick={() => setRulesOpen(null)}
           />
-          <Card className="relative w-full max-w-2xl z-10 border border-emerald-300/40 shadow-[0_26px_90px_rgba(0,0,0,0.95)] max-h-[85vh] flex flex-col bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 rounded-2xl">
-            <div className="sticky top-0 border-b border-emerald-900/70 bg-slate-950/95 rounded-t-2xl px-5 sm:px-6 md:px-7 py-4 sm:py-4.5 md:py-5 flex justify-between items-center">
+          <Card className="relative w-full max-w-2xl z-10 border border-slate-200 shadow-[0_22px_70px_rgba(15,23,42,0.35)] max-h-[85vh] flex flex-col bg-white rounded-2xl">
+            <div className="sticky top-0 border-b border-slate-200 bg-white rounded-t-2xl px-5 sm:px-6 md:px-7 py-4 sm:py-4.5 md:py-5 flex justify-between items-center">
               <div className="flex items-center gap-2">
-                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-emerald-500/20 border border-emerald-300/60">
-                  <Sparkles className="h-3.5 w-3.5 text-emerald-300" />
+                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-emerald-50 border border-emerald-300">
+                  <Sparkles className="h-3.5 w-3.5 text-emerald-500" />
                 </span>
-                <h2 className="font-heading text-lg sm:text-xl md:text-2xl font-bold text-emerald-50">
+                <h2 className="font-heading text-lg sm:text-xl md:text-2xl font-bold text-slate-900">
                   Rules &amp; Guidelines
                 </h2>
               </div>
               <button
                 onClick={() => setRulesOpen(null)}
-                className="p-1.5 text-emerald-200/80 hover:text-emerald-100 hover:bg-emerald-500/10 rounded-lg transition-colors"
+                className="p-1.5 text-slate-500 hover:text-slate-700 hover:bg-slate-100 rounded-lg transition-colors"
                 title="Close"
               >
                 <X className="h-5 w-5" />
               </button>
             </div>
             <CardContent className="flex-1 overflow-y-auto p-5 sm:p-6 md:p-7">
-              <div className="text-[12px] sm:text-xs md:text-sm text-emerald-50/90 space-y-3 leading-relaxed">
+              <div className="text-[12px] sm:text-xs md:text-sm text-slate-700 space-y-3 leading-relaxed">
                 {(events.find((e) => e.id === rulesOpen)?.rules ||
                   "No rules available for this event.")
-                  .split("\\n")
+                  .split("\n")
                   .filter((line) => line.trim())
                   .map((line, idx) => {
                     const trimmed = line.trim();
@@ -542,12 +542,12 @@ Focus on real-world case studies, challenges and solutions in sustainable manufa
                     return (
                       <div key={idx}>
                         {isHeader ? (
-                          <h3 className="font-heading font-semibold text-emerald-200 mt-4 mb-1.5 text-sm sm:text-[0.95rem]">
+                          <h3 className="font-heading font-semibold text-emerald-700 mt-4 mb-1.5 text-sm sm:text-[0.95rem]">
                             {trimmed.replace(/:$/, "")}
                           </h3>
                         ) : (
                           <div className="flex gap-2 sm:gap-2.5 items-start">
-                            <span className="text-emerald-300 font-bold mt-0.5 sm:mt-1 flex-shrink-0">
+                            <span className="text-emerald-500 font-bold mt-0.5 sm:mt-1 flex-shrink-0">
                               •
                             </span>
                             <span>{trimmed}</span>
@@ -558,10 +558,10 @@ Focus on real-world case studies, challenges and solutions in sustainable manufa
                   })}
               </div>
             </CardContent>
-            <div className="sticky bottom-0 border-t border-emerald-900/70 bg-slate-950/95 rounded-b-2xl px-5 sm:px-6 md:px-7 py-3.5 sm:py-4 flex justify-end">
+            <div className="sticky bottom-0 border-t border-slate-200 bg-white rounded-b-2xl px-5 sm:px-6 md:px-7 py-3.5 sm:py-4 flex justify-end">
               <button
                 onClick={() => setRulesOpen(null)}
-                className="px-6 sm:px-7 py-2 bg-gradient-to-r from-emerald-400 to-teal-400 text-slate-950 font-semibold rounded-lg hover:from-emerald-300 hover:to-teal-300 text-xs sm:text-sm md:text-base shadow-[0_0_30px_rgba(34,197,94,0.8)] transition-colors"
+                className="px-6 sm:px-7 py-2 bg-emerald-500 text-white font-semibold rounded-lg hover:bg-emerald-600 text-xs sm:text-sm md:text-base shadow-md transition-colors"
               >
                 Close
               </button>
@@ -570,22 +570,22 @@ Focus on real-world case studies, challenges and solutions in sustainable manufa
         </div>
       )}
 
-      {/* CTA footer – match home CTA styling */}
-      <section className="py-14 sm:py-16 md:py-18 bg-gradient-to-b from-slate-950 via-slate-900 to-black relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(45,212,191,0.3),transparent_55%)] opacity-80" />
+      {/* CTA footer – light variant */}
+      <section className="py-14 sm:py-16 md:py-18 bg-gradient-to-b from-white via-emerald-50/40 to-slate-50 relative overflow-hidden">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(45,212,191,0.18),transparent_55%)]" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <AnimatedSection animation="fade-in-up">
-            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-emerald-50 mb-3 sm:mb-4">
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-3 sm:mb-4">
               Ready to Compete?
             </h2>
-            <p className="text-emerald-100/90 mb-7 sm:mb-8 max-w-xl mx-auto text-[13px] sm:text-sm md:text-base">
+            <p className="text-slate-700 mb-7 sm:mb-8 max-w-xl mx-auto text-[13px] sm:text-sm md:text-base">
               Register now and be part of PRODOTHON&apos;26. Each participant can register for up to
               four events across competitions and workshops.
             </p>
             <Link to="/register">
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-300 text-slate-950 hover:from-emerald-300 hover:via-teal-300 hover:to-emerald-200 font-bold px-8 sm:px-10 py-3.5 sm:py-4 text-sm sm:text-base md:text-lg shadow-[0_0_45px_rgba(34,197,94,0.9)] hover:shadow-[0_0_60px_rgba(34,197,94,1)] rounded-2xl"
+                className="bg-emerald-500 text-white hover:bg-emerald-600 font-bold px-8 sm:px-10 py-3.5 sm:py-4 text-sm sm:text-base md:text-lg shadow-md hover:shadow-lg rounded-2xl"
               >
                 Register for Events
               </Button>
