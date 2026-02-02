@@ -1,0 +1,13 @@
+# IDE settings and environment variables
+.env*
+.idea/
+.vscode/
+
+# Build and development artifacts
+dist/
+build/
+node_modules/
+
+# Git and other version control
+.git
+*.log
