@@ -31,7 +31,7 @@ const members: Member[] = [
 
   // SME
   { sno: 16, position: "Secretary", name: "LAKSHMAN RAGHAV V G", image: "/team/laks.jpg", club: "SME" },
-  { sno: 17, position: "Treasurer", name: "DIYA VISALI R S", image: "", club: "SME" },
+  { sno: 17, position: "Treasurer", name: "DIYA VISALI R S", image: "/team/diya.jpeg", club: "SME" },
   { sno: 18, position: "Joint Secretary", name: "RITHIKA G", image: "/team/rithi.jpg", club: "SME" },
   { sno: 19, position: "Joint Secretary", name: "NIMESHA S", image: "/team/nime.jpg", club: "SME" },
   { sno: 20, position: "Graduate Executive", name: "NARMADA B S", image: "/team/narmada.jpg", club: "SME" },
@@ -40,7 +40,7 @@ const members: Member[] = [
   { sno: 24, position: "Senior Lead Executive", name: "MUGILAN N", image: "/team/mug.jpg", club: "SME" },
   { sno: 25, position: "Junior Executive", name: "ARI PRASANNA V", image: "/team/ari.jpg", club: "SME" },
   { sno: 26, position: "Junior Executive", name: "S ABIRAMI", image: "/team/abi.jpg", club: "SME" },
-  { sno: 27, position: "Junior Executive", name: "DINESH KARTHICK N C", image: "", club: "SME" },
+  { sno: 27, position: "Junior Executive", name: "DINESH KARTHICK N C", image: "/team.dk.jpeg", club: "SME" },
   { sno: 28, position: "Junior Executive", name: "SUNANTHIKA S", image: "/team/suna.jpg", club: "SME" },
   { sno: 29, position: "Junior Executive", name: "NUTHANASRI V R", image: "/team/nuthana.jpg", club: "SME" },
   { sno: 30, position: "Junior Executive", name: "M LOGESHWARAN", image: "/team/logeshwaran.jpg", club: "SME" },
@@ -49,7 +49,7 @@ const members: Member[] = [
   {
     sno: 31,
     position: "Website Developer",
-    name: "SATHISH C",
+    name: "SATHISH P",
     image: "/team/sathish.jpeg",
   },
 ];
