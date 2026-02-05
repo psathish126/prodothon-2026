@@ -1,4 +1,4 @@
-// home.tsx
+// home.jsx
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -18,16 +18,22 @@ const Home = () => {
     { id: 1, name: "Panel Discussion", image: "/eventlogo/Panel discussion_.png" },
     { id: 2, name: "Production Meishu", image: "/eventlogo/The production meishu_.png" },
     { id: 3, name: "Paper / Project Presentation", image: "/eventlogo/Paper presentation_.png" },
-    { id: 4, name: "AI-Driven Design Workshop", image: "/eventlogo/workshop.png" },
+    {
+      id: 4,
+      name: "Evolution of Safety Stock Models (MEIO)",
+      fullTitle:
+        "Evolution of Safety Stock Models: From Classical Approaches to Multi-Echelon Inventory Optimization (MEIO",
+      image: "/eventlogo/workshop.png",
+    },
     { id: 5, name: "CAD Combat", image: "/eventlogo/Cad combat.jpg" },
     { id: 6, name: "AutoQuest", image: "/eventlogo/Autoquest_.jpg" },
     { id: 7, name: "Ladder Rush", image: "/eventlogo/LadderRush.jpg" },
     { id: 8, name: "Stick It! Structure It!", image: "/eventlogo/Stick it structure it_.jpg" },
   ];
 
-  // images are served from public/Sponsers/* as /Sponsers/filename.jpg
   const sponsors = [
     { name: "Sponsor 2", image: "/Sponsers/IMG-20260106-WA0037.jpg" },
+    { name: "Sponsor 1", image: "/Sponsers/ad.jpeg" },
   ];
 
   const collaborators = [
@@ -51,7 +57,7 @@ const Home = () => {
           mt-[7.5rem] sm:mt-[7.5rem] md:mt-[8rem]
         "
       >
-        {/* hero bg image, softened with light overlay */}
+        {/* hero bg image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
           style={{ backgroundImage: "url('/Logo/prodhome.jpg')" }}
@@ -78,7 +84,7 @@ const Home = () => {
                 {/* floating badge */}
                 <AnimatedSection animation="fade-in-up" delay={0.05}>
                   <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50/90 border border-emerald-200 shadow-sm mb-1">
-                    <Sparkles className="h-3.5 w-3.5 text-emerald-500 animate-[spin_6s_linear_infinite]" />
+                    <Sparkles className="h-3.5 w-3.5 text-emerald-500 motion-safe:animate-[spin_6s_linear_infinite]" />
                     <span className="text-[10px] xs:text-[11px] sm:text-xs font-semibold tracking-[0.26em] uppercase text-emerald-700">
                       Department of Production Engineering
                     </span>
@@ -87,33 +93,25 @@ const Home = () => {
 
                 {/* hero heading */}
                 <AnimatedSection animation="scale-in" delay={0.12}>
-                  <h1
-                    className="
-                      font-heading font-black
-                      text-[clamp(2.25rem,5vw,3.2rem)]
-                      md:text-[clamp(3rem,5vw,4rem)]
-                      leading-[1.05]
-                      tracking-tight
-                    "
-                  >
-                    <span className="bg-gradient-to-r from-emerald-600 via-teal-500 to-amber-500 bg-clip-text text-transparent inline-block">
+                  <h1 className="font-heading font-black text-[clamp(2.6rem,6vw,3.6rem)] md:text-[clamp(3.2rem,5vw,4.2rem)] leading-[1.05] tracking-[-0.04em]">
+                    <span className="bg-gradient-to-r from-emerald-600 via-teal-500 to-emerald-400 bg-clip-text text-transparent inline-block">
                       PRODOTHON&apos;26
                     </span>
                   </h1>
                 </AnimatedSection>
 
                 <AnimatedSection animation="fade-in-up" delay={0.25}>
-                  <p className="font-display text-[10px] xs:text-[11px] sm:text-xs md:text-sm lg:text-[0.95rem] font-semibold text-emerald-700 uppercase tracking-[0.24em] sm:tracking-[0.32em]">
+                  <p className="hero-subtitle font-display text-[10px] xs:text-[11px] sm:text-xs md:text-sm lg:text-[0.95rem] font-semibold text-emerald-700 uppercase tracking-[0.28em] sm:tracking-[0.34em]">
                     Learn • Impact • Innovate
                   </p>
                 </AnimatedSection>
 
                 {/* date pill */}
-                <AnimatedSection animation="fade-in-up" delay={0.38}>
-                  <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 justify-center">
+                <AnimatedSection animation="fade-in-up" delay={0.35}>
+                  <div className="flex justify-center mt-2">
                     <div className="relative">
-                      <div className="absolute inset-0 rounded-2xl bg-emerald-400/45 blur-2xl opacity-70" />
-                      <div className="relative font-display text-[clamp(1.1rem,3.2vw,1.6rem)] sm:text-2xl md:text-4xl lg:text-[2.6rem] font-extrabold bg-gradient-to-r from-amber-400 via-emerald-400 to-teal-400 text-slate-900 px-5 xs:px-6 sm:px-9 md:px-12 py-2 xs:py-2.5 sm:py-3 md:py-4 rounded-2xl shadow-[0_14px_40px_rgba(15,23,42,0.25)] border border-emerald-100 tracking-wide">
+                      <div className="absolute inset-0 rounded-full bg-emerald-500/40 blur-2xl opacity-70" />
+                      <div className="date-badge relative font-display text-[clamp(1.2rem,3.2vw,1.7rem)] sm:text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-6 sm:px-10 md:px-12 py-2.5 sm:py-3.5 rounded-full shadow-[0_10px_35px_rgba(16,185,129,0.45)] border border-emerald-100 tracking-wide">
                         FEB 27 &amp; 28
                       </div>
                     </div>
@@ -121,8 +119,8 @@ const Home = () => {
                 </AnimatedSection>
 
                 {/* CTAs */}
-                <AnimatedSection animation="fade-in-up" delay={0.5}>
-                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center pt-2 xs:pt-2.5 sm:pt-4 md:pt-5">
+                <AnimatedSection animation="fade-in-up" delay={0.45}>
+                  <div className="cta-buttons flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center pt-2 xs:pt-2.5 sm:pt-4 md:pt-5">
                     <a
                       href="/brochure.pdf"
                       download
@@ -131,9 +129,9 @@ const Home = () => {
                     >
                       <Button
                         size="lg"
-                        className="group bg-white text-slate-900 hover:bg-slate-100 text-xs xs:text-sm sm:text-base md:text-lg px-4 xs:px-5 sm:px-8 h-9 xs:h-10 sm:h-11 md:h-12 font-semibold shadow-md hover:shadow-lg border border-slate-200"
+                        className="group bg-white text-emerald-700 hover:bg-emerald-50 text-xs xs:text-sm sm:text-base md:text-lg px-5 sm:px-8 h-10 sm:h-11 md:h-12 font-semibold rounded-full shadow-md hover:shadow-lg border border-emerald-400/60 transition-colors transition-shadow duration-200"
                       >
-                        <Download className="mr-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:scale-110 transition-transform" />
+                        <Download className="mr-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:scale-110 transition-transform duration-200" />
                         Download Brochure
                       </Button>
                     </a>
@@ -141,10 +139,10 @@ const Home = () => {
                     <Link to="/register">
                       <Button
                         size="lg"
-                        className="group bg-emerald-500 text-white hover:bg-emerald-600 text-xs xs:text-sm sm:text-base md:text-lg px-4 xs:px-5 sm:px-8 h-9 xs:h-10 sm:h-11 md:h-12 font-semibold shadow-md hover:shadow-lg"
+                        className="group bg-emerald-500 text-white hover:bg-emerald-600 active:bg-emerald-700 text-xs xs:text-sm sm:text-base md:text-lg px-5 sm:px-8 h-10 sm:h-11 md:h-12 font-semibold rounded-full shadow-md hover:shadow-lg active:shadow-sm transition-transform transition-shadow duration-200 ease-out hover:-translate-y-0.5 active:translate-y-0"
                       >
                         <span className="mr-2 whitespace-nowrap">Register Here</span>
-                        <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
+                        <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform duration-200" />
                       </Button>
                     </Link>
                   </div>
@@ -156,7 +154,7 @@ const Home = () => {
       </section>
 
       {/* Sponsors & Collaborators Section */}
-      <section className="py-10 sm:py-16 md:py-20 bg-gradient-to-b from-white via-slate-50 to-emerald-50/40 relative overflow-hidden">
+      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-white via-slate-50 to-emerald-50/40 relative overflow-hidden">
         <div className="container mx-auto px-3 xs:px-4 sm:px-6 lg:px-10 relative z-10">
           <AnimatedSection animation="fade-in-up">
             <div className="flex justify-center mb-4 sm:mb-6">
@@ -165,34 +163,33 @@ const Home = () => {
                 <span>Partners</span>
               </div>
             </div>
-            <h2 className="font-heading text-[clamp(1.35rem,3vw,2.1rem)] sm:text-3xl md:text-4xl font-bold text-center text-slate-900 mb-6 sm:mb-8">
+            <h2 className="font-heading text-[clamp(1.35rem,3vw,2.1rem)] sm:text-3xl md:text-4xl font-bold text-center text-slate-900 tracking-[-0.03em] mb-6 sm:mb-10">
               Sponsors & Collaborators
             </h2>
           </AnimatedSection>
 
-          <div className="max-w-5xl mx-auto space-y-6 sm:space-y-8">
-            {/* Top: Sponsors (highlighted) */}
+          <div className="max-w-5xl mx-auto space-y-8 sm:space-y-10">
+            {/* Sponsors */}
             <AnimatedSection animation="scale-in" delay={0.1}>
-              <div className="bg-gradient-to-r from-emerald-500/10 via-emerald-50 to-emerald-500/5 rounded-3xl px-4 sm:px-6 md:px-8 py-5 sm:py-7 md:py-8 shadow-[0_18px_60px_rgba(16,185,129,0.25)] border border-emerald-200">
-                <div className="flex items-center justify-between gap-3 mb-4 sm:mb-5">
+              <div className="rounded-3xl px-4 sm:px-6 md:px-8 py-6 sm:py-8 bg-gradient-to-r from-emerald-500/10 via-emerald-50 to-emerald-500/5 border border-emerald-200 shadow-[0_16px_45px_rgba(16,185,129,0.25)]">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-5">
                   <h3 className="font-heading text-lg sm:text-xl md:text-2xl font-semibold text-slate-900">
-                    Sponsor
+                    Sponsors
                   </h3>
                   <span className="inline-flex items-center rounded-full bg-emerald-500 text-white text-[10px] xs:text-[11px] sm:text-xs font-medium px-3 py-1 shadow-sm">
-                    Prime Partner
+                    Prime Partners
                   </span>
                 </div>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 items-center justify-items-center">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 justify-items-center items-center">
                   {sponsors.map((sponsor, index) => (
                     <div
                       key={index}
-                      className="relative group aspect-[3/2] w-full max-w-[180px] rounded-2xl overflow-hidden bg-white shadow-sm border border-emerald-100 hover:-translate-y-1 hover:shadow-[0_20px_55px_rgba(16,185,129,0.45)] transition-all duration-300 flex items-center justify-center"
+                      className="bg-white px-5 py-4 sm:px-6 sm:py-5 rounded-2xl flex items-center justify-center h-24 sm:h-28 border-2 border-slate-100 hover:border-emerald-400/80 hover:shadow-[0_12px_30px_rgba(16,185,129,0.18)] hover:scale-[1.03] transition-transform transition-shadow duration-200 cursor-pointer"
                     >
-                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.22),transparent_60%)] transition-opacity duration-300" />
                       <img
                         src={sponsor.image}
                         alt={sponsor.name}
-                        className="max-h-full max-w-[80%] object-contain transition-transform duration-500 group-hover:scale-105"
+                        className="max-h-16 sm:max-h-20 max-w-full object-contain transition-[filter] duration-200 hover:brightness-110"
                       />
                     </div>
                   ))}
@@ -200,10 +197,10 @@ const Home = () => {
               </div>
             </AnimatedSection>
 
-            {/* Bottom: Collaborators */}
-            <AnimatedSection animation="scale-in" delay={0.2}>
-              <div className="bg-white rounded-3xl px-4 sm:px-6 md:px-8 py-5 sm:py-7 md:py-8 shadow-[0_16px_50px_rgba(15,23,42,0.10)] border border-slate-200">
-                <div className="flex items-center justify-between gap-3 mb-4 sm:mb-5">
+            {/* Collaborators */}
+            <AnimatedSection animation="scale-in" delay={0.18}>
+              <div className="rounded-3xl px-4 sm:px-6 md:px-8 py-6 sm:py-8 bg-white border border-slate-200 shadow-[0_10px_35px_rgba(15,23,42,0.16)]">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-5">
                   <h3 className="font-heading text-lg sm:text-xl md:text-2xl font-semibold text-slate-900">
                     Collaborators
                   </h3>
@@ -211,17 +208,16 @@ const Home = () => {
                     Supporting Industry Partners
                   </span>
                 </div>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 items-center justify-items-center">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 justify-items-center items-center">
                   {collaborators.map((collab, index) => (
                     <div
                       key={index}
-                      className="relative group aspect-[3/2] w-full max-w-[160px] rounded-2xl overflow-hidden bg-slate-50 shadow-sm border border-slate-200 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(15,23,42,0.20)] transition-all duration-300 flex items-center justify-center"
+                      className="bg-slate-50 px-4 py-4 sm:px-5 sm:py-5 rounded-2xl flex items-center justify-center h-24 sm:h-28 border border-slate-200 hover:-translate-y-1 hover:shadow-[0_14px_32px_rgba(15,23,42,0.22)] transition-transform duration-200 cursor-pointer"
                     >
-                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-[radial-gradient(circle_at_center,rgba(148,163,184,0.2),transparent_60%)] transition-opacity duration-300" />
                       <img
                         src={collab.image}
                         alt={collab.name}
-                        className="max-h-full max-w-[78%] object-contain transition-transform duration-500 group-hover:scale-105"
+                        className="max-h-14 sm:max-h-16 max-w-full object-contain transition-transform duration-200"
                       />
                     </div>
                   ))}
@@ -236,7 +232,7 @@ const Home = () => {
       <section className="py-14 sm:py-20 md:py-24 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden">
         <div className="container mx-auto px-3 xs:px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimatedSection animation="fade-in-up">
-            <h2 className="font-heading text-[clamp(1.35rem,3vw,2.1rem)] sm:text-3xl md:text-4xl font-bold text-center text-slate-900 mb-7 sm:mb-10 md:mb-12">
+            <h2 className="font-heading text-[clamp(1.35rem,3vw,2.1rem)] sm:text-3xl md:text-4xl font-bold text-center text-slate-900 tracking-[-0.02em] mb-7 sm:mb-10 md:mb-12">
               Events
             </h2>
           </AnimatedSection>
@@ -247,24 +243,27 @@ const Home = () => {
               <AnimatedSection
                 key={event.id}
                 animation="scale-in"
-                delay={index * 0.08}
+                delay={index * 0.06}
               >
-                <Card className="group flex-shrink-0 w-52 xs:w-56 sm:w-60 md:w-auto snap-center shadow-[0_18px_50px_rgba(15,23,42,0.12)] hover:shadow-[0_20px_70px_rgba(16,185,129,0.25)] transition-all duration-300 border border-slate-200 overflow-hidden rounded-2xl bg-white hover:-translate-y-1">
-                  <div className="aspect-[3/4] relative overflow-hidden">
+                <Card className="group flex-shrink-0 w-52 xs:w-56 sm:w-60 md:w-auto snap-center rounded-2xl bg-white border border-slate-200 shadow-[0_4px_18px_rgba(15,23,42,0.08)] hover:shadow-[0_18px_40px_rgba(16,185,129,0.18)] transition-transform duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-2 cursor-pointer">
+                  <div className="relative overflow-hidden aspect-[3/4]">
                     <img
                       src={event.image}
                       alt={event.name}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.05] group-hover:brightness-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-900/25 to-transparent" />
-                    <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4 text-white">
-                      <h3 className="font-heading text-sm sm:text-base md:text-lg font-semibold mb-2 line-clamp-2">
+                    <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4 text-white flex flex-col">
+                      <h3
+                        className="font-heading text-sm sm:text-base md:text-lg font-semibold mb-2 line-clamp-2"
+                        title={"fullTitle" in event ? event.fullTitle : event.name}
+                      >
                         {event.name}
                       </h3>
                       <Link to="/register">
                         <Button
                           size="sm"
-                          className="w-full bg-emerald-500 text-white hover:bg-emerald-600 font-semibold shadow-sm flex items-center justify-center gap-1.5 text-xs sm:text-sm"
+                          className="w-full bg-emerald-500 text-white hover:bg-emerald-600 font-semibold shadow-sm flex items-center justify-center gap-1.5 text-xs sm:text-sm transition-colors duration-200"
                         >
                           <span>Register Here</span>
                           <ArrowRight className="h-3.5 w-3.5" />
@@ -284,7 +283,7 @@ const Home = () => {
             <Link to="/events">
               <Button
                 variant="outline"
-                className="border-emerald-500 text-emerald-700 hover:bg-emerald-500 hover:text-white font-semibold px-6 py-2 text-xs sm:text-sm md:text-base shadow-sm"
+                className="border-emerald-500 text-emerald-700 hover:bg-emerald-500 hover:text-white font-semibold px-6 py-2 text-xs sm:text-sm md:text-base rounded-full shadow-sm transition-colors duration-200"
               >
                 View All Events
               </Button>
@@ -304,16 +303,17 @@ const Home = () => {
                   <span>About Prodothon</span>
                 </div>
               </div>
-              <h2 className="font-heading text-[clamp(1.35rem,3vw,2.1rem)] sm:text-3xl md:text-4xl font-bold text-center text-slate-900 mb-8 sm:mb-10 md:mb-12">
+              <h2 className="font-heading text-[clamp(1.35rem,3vw,2.1rem)] sm:text-3xl md:text-4xl font-bold text-center text-slate-900 tracking-[-0.03em] mb-8 sm:mb-10 md:mb-12">
                 About Prodothon
               </h2>
             </AnimatedSection>
 
             <div className="space-y-6 sm:space-y-8">
               <AnimatedSection animation="slide-left">
-                <Card className="shadow-[0_20px_60px_rgba(15,23,42,0.12)] hover:shadow-[0_22px_80px_rgba(16,185,129,0.25)] transition-all duration-300 border border-slate-200 bg-white">
+                <Card className="shadow-[0_20px_60px_rgba(15,23,42,0.12)] hover:shadow-[0_22px_80px_rgba(16,185,129,0.25)] transition-transform duration-200 border border-slate-200 bg-white border-l-4 border-l-emerald-500">
                   <CardContent className="p-5 sm:p-6 md:p-7">
-                    <h3 className="font-heading text-lg sm:text-2xl font-semibold text-emerald-700 mb-3 sm:mb-4">
+                    <h3 className="font-heading text-lg sm:text-2xl font-semibold text-emerald-600 mb-3 sm:mb-4 flex items-center gap-2">
+                      <Sparkles className="h-4 w-4 text-emerald-500" />
                       What is Prodothon?
                     </h3>
                     <p className="text-[13px] sm:text-[15px] md:text-base text-slate-700 leading-relaxed">
@@ -331,7 +331,7 @@ const Home = () => {
               </AnimatedSection>
 
               <AnimatedSection animation="slide-right">
-                <Card className="shadow-[0_20px_60px_rgba(15,23,42,0.12)] hover:shadow-[0_22px_80px_rgba(56,189,248,0.25)] transition-all duration-300 border border-slate-200 bg-white">
+                <Card className="shadow-[0_20px_60px_rgba(15,23,42,0.12)] hover:shadow-[0_22px_80px_rgba(56,189,248,0.25)] transition-transform duration-200 border border-slate-200 bg-white border-l-4 border-l-cyan-500">
                   <CardContent className="p-5 sm:p-6 md:p-7">
                     <h3 className="font-heading text-lg sm:text-2xl font-semibold text-cyan-700 mb-3 sm:mb-4">
                       Our Vision
@@ -349,7 +349,7 @@ const Home = () => {
               </AnimatedSection>
 
               <AnimatedSection animation="slide-left">
-                <Card className="shadow-[0_20px_60px_rgba(15,23,42,0.12)] hover:shadow-[0_22px_80px_rgba(16,185,129,0.25)] transition-all duration-300 border border-slate-200 bg-white">
+                <Card className="shadow-[0_20px_60px_rgba(15,23,42,0.12)] hover:shadow-[0_22px_80px_rgba(16,185,129,0.25)] transition-transform duration-200 border border-slate-200 bg-white border-l-4 border-l-emerald-500">
                   <CardContent className="p-5 sm:p-6 md:p-7">
                     <h3 className="font-heading text-lg sm:text-2xl font-semibold text-emerald-700 mb-3 sm:mb-4">
                       Our Mission
@@ -375,7 +375,7 @@ const Home = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 max-w-6xl mx-auto">
             {/* Contact Us */}
             <AnimatedSection animation="slide-left">
-              <Card className="shadow-[0_20px_60px_rgba(15,23,42,0.12)] hover:shadow-[0_22px_80px_rgba(16,185,129,0.25)] transition-all duration-300 border border-slate-200 h-full bg-white">
+              <Card className="shadow-[0_20px_60px_rgba(15,23,42,0.12)] hover:shadow-[0_22px_80px_rgba(16,185,129,0.25)] transition-transform duration-200 border border-slate-200 h-full bg-white">
                 <CardContent className="p-5 sm:p-6 md:p-8">
                   <h3 className="font-heading text-xl sm:text-[1.7rem] font-bold text-slate-900 mb-5 sm:mb-6 flex items-center gap-2">
                     <span>Contact Us</span>
@@ -439,7 +439,7 @@ const Home = () => {
 
             {/* Our Location */}
             <AnimatedSection animation="slide-right">
-              <Card className="shadow-[0_20px_60px_rgba(15,23,42,0.12)] hover:shadow-[0_22px_80px_rgba(16,185,129,0.25)] transition-all duration-300 border border-slate-200 overflow-hidden h-full bg-white">
+              <Card className="shadow-[0_20px_60px_rgba(15,23,42,0.12)] hover:shadow-[0_22px_80px_rgba(16,185,129,0.25)] transition-transform duration-200 border border-slate-200 overflow-hidden h-full bg-white">
                 <CardContent className="p-0 h-full flex flex-col">
                   <div className="flex items-center justify-between px-5 sm:px-6 md:px-8 pt-6 pb-3 sm:pb-4">
                     <h3 className="font-heading text-xl sm:text-[1.7rem] font-bold text-slate-900">
